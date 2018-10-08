@@ -27,6 +27,8 @@ namespace ChustaSoft.Common.Exceptions
             Property = property;
         }
 
+        public BusinessException(string message, Exception innerException) : base(message, innerException) { }
+
         #endregion
 
     }

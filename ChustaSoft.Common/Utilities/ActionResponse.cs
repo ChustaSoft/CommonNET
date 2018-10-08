@@ -14,10 +14,7 @@ namespace ChustaSoft.Common.Utilities
         #region Properties
 
         [DataMember]
-        public T Value { get; set; }
-
-        [DataMember]
-        public PaginatedList<T> Values { get; set; }
+        public T Data { get; set; }
 
         [DataMember]
         public ActionResponseType Flag { get; set; }
@@ -49,14 +46,11 @@ namespace ChustaSoft.Common.Utilities
             Flag = actionResponseType;
         }
 
-        public ActionResponse(T value) : this(ActionResponseType.Success)
-        {
-            Value = value;
-        }
+        public ActionResponse() { }
 
-        public ActionResponse(PaginatedList<T> values) : this(ActionResponseType.Success)
+        public ActionResponse(T data) : this(ActionResponseType.Success)
         {
-            Values = values;
+            Data = data;
         }
 
         public ActionResponse(IList<ErrorMessage> errors) : this(ActionResponseType.Error)
@@ -64,9 +58,9 @@ namespace ChustaSoft.Common.Utilities
             Errors = errors;
         }
 
-        public ActionResponse(T value, IList<ErrorMessage> errors) : this(ActionResponseType.Warning)
+        public ActionResponse(T data, IList<ErrorMessage> errors) : this(ActionResponseType.Warning)
         {
-            Value = value;
+            Data = data;
             Errors = errors;
         }
 
