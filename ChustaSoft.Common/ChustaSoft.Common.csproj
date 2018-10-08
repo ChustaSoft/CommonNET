@@ -4,14 +4,19 @@
     <TargetFrameworks>netcoreapp2.0;net461;netstandard2.0</TargetFrameworks>
     <PackageId>ChustaSoft.Common</PackageId>
     <RootNamespace>ChustaSoft.Common</RootNamespace>
-    <Description>Common functionalities for any .NET project</Description>
+    <Description>Common functionalities and utilities for any .NET project</Description>
     <Copyright>ChustaSoft</Copyright>
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>ChustaSoft.Common</PackageId>
-    <Version>1.0.0.3</Version>
-    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <PackageProjectUrl>https://github.com/Xelit3/CommonNET</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Xelit3/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Xelit3/CommonNET.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Utilities;Helpers;Common;Core</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
