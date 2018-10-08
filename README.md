@@ -1,2 +1,2 @@
-# EasyTest
-Small Framework for ease Integration Test
+# CommonNET
+Common utilities and features for any .NET application
