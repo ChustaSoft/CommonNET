@@ -1,7 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp2.0;net461;netstandard2.0</TargetFrameworks>
+    <PackageId>ChustaSoft.Common</PackageId>
+    <RootNamespace>ChustaSoft.Common</RootNamespace>
+    <Description>Common functionalities for any .NET project</Description>
+    <Copyright>ChustaSoft</Copyright>
+    <Authors>Xelit3</Authors>
+    <Company>ChustaSoft</Company>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <PackageId>ChustaSoft.Common</PackageId>
+    <Version>1.0.0.3</Version>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ExceptionResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExceptionResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ExceptionResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>
