@@ -26,10 +26,10 @@ namespace ChustaSoft.Common.Utilities
 
         #region Constructor
 
-        public ErrorMessage(ErrorType type, string text)
+        public ErrorMessage(ErrorType errorType, string errorText)
         {
-            Type = type;
-            Text = text;
+            Type = errorType;
+            Text = errorText;
         }
         
         public ErrorMessage(BusinessException exception)
