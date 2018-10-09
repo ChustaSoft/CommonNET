@@ -88,6 +88,15 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page Index out of range.
+        /// </summary>
+        internal static string InvalidOperationException_PageIndexError {
+            get {
+                return ResourceManager.GetString("InvalidOperationException_PageIndexError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PaginatedList do not allow to add elements.
         /// </summary>
         internal static string InvalidOperationException_PaginatedListAdd {

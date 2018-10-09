@@ -57,12 +57,7 @@ namespace ChustaSoft.Common.Utilities
 
         #region Constructors
 
-        internal PaginatedList()
-        {
-            _data = System.Array.Empty<T>();
-        }
-
-        internal PaginatedList(IEnumerable<T> values, int totalCount, int pageIndex)
+        public PaginatedList(IEnumerable<T> values, int totalCount, int pageIndex)
         {
             _data = values.ToArray();
             TotalCount = totalCount;
@@ -75,7 +70,7 @@ namespace ChustaSoft.Common.Utilities
 
         #region Public methods
 
-        public IEnumerator<T> GetEnumerator() => this.GetEnumerator();
+        public IEnumerator<T> GetEnumerator() => _data.ToList().GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
         
