@@ -126,6 +126,9 @@
   <data name="EnumNotFoundException_ErrorMessage" xml:space="preserve">
     <value>Elemento: {0} no encontrado en el tipo {1}</value>
   </data>
+  <data name="InvalidOperationException_PageIndexError" xml:space="preserve">
+    <value>Índice de página fuera de rango</value>
+  </data>
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
     <value>La lista paginada no permite añadir elementos</value>
   </data>
