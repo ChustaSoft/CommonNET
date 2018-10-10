@@ -3,10 +3,10 @@
 
 namespace ChustaSoft.Common.Enums
 {
+
     [DataContract]
     public enum ActionResponseType
     {
-
         [EnumMember]
         Success,
 
@@ -15,6 +15,5 @@ namespace ChustaSoft.Common.Enums
 
         [EnumMember]
         Error
-
     }
 }

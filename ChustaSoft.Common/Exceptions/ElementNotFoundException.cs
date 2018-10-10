@@ -4,6 +4,10 @@ using System;
 
 namespace ChustaSoft.Common.Exceptions
 {
+
+    /// <summary>
+    /// Exception useful for cases in which a filtering does not find an entry for a specific field, or that the type itself has not been found
+    /// </summary>
     public class ElementNotFoundException : Exception
     {
 

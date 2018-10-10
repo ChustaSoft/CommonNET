@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 namespace ChustaSoft.Common.Utilities
 {
+
+    /// <summary>
+    /// ThreadSafe Implementation based on lock
+    /// Faster than ConcurrentBag
+    /// </summary>
+    /// <typeparam name="T">Object type inside collection</typeparam>
     public class ThreadSafeList<T> : IList<T>
     {
 

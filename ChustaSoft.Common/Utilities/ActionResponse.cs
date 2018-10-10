@@ -7,6 +7,13 @@ using System.Runtime.Serialization;
 namespace ChustaSoft.Common.Utilities
 {
 
+    /// <summary>
+    /// Object for unifying Typed response from a backend, independently of the architecture type
+    /// Valid for WCF, API and more 
+    /// Creation could be done by his constructors or by using ActionResponseBuilder
+    /// <seealso cref="ActionResponseBuilder"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [DataContract(Name = SerializedNames.ActionResponse)]
     public class ActionResponse<T>
     {

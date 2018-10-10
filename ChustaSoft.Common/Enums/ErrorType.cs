@@ -1,11 +1,17 @@
-﻿namespace ChustaSoft.Common.Enums
+﻿using System.Runtime.Serialization;
+
+namespace ChustaSoft.Common.Enums
 {
+    [DataContract]
     public enum ErrorType
     {
-
+        [EnumMember]
         Required,
-        Invalid,
-        Validation,
 
+        [EnumMember]
+        Invalid,
+
+        [EnumMember]
+        Validation,
     }
 }

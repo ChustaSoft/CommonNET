@@ -8,10 +8,10 @@ using System.Runtime.Serialization;
 namespace ChustaSoft.Common.Utilities
 {
 
-    /// <summary>
-    /// PaginatedList class
-    /// 
-    /// ReadOnly list implementation for Paginated collections. Creation must be through his Extension method
+    /// <summary>    /// 
+    /// IReadOnlyList list implementation for Paginated collections
+    /// Creation could be done by using his constructor or using CollectionsHelper Paginate method
+    /// <seealso cref="CollectionsHelper.Paginate"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [DataContract(Name = SerializedNames.PaginatedList)]
