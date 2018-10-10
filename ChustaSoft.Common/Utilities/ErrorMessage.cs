@@ -6,6 +6,9 @@ using System.Runtime.Serialization;
 namespace ChustaSoft.Common.Utilities
 {
 
+    /// <summary>
+    /// Simple class to encapsulate information regarding an error
+    /// </summary>
     [DataContract]
     public class ErrorMessage
     {
@@ -42,5 +45,4 @@ namespace ChustaSoft.Common.Utilities
         #endregion
 
     }
-
 }

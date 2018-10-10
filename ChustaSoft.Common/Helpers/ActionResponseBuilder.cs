@@ -5,6 +5,11 @@ using ChustaSoft.Common.Utilities;
 
 namespace ChustaSoft.Common.Helpers
 {
+    /// <summary>
+    /// Builder for ActionResponse Type
+    /// <seealso cref="CollectionsHelper.ActionResponse"/>
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ActionResponseBuilder<T>
     {
         
@@ -14,8 +19,13 @@ namespace ChustaSoft.Common.Helpers
 
         #endregion
 
-        
+
         #region Constructors
+
+        public ActionResponseBuilder()
+        {
+            _actionResponse = new ActionResponse<T>();
+        }
 
         public ActionResponseBuilder(T data)
         {
@@ -50,14 +60,14 @@ namespace ChustaSoft.Common.Helpers
         {
             var errorMessage = new ErrorMessage(exception);
             
-            return AddError(errorMessage);
+            return this.AddError(errorMessage);
         }
 
         public ActionResponseBuilder<T> AddError(ErrorType errorType, string errorText)
         {
             var errorMessage = new ErrorMessage(errorType, errorText);
 
-            return AddError(errorMessage);
+            return this.AddError(errorMessage);
         }
 
         #endregion

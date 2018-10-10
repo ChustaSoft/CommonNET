@@ -6,6 +6,9 @@ using System.Reflection;
 namespace ChustaSoft.Common.Exceptions
 {
 
+    /// <summary>
+    /// Common Exception for Business validations
+    /// </summary>
     public class BusinessException : Exception
     {
 

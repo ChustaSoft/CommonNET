@@ -4,6 +4,10 @@ using System;
 
 namespace ChustaSoft.Common.Exceptions
 {
+
+    /// <summary>
+    /// Exception useful when an operation based on Enum types does not find the one specified
+    /// </summary>
     public class EnumNotFoundException : Exception
     {
 
