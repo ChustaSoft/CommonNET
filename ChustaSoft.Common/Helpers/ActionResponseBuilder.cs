@@ -1,4 +1,5 @@
-﻿using ChustaSoft.Common.Enums;
+﻿using System;
+using ChustaSoft.Common.Enums;
 using ChustaSoft.Common.Exceptions;
 using ChustaSoft.Common.Utilities;
 
@@ -40,6 +41,13 @@ namespace ChustaSoft.Common.Helpers
         public ActionResponse<T> Build()
         {
             return _actionResponse;
+        }
+
+        public ActionResponseBuilder<T> AddData(T data)
+        {
+            _actionResponse.Data = data;
+
+            return this;
         }
 
         public ActionResponseBuilder<T> SetStatus(ActionResponseType status)

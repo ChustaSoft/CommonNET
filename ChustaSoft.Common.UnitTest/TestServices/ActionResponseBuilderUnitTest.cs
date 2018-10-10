@@ -81,12 +81,25 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
+        public void Given_ActionResponseBuilderAndData_When_AddDataInvoked_Then_ActionResponseBuilderWithDataRetrived()
+        {
+            var data = DateTime.Now;
+
+            var builtActionResponse = new ActionResponseBuilder<DateTime>()
+                .AddData(data)
+                .Build();
+
+            Assert.AreEqual(data, builtActionResponse.Data);
+        }
+
+        [TestMethod]
         public void Given_ActionResponseBuilder_When_BuildInvokedWithMultipleInfo_Then_ActionResponseRetrived()
         {
             var data = DateTime.Now;
             var status = ActionResponseType.Warning;
 
-            var builtActionResponse = new ActionResponseBuilder<DateTime>(data)
+            var builtActionResponse = new ActionResponseBuilder<DateTime>()
+                .AddData(data)
                 .AddError(new BusinessException("Test Exception", null))
                 .AddError(new ErrorMessage(new BusinessException("Test Exception", null)))
                 .AddError(ErrorType.Validation, "Test Validation")
