@@ -14,9 +14,8 @@ namespace ChustaSoft.Common.Helpers
 
         #region Fields
 
-        private const string SPACE_STR = " ";
-        private const string SLASH_STR = "/";
-        private const string SPACE_TRANSFORM_STR = "%20";
+        private const string SLASH_SYMBOL = "/";
+        private const string SPACE_TRANSFORM_CODE = "%20";
 
         #endregion
 
@@ -42,14 +41,15 @@ namespace ChustaSoft.Common.Helpers
         }
 
         /// <summary>
-        /// Extension method useful for adding new URL parts with backslash (Don't needed)
+        /// Extension method useful for adding new URL parts with backslash.
+        /// Method is taking into account if the provided base path has already backslash or not, also for urlPart parameter is controlled
         /// </summary>
-        /// <param name="uriBuilder"></param>
-        /// <param name="urlPart"></param>
-        /// <returns></returns>
+        /// <param name="uriBuilder">Builder itself</param>
+        /// <param name="urlPart">Part to add to path</param>
+        /// <returns>UriBuilder itself</returns>
         public static UriBuilder AddPathPart(this UriBuilder uriBuilder, string urlPart)
         {
-            var uriPartToAdd = urlPart.Contains(SLASH_STR) ? urlPart : SLASH_STR + urlPart;
+            var uriPartToAdd = ( urlPart.Contains(SLASH_SYMBOL) || uriBuilder.Path.EndsWith(SLASH_SYMBOL)) ? urlPart : SLASH_SYMBOL + urlPart;
             
             uriBuilder.Path += uriPartToAdd;
 
@@ -62,8 +62,6 @@ namespace ChustaSoft.Common.Helpers
         #region Private methods
 
         private static NameValueCollection GetUriQuery(UriBuilder uriBuilder) => HttpUtility.ParseQueryString(uriBuilder.Query);
-
-        private static string GetFormattedParam(object paramValue) => paramValue.ToString().TrimEnd().TrimStart().Replace(SPACE_STR, SPACE_TRANSFORM_STR);
 
         #endregion
 
