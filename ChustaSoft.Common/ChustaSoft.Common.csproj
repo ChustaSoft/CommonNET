@@ -10,8 +10,8 @@
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>ChustaSoft.Common</PackageId>
-    <Version>1.0.5</Version>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <Version>1.0.6</Version>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/Xelit3/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/Xelit3/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Xelit3/CommonNET.git</RepositoryUrl>
@@ -25,14 +25,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ExceptionResources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\ExceptionResources.es-ES.resx">
-      <DependentUpon>ExceptionResources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Update="Resources\ExceptionResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ExceptionResources.es-ES.resx">
+      <DependentUpon>ExceptionResources.resx</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
