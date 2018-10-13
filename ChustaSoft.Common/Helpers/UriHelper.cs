@@ -47,10 +47,11 @@ namespace ChustaSoft.Common.Helpers
         /// <param name="uriBuilder"></param>
         /// <param name="urlPart"></param>
         /// <returns></returns>
-        public static UriBuilder AddPart(this UriBuilder uriBuilder, string urlPart)
+        public static UriBuilder AddPathPart(this UriBuilder uriBuilder, string urlPart)
         {
             var uriPartToAdd = urlPart.Contains(SLASH_STR) ? urlPart : SLASH_STR + urlPart;
-            uriBuilder.Query += uriPartToAdd;
+            
+            uriBuilder.Path += uriPartToAdd;
 
             return uriBuilder;
         }
