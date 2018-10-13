@@ -21,16 +21,18 @@ namespace ChustaSoft.Common.Exceptions
         #endregion
 
 
-        #region Constructor
+        #region Constructors
 
-        public BusinessException(ErrorType type, string text, FieldInfo property) : base(text)
-        {
-            Type = type;
-            Text = text;
-            Property = property;
-        }
+        public BusinessException(string message) : base(message) { }
 
         public BusinessException(string message, Exception innerException) : base(message, innerException) { }
+
+        public BusinessException(ErrorType type, string message, FieldInfo property) : base(message)
+        {
+            Type = type;
+            Text = message;
+            Property = property;
+        }
 
         #endregion
 
