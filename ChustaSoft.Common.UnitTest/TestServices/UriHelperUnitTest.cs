@@ -46,7 +46,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var uriBuilder = new UriBuilder("http://www.testapi.com/api");
             var testPart = "test";
 
-            var generatedUri = uriBuilder.AddPart(testPart).Uri;
+            var generatedUri = uriBuilder.AddPathPart(testPart).Uri;
 
             Assert.IsTrue(generatedUri.ToString().Contains(testPart));
         }
@@ -57,9 +57,25 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var uriBuilder = new UriBuilder("http://www.testapi.com/api");
             var testPart = "/test";
 
-            var generatedUri = uriBuilder.AddPart(testPart).Uri;
+            var generatedUri = uriBuilder.AddPathPart(testPart).Uri;
 
             Assert.IsTrue(generatedUri.ToString().Contains(testPart));
+        }
+
+        [TestMethod]
+        public void Given_MultpleData_When_UriIsBuilding_Then_UriRetrived()
+        {
+            string pathPart = "test", paramName = "param", paramValue = "value";
+
+            var generatedUri = new UriBuilder("https://api.testapi.io/")
+                .AddPathPart(pathPart)
+                .AddParameter(paramName, paramValue)
+                .Uri;
+
+            Assert.IsNotNull(generatedUri);
+            Assert.IsTrue(generatedUri.ToString().Contains(pathPart));
+            Assert.IsTrue(generatedUri.ToString().Contains(paramName));
+            Assert.IsTrue(generatedUri.ToString().Contains(paramValue));
         }
 
         #endregion
