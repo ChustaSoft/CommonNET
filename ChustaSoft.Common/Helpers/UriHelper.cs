@@ -15,6 +15,7 @@ namespace ChustaSoft.Common.Helpers
         #region Fields
 
         private const string SPACE_STR = " ";
+        private const string SLASH_STR = "/";
         private const string SPACE_TRANSFORM_STR = "%20";
 
         #endregion
@@ -40,9 +41,23 @@ namespace ChustaSoft.Common.Helpers
             return uriBuilder;
         }
 
+        /// <summary>
+        /// Extension method useful for adding new URL parts with backslash (Don't needed)
+        /// </summary>
+        /// <param name="uriBuilder"></param>
+        /// <param name="urlPart"></param>
+        /// <returns></returns>
+        public static UriBuilder AddPart(this UriBuilder uriBuilder, string urlPart)
+        {
+            var uriPartToAdd = urlPart.Contains(SLASH_STR) ? urlPart : SLASH_STR + urlPart;
+            uriBuilder.Query += uriPartToAdd;
+
+            return uriBuilder;
+        }
+
         #endregion
 
-        
+
         #region Private methods
 
         private static NameValueCollection GetUriQuery(UriBuilder uriBuilder) => HttpUtility.ParseQueryString(uriBuilder.Query);

@@ -40,6 +40,28 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.IsTrue(generatedUri.ToString().Contains(transformedData));
         }
 
+        [TestMethod]
+        public void Given_UriBuilderAndPartWithoutBackslash_When_AddPartInvoked_Then_PartAddedToUriBuilder()
+        {
+            var uriBuilder = new UriBuilder("http://www.testapi.com/api");
+            var testPart = "test";
+
+            var generatedUri = uriBuilder.AddPart(testPart).Uri;
+
+            Assert.IsTrue(generatedUri.ToString().Contains(testPart));
+        }
+
+        [TestMethod]
+        public void Given_UriBuilderAndPartWithBackslash_When_AddPartInvoked_Then_PartAddedToUriBuilder()
+        {
+            var uriBuilder = new UriBuilder("http://www.testapi.com/api");
+            var testPart = "/test";
+
+            var generatedUri = uriBuilder.AddPart(testPart).Uri;
+
+            Assert.IsTrue(generatedUri.ToString().Contains(testPart));
+        }
+
         #endregion
 
     }
