@@ -86,7 +86,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var data = DateTime.Now;
 
             var builtActionResponse = new ActionResponseBuilder<DateTime>()
-                .AddData(data)
+                .SetData(data)
                 .Build();
 
             Assert.AreEqual(data, builtActionResponse.Data);
@@ -99,7 +99,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var status = ActionResponseType.Warning;
 
             var builtActionResponse = new ActionResponseBuilder<DateTime>()
-                .AddData(data)
+                .SetData(data)
                 .AddError(new BusinessException("Test Exception", null))
                 .AddError(new ErrorMessage(new BusinessException("Test Exception", null)))
                 .AddError(ErrorType.Validation, "Test Validation")

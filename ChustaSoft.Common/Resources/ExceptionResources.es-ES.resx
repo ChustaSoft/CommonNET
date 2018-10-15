@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
+    <value>La propiedad de datos es nula, antes de añadir elementos, el método SetData debe ser llamado</value>
+  </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
     <value>No hay elementos para el tipo {0} que coincidan con la propiedad {1}</value>
   </data>
