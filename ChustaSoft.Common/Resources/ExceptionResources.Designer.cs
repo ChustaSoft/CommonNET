@@ -61,6 +61,15 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data property is null, for adding elements, SetData method must be called before.
+        /// </summary>
+        internal static string ArgumentException_ActionResponseBuilder_DataNull {
+            get {
+                return ResourceManager.GetString("ArgumentException_ActionResponseBuilder_DataNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Element of type {0} could not be found.
         /// </summary>
         internal static string ElementNotFoundException_Type_ErrorMessage {

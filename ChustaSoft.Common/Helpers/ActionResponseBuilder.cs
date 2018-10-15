@@ -1,5 +1,4 @@
-﻿using System;
-using ChustaSoft.Common.Enums;
+﻿using ChustaSoft.Common.Enums;
 using ChustaSoft.Common.Exceptions;
 using ChustaSoft.Common.Utilities;
 
@@ -43,7 +42,7 @@ namespace ChustaSoft.Common.Helpers
             return _actionResponse;
         }
 
-        public ActionResponseBuilder<T> AddData(T data)
+        public ActionResponseBuilder<T> SetData(T data)
         {
             _actionResponse.Data = data;
 
@@ -77,6 +76,13 @@ namespace ChustaSoft.Common.Helpers
 
             return this.AddError(errorMessage);
         }
+
+        #endregion
+
+
+        #region Internal methods
+
+        internal ActionResponse<T> GetActionResponse() => _actionResponse;
 
         #endregion
 
