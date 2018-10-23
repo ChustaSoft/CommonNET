@@ -4,15 +4,15 @@
 Common utilities and features for any .NET application
 
 
-· Getting started:
+· Getting started
 
 There are no requirements, library has not any dependencies in order to make architectural implementation as decoupled as possible. Just install in the project to use and it will be ready.
 
 Target frameworks are
 
-.NET Standard 2.0
-.Net Core 2.0
-.NET Framework 4.6.1
+- .NET Standard 2.0
+- .Net Core 2.0
+- .NET Framework 4.6.1
 
 
 · Use
