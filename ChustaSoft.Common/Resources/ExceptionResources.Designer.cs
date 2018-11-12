@@ -70,6 +70,15 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to String could not be empty or nulll.
+        /// </summary>
+        internal static string ArgumentException_StringHelper_WrongString {
+            get {
+                return ResourceManager.GetString("ArgumentException_StringHelper_WrongString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Element of type {0} could not be found.
         /// </summary>
         internal static string ElementNotFoundException_Type_ErrorMessage {

@@ -120,6 +120,9 @@
   <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
     <value>La propiedad de datos es nula, antes de añadir elementos, el método SetData debe ser llamado</value>
   </data>
+  <data name="ArgumentException_StringHelper_WrongString" xml:space="preserve">
+    <value>La cadena no puede estar vacía ni ser nula</value>
+  </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
     <value>No hay elementos para el tipo {0} que coincidan con la propiedad {1}</value>
   </data>
