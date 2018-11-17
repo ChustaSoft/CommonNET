@@ -120,6 +120,9 @@
   <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
     <value>Data property is null, for adding elements, SetData method must be called before</value>
   </data>
+  <data name="ArgumentException_StringHelper_WrongString" xml:space="preserve">
+    <value>String could not be empty or nulll</value>
+  </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
     <value>There are no element of type {0} matching with selected property name {1}</value>
   </data>
