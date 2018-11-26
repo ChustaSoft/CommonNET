@@ -10,6 +10,13 @@ namespace ChustaSoft.Common.UnitTest.TestServices
     public class ISelectablePropertiesBuilderHelperUnitTest
     {
 
+        public class TestClass
+        {
+            public string TestPropertyStr { get; set; }
+            public int TestPropertyInt { get; set; }
+        }
+
+
         [TestMethod]
         public void Given_Function_WhenSelectPropertyInvoked_ThenISelectablePropertiesBuilderRetrived()
         {
@@ -23,9 +30,8 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_Function_WhenThenSelectPropertyInvoked_ThenISelectablePropertiesBuilderRetrived()
         {
-            var testObj = DateTime.Now;
-
-            var testBuilder = testObj.SelectProperty(x => x.Day)
+            var testBuilder = SelectablePropertiesBuilder<DateTime>.InitBuilder()
+                .SelectProperty(x => x.Day)
                 .ThenSelectProperty(x => x.Month);
 
             Assert.AreEqual(testBuilder.Count, 2);
@@ -34,9 +40,8 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_Function_WhenFormatSelectionInvoked_ThenStringFormattedRetrived()
         {
-            var testObj = DateTime.Now;
-
-            var propertiesFormatted = testObj.SelectProperty(x => x.Day)
+            var propertiesFormatted = SelectablePropertiesBuilder<DateTime>.InitBuilder()
+                .SelectProperty(x => x.Day)
                 .ThenSelectProperty(x => x.Month)
                 .FormatSelection();
 
@@ -45,13 +50,15 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
-        public void Given_EmptyISelectablePropertiesBuilder_WhenFormatSelectionInvoked_ThenEmptyStringRetrived()
+        public void Given_ExternalType_WhenFormatSelectionInvoked_ThenStringFormattedRetrived()
         {
-            var emptyBuilder = new SelectablePropertiesBuilder<DateTime>();
+            var propertiesFormatted = SelectablePropertiesBuilder<TestClass>.InitBuilder()
+               .SelectProperty(x => x.TestPropertyStr)
+               .ThenSelectProperty(x => x.TestPropertyInt)
+               .FormatSelection();
 
-            var propertiesFormatted = emptyBuilder.FormatSelection();
-
-            Assert.AreEqual(string.Empty, propertiesFormatted);
+            Assert.IsFalse(string.IsNullOrEmpty(propertiesFormatted));
+            Assert.IsTrue(propertiesFormatted.LastIndexOf(',') != propertiesFormatted.Length);
         }
 
     }
