@@ -1,4 +1,5 @@
 ﻿using ChustaSoft.Common.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,7 @@ using System.Text;
 namespace ChustaSoft.Common.Utilities
 {
 
-    public class SelectablePropertiesBuilder<T> : ISelectablePropertiesBuilder<T>
+    public class SelectablePropertiesBuilder<T>
     {
         
         #region Fields
@@ -29,14 +30,16 @@ namespace ChustaSoft.Common.Utilities
 
         #region Constructor
 
-        public SelectablePropertiesBuilder()
+        internal SelectablePropertiesBuilder()
         {
             _propertiesSelected = new List<PropertyInfo>();
         }
 
+        public static T InitBuilder() => (T)Activator.CreateInstance(typeof(T));
+
         #endregion
 
-        
+
         #region Public methods
 
         public void AddSelected(PropertyInfo propertyInfo)

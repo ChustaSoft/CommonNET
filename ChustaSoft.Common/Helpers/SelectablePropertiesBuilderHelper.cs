@@ -19,7 +19,7 @@ namespace ChustaSoft.Common.Helpers
         /// <param name="objectSource">Object for getting properties</param>
         /// <param name="navigationPropertyPath">Expression taking parameter</param>
         /// <returns></returns>
-        public static ISelectablePropertiesBuilder<T> SelectProperty<T, TProperty>(this T objectSource, Expression<Func<T, TProperty>> navigationPropertyPath)
+        public static SelectablePropertiesBuilder<T> SelectProperty<T, TProperty>(this T objectSource, Expression<Func<T, TProperty>> navigationPropertyPath)
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
@@ -37,7 +37,7 @@ namespace ChustaSoft.Common.Helpers
         /// <param name="builder">The builder managed</param>
         /// <param name="navigationPropertyPath">Expression taking parameter</param>
         /// <returns></returns>
-        public static ISelectablePropertiesBuilder<T> ThenSelectProperty<T, TProperty>(this ISelectablePropertiesBuilder<T> builder, Expression<Func<T, TProperty>> navigationPropertyPath)
+        public static SelectablePropertiesBuilder<T> ThenSelectProperty<T, TProperty>(this SelectablePropertiesBuilder<T> builder, Expression<Func<T, TProperty>> navigationPropertyPath)
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
@@ -56,6 +56,7 @@ namespace ChustaSoft.Common.Helpers
             var member = (MemberExpression)navigationPropertyPath.Body;
             var propertyName = member.Member.Name;
             var propertyInfo = new PropertyInfo { Name = propertyName };
+
             return propertyInfo;
         }
 
