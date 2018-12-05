@@ -13,32 +13,32 @@ namespace ChustaSoft.Common.Helpers
         #region Extension methods
 
         /// <summary>
-        /// Select property from any object to add to a ISelectablePropertiesBuilder
+        /// Select property from any object to add to a SelectablePropertiesBuilder
         /// </summary>
         /// <typeparam name="TMain">Object type for getting properties</typeparam>
         /// <typeparam name="TProperty">Property type selected</typeparam>
         /// <param name="objectSource">Object for getting properties</param>
         /// <param name="navigationPropertyPath">Expression taking parameter</param>
-        /// <returns></returns>
-        public static SelectablePropertiesBuilder<T> SelectProperty<T, TProperty>(this T objectSource, Expression<Func<T, TProperty>> navigationPropertyPath)
+        /// <returns>Generated SelectablePropertiesBuilder</returns>
+        public static SelectablePropertiesBuilder<TMain> SelectProperty<TMain, TProperty>(this TMain objectSource, Expression<Func<TMain, TProperty>> navigationPropertyPath)
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
-            var builder = SelectablePropertiesBuilder<T>.InitBuilder();
+            var builder = SelectablePropertiesBuilder<TMain>.InitBuilder();
             builder.AddSelected(propertyInfo);
 
             return builder;
         }
 
         /// <summary>
-        /// From an existing ISelectablePropertiesBuilder, add new propertyes to be selected
+        /// From an existing SelectablePropertiesBuilder, add new propertyes to be selected
         /// </summary>
         /// <typeparam name="TMain">Object type for getting properties</typeparam>
         /// <typeparam name="TProperty">Property type selected</typeparam>
         /// <param name="builder">The builder managed</param>
         /// <param name="navigationPropertyPath">Expression taking parameter</param>
-        /// <returns></returns>
-        public static SelectablePropertiesBuilder<T> ThenSelectProperty<T, TProperty>(this SelectablePropertiesBuilder<T> builder, Expression<Func<T, TProperty>> navigationPropertyPath)
+        /// <returns>SelectablePropertiesBuilder itself</returns>
+        public static SelectablePropertiesBuilder<TMain> ThenSelectProperty<TMain, TProperty>(this SelectablePropertiesBuilder<TMain> builder, Expression<Func<TMain, TProperty>> navigationPropertyPath)
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
@@ -48,20 +48,48 @@ namespace ChustaSoft.Common.Helpers
         }
 
         /// <summary>
-        /// 
+        /// From an existing SelectablePropertiesBuilder, add new propertyes to be selected
         /// </summary>
-        /// <typeparam name="TMain"></typeparam>
-        /// <typeparam name="TSub"></typeparam>
-        /// <param name="builder"></param>
-        /// <param name="navigationPropertyPath"></param>
-        /// <returns></returns>
-        public static SelectablePropertiesBuilder<TSub> ThenSelectFromCollection<TMain, TSub>(this SelectablePropertiesBuilder<TMain> builder, Expression<Func<TMain, IEnumerable<TSub>>> navigationPropertyPath)
+        /// <typeparam name="TMain">Parent object type</typeparam>
+        /// <typeparam name="TSub">Nested Object type for getting properties</typeparam>
+        /// <typeparam name="TProperty">Property type selected</typeparam>
+        /// <param name="builder">The builder managed</param>
+        /// <param name="navigationPropertyPath">Expression taking parameter</param>
+        /// <returns>SelectablePropertiesBuilder itself</returns>
+        public static SelectablePropertiesBuilder<TMain, TSub> ThenSelectProperty<TMain, TSub, TProperty>(this SelectablePropertiesBuilder<TMain, TSub> builder, Expression<Func<TSub, TProperty>> navigationPropertyPath)
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
-            builder.QueueSelected(propertyInfo);
+            builder.AddSelected(propertyInfo);
 
-            return SelectablePropertiesBuilder<TSub>.InitBuilder();
+            return builder;
+        }
+
+        /// <summary>
+        /// From an existing SelectablePropertiesBuilder, start selecting properties from a Nested collection
+        /// </summary>
+        /// <typeparam name="TMain">Parent object type</typeparam>
+        /// <typeparam name="TSub">Nested Object type for getting properties</typeparam>
+        /// <param name="builder">The builder managed</param>
+        /// <param name="navigationPropertyPath">Expression for select nested collection</param>
+        /// <returns>SelectablePropertiesBuilder itself</returns>
+        public static SelectablePropertiesBuilder<TMain, TSub> ThenSelectFromCollection<TMain, TSub>(this SelectablePropertiesBuilder<TMain> builder, Expression<Func<TMain, IEnumerable<TSub>>> navigationPropertyPath)
+        {
+            var propertyInfo = GetPropertyInfo(navigationPropertyPath);
+
+            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(propertyInfo);
+        }
+
+        /// <summary>
+        /// From an existing SelectablePropertiesBuilder, for finishing adding properties from nested collections
+        /// </summary>
+        /// <typeparam name="TMain">Parent object type</typeparam>
+        /// <typeparam name="TSub">Nested Object type for getting properties</typeparam>
+        /// <param name="builder">The builder managed</param>
+        /// <returns>The parent SelectablePropertiesBuilder</returns>
+        public static SelectablePropertiesBuilder<TMain> BackToParent<TMain, TSub>(this SelectablePropertiesBuilder<TMain, TSub> builder)
+        {
+            return builder.GetParentBuilder();
         }
 
         #endregion

@@ -12,11 +12,8 @@ namespace ChustaSoft.Common.Utilities
         #region Fields
 
         private const char SEPARATOR_CHAR = ',';
-        private const char NESTEDPROPERTY_CHAR = '.';
 
-        private PropertyInfo _parentProperty;
-
-        private static SelectablePropertiesContext _context => SelectablePropertiesContext.Instance();
+        protected static SelectablePropertiesContext _context => SelectablePropertiesContext.Instance();
 
         #endregion
 
@@ -30,9 +27,10 @@ namespace ChustaSoft.Common.Utilities
 
         #region Constructor
 
-        private SelectablePropertiesBuilder() { }
+        protected SelectablePropertiesBuilder() { }
 
         public static SelectablePropertiesBuilder<T> InitBuilder() => new SelectablePropertiesBuilder<T>();
+
 
         #endregion
 
@@ -51,7 +49,9 @@ namespace ChustaSoft.Common.Utilities
             var stringBuilder = new StringBuilder();
 
             IteratePropertiesForBuilder(stringBuilder);
-            
+
+            SelectablePropertiesContext.ResetContext();
+
             return stringBuilder.ToString();
         }
 
@@ -62,18 +62,8 @@ namespace ChustaSoft.Common.Utilities
 
         internal void AddSelected(PropertyInfo propertyInfo)
         {
-            if(_parentProperty != null)
-                _parentProperty.Name  = _parentProperty.Name + NESTEDPROPERTY_CHAR + propertyInfo.Name;
-
             _context.Add(propertyInfo);
         }
-
-        internal void QueueSelected(PropertyInfo propertyInfo)
-        {
-            _parentProperty = propertyInfo;
-
-            _context.Queue(propertyInfo);
-        } 
 
         #endregion
 
@@ -98,4 +88,51 @@ namespace ChustaSoft.Common.Utilities
         #endregion
 
     }
+
+    public class SelectablePropertiesBuilder<TMain, TSub> : SelectablePropertiesBuilder<TMain>
+    {
+        
+        #region Fields
+
+        private const char NESTEDPROPERTY_CHAR = '.';
+
+        private PropertyInfo _parentProperty;
+
+        protected static SelectablePropertiesBuilder<TMain> _parentBuilder = InitBuilder();
+
+        #endregion
+
+
+        #region Constructor
+
+        private SelectablePropertiesBuilder(PropertyInfo parentProperty)
+        {
+            _parentProperty = parentProperty;
+        }
+
+        public static SelectablePropertiesBuilder<TMain, TSub> InitBuilder(PropertyInfo parentProperty) => new SelectablePropertiesBuilder<TMain, TSub>(parentProperty);
+
+        #endregion
+
+
+        #region Public methods
+
+        public SelectablePropertiesBuilder<TMain> GetParentBuilder() => _parentBuilder;
+
+        #endregion
+
+
+        #region Internal methods
+
+        internal new void AddSelected(PropertyInfo propertyInfo)
+        {
+            propertyInfo.Name = _parentProperty.Name + NESTEDPROPERTY_CHAR + propertyInfo.Name;
+
+            _context.Add(propertyInfo);
+        }
+
+        #endregion
+
+    }
+
 }

@@ -1,6 +1,4 @@
-﻿using ChustaSoft.Common.Constants;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 
 namespace ChustaSoft.Common.Models
@@ -17,11 +15,9 @@ namespace ChustaSoft.Common.Models
         
         #region Properties
 
-        public Queue<List<PropertyInfo>> PropertiesSelectionQueue { get; private set; }
-
         public List<PropertyInfo> PropertiesSelected { get; private set; }
 
-        public int TotalCount => PropertiesSelectionQueue.Sum(x => x.Count) + PropertiesSelected.Count;
+        public int TotalCount => PropertiesSelected.Count;
 
         #endregion
 
@@ -30,7 +26,6 @@ namespace ChustaSoft.Common.Models
 
         private SelectablePropertiesContext()
         {
-            PropertiesSelectionQueue = new Queue<List<PropertyInfo>>();
             PropertiesSelected = new List<PropertyInfo>();
         }
 
@@ -52,15 +47,6 @@ namespace ChustaSoft.Common.Models
         public void Add(PropertyInfo propertyInfo)
         {
             PropertiesSelected.Add(propertyInfo);
-        }
-
-        public void Queue(PropertyInfo propertyInfo)
-        {
-            PropertiesSelectionQueue.Enqueue(PropertiesSelected);
-
-            PropertiesSelected = new List<PropertyInfo>();
-
-            Add(propertyInfo);
         }
 
         #endregion
