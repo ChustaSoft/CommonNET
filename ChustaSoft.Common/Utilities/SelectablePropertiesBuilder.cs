@@ -1,6 +1,5 @@
 ﻿using ChustaSoft.Common.Models;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 
@@ -14,38 +13,36 @@ namespace ChustaSoft.Common.Utilities
 
         private const char SEPARATOR_CHAR = ',';
 
-        private List<PropertyInfo> _propertiesSelected;
+        protected static SelectablePropertiesContext _context => SelectablePropertiesContext.Instance();
 
         #endregion
 
-        
+
         #region Properties
 
-        public char GetSeparator => SEPARATOR_CHAR;
-
-        public int Count => _propertiesSelected.Count;
+        public int Count => _context.TotalCount;
 
         #endregion
 
 
         #region Constructor
 
-        internal SelectablePropertiesBuilder()
-        {
-            _propertiesSelected = new List<PropertyInfo>();
-        }
+        protected SelectablePropertiesBuilder() { }
 
-        public static T InitBuilder() => (T)Activator.CreateInstance(typeof(T));
+        public static SelectablePropertiesBuilder<T> InitBuilder() => new SelectablePropertiesBuilder<T>();
+
+
+        #endregion
+
+
+        #region Public static methods
+
+        public static T GetProperties() => (T)Activator.CreateInstance(typeof(T));
 
         #endregion
 
 
         #region Public methods
-
-        public void AddSelected(PropertyInfo propertyInfo)
-        {
-            _propertiesSelected.Add(propertyInfo);
-        }
 
         public string FormatSelection()
         {
@@ -53,7 +50,19 @@ namespace ChustaSoft.Common.Utilities
 
             IteratePropertiesForBuilder(stringBuilder);
 
+            SelectablePropertiesContext.ResetContext();
+
             return stringBuilder.ToString();
+        }
+
+        #endregion
+
+
+        #region Internal methods
+
+        internal void AddSelected(PropertyInfo propertyInfo)
+        {
+            _context.Add(propertyInfo);
         }
 
         #endregion
@@ -63,9 +72,9 @@ namespace ChustaSoft.Common.Utilities
 
         private void IteratePropertiesForBuilder(StringBuilder stringBuilder)
         {
-            int currentIndex = 1, totalCount = _propertiesSelected.Count;
+            int currentIndex = 1, totalCount = _context.PropertiesSelected.Count;
 
-            foreach (var prop in _propertiesSelected)
+            foreach (var prop in _context.PropertiesSelected)
             {
                 stringBuilder.Append(prop.Name);
 
@@ -79,4 +88,51 @@ namespace ChustaSoft.Common.Utilities
         #endregion
 
     }
+
+    public class SelectablePropertiesBuilder<TMain, TSub> : SelectablePropertiesBuilder<TMain>
+    {
+        
+        #region Fields
+
+        private const char NESTEDPROPERTY_CHAR = '.';
+
+        private PropertyInfo _parentProperty;
+
+        protected static SelectablePropertiesBuilder<TMain> _parentBuilder = InitBuilder();
+
+        #endregion
+
+
+        #region Constructor
+
+        private SelectablePropertiesBuilder(PropertyInfo parentProperty)
+        {
+            _parentProperty = parentProperty;
+        }
+
+        public static SelectablePropertiesBuilder<TMain, TSub> InitBuilder(PropertyInfo parentProperty) => new SelectablePropertiesBuilder<TMain, TSub>(parentProperty);
+
+        #endregion
+
+
+        #region Public methods
+
+        public SelectablePropertiesBuilder<TMain> GetParentBuilder() => _parentBuilder;
+
+        #endregion
+
+
+        #region Internal methods
+
+        internal new void AddSelected(PropertyInfo propertyInfo)
+        {
+            propertyInfo.Name = _parentProperty.Name + NESTEDPROPERTY_CHAR + propertyInfo.Name;
+
+            _context.Add(propertyInfo);
+        }
+
+        #endregion
+
+    }
+
 }
