@@ -10,8 +10,8 @@
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>ChustaSoft.Common</PackageId>
-    <Version>1.0.15</Version>
-    <AssemblyVersion>1.0.15.0</AssemblyVersion>
+    <Version>1.0.15.1</Version>
+    <AssemblyVersion>1.0.15.1</AssemblyVersion>
     <PackageProjectUrl>https://github.com/Xelit3/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/Xelit3/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Xelit3/CommonNET.git</RepositoryUrl>
