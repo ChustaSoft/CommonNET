@@ -17,6 +17,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             public string TestPropertyStr { get; set; }
             public int TestPropertyInt { get; set; }
             public double TestPropertyDouble { get; set; }
+            public DateTime ComplexObj { get; set; }
             public IEnumerable<DateTime> TestCollectionDates { get; set; }
         }
 
@@ -124,6 +125,25 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.IsTrue(propertiesFormatted.LastIndexOf(',') != propertiesFormatted.Length);
             Assert.IsTrue(propertiesFormatted.Contains("."));
             Assert.IsTrue(propertiesFormatted.Contains(nameof(TestClass.TestPropertyDouble)));
+        }
+
+        [TestMethod]
+        public void Given_ExternalType_WhenGetSelectionInvokedUsingMultipleNestedCollectionAndComplexObjectAndComingBackToParentBuilder_ThenPropertiesListRetrived()
+        {
+            var propertiesSelected = SelectablePropertiesBuilder<TestClass>
+               .GetProperties()
+               .SelectProperty(x => x.TestPropertyStr)
+               .ThenSelectProperty(x => x.TestPropertyInt)
+               .ThenSelectFromCollection(x => x.TestCollectionDates)
+                    .ThenSelectProperty(x => x.Minute)
+                    .ThenSelectProperty(x => x.Month)
+                    .BackToParent()
+               .ThenSelectProperty(x => x.TestPropertyDouble)
+               .ThenSelectFromProperty(x => x.ComplexObj)
+                    .ThenSelectProperty(x => x.Millisecond)
+               .GetSelection();
+
+            Assert.AreEqual(propertiesSelected.Count, 6);
         }
 
     }

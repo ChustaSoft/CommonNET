@@ -81,6 +81,21 @@ namespace ChustaSoft.Common.Helpers
         }
 
         /// <summary>
+        /// From an existing SelectablePropertiesBuilder, start selecting properties from a Complex object
+        /// </summary>
+        /// <typeparam name="TMain">Parent object type</typeparam>
+        /// <typeparam name="TSub">Nested Object type for getting properties</typeparam>
+        /// <param name="builder">The builder managed</param>
+        /// <param name="navigationPropertyPath">Expression for select nested collection</param>
+        /// <returns>SelectablePropertiesBuilder itself</returns>
+        public static SelectablePropertiesBuilder<TMain, TSub> ThenSelectFromProperty<TMain, TSub>(this SelectablePropertiesBuilder<TMain> builder, Expression<Func<TMain, TSub>> navigationPropertyPath)
+        {
+            var propertyInfo = GetPropertyInfo(navigationPropertyPath);
+
+            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(propertyInfo);
+        }
+
+        /// <summary>
         /// From an existing SelectablePropertiesBuilder, for finishing adding properties from nested collections
         /// </summary>
         /// <typeparam name="TMain">Parent object type</typeparam>
