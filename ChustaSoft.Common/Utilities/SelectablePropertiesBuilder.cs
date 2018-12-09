@@ -1,5 +1,6 @@
 ﻿using ChustaSoft.Common.Models;
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 
@@ -8,7 +9,7 @@ namespace ChustaSoft.Common.Utilities
 
     public class SelectablePropertiesBuilder<T>
     {
-        
+
         #region Fields
 
         private const char SEPARATOR_CHAR = ',';
@@ -53,6 +54,11 @@ namespace ChustaSoft.Common.Utilities
             SelectablePropertiesContext.ResetContext();
 
             return stringBuilder.ToString();
+        }
+
+        public IList<PropertyInfo> GetSelection()
+        {
+            return _context.PropertiesSelected;
         }
 
         #endregion
