@@ -10,14 +10,14 @@
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>ChustaSoft.Common</PackageId>
-    <Version>1.0.19</Version>
-    <AssemblyVersion>1.0.19.0</AssemblyVersion>
+    <Version>1.0.20</Version>
+    <AssemblyVersion>1.0.20.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core</PackageTags>
-    <FileVersion>1.0.19.0</FileVersion>
+    <FileVersion>1.0.20.0</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>

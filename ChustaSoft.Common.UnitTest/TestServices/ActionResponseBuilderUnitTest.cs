@@ -41,6 +41,32 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
+        public void Given_ActionResponseBuilderAndTrueFlag_When_SetStatusInvoked_Then_ActionResponseBuilderWithDataAndStatusRetrived()
+        {
+            var data = DateTime.Now;
+            var status = ActionResponseType.Success;
+            var builtActionResponse = new ActionResponseBuilder<DateTime>(data)
+                .SetStatus(true)
+                .Build();
+
+            Assert.AreEqual(data, builtActionResponse.Data);
+            Assert.AreEqual(status, builtActionResponse.Flag);
+        }
+
+        [TestMethod]
+        public void Given_ActionResponseBuilderAndFalseFlag_When_SetStatusInvoked_Then_ActionResponseBuilderWithDataAndStatusRetrived()
+        {
+            var data = DateTime.Now;
+            var status = ActionResponseType.Error;
+            var builtActionResponse = new ActionResponseBuilder<DateTime>(data)
+                .SetStatus(false)
+                .Build();
+
+            Assert.AreEqual(data, builtActionResponse.Data);
+            Assert.AreEqual(status, builtActionResponse.Flag);
+        }
+
+        [TestMethod]
         public void Given_ActionResponseBuilder_When_AddErrorInvokedFromErrorMessage_Then_ActionResponseBuilderWithDataAndErrorsRetrived()
         {
             var data = DateTime.Now;

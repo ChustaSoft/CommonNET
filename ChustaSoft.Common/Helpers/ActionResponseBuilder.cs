@@ -56,6 +56,13 @@ namespace ChustaSoft.Common.Helpers
             return this;
         }
 
+        public ActionResponseBuilder<T> SetStatus(bool flag)
+        {
+            _actionResponse.Flag = flag ? ActionResponseType.Success : ActionResponseType.Error;
+
+            return this;
+        }
+
         public ActionResponseBuilder<T> AddError(ErrorMessage errorMessage)
         {
             _actionResponse.Errors.Add(errorMessage);
