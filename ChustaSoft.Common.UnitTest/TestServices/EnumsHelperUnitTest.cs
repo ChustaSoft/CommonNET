@@ -1,9 +1,10 @@
 ﻿using ChustaSoft.Common.Exceptions;
 using ChustaSoft.Common.Helpers;
+using ChustaSoft.Common.UnitTest.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using static ChustaSoft.Common.UnitTest.TestHelpers.EnumTestHelper;
+
 
 namespace ChustaSoft.Common.UnitTest.TestServices
 {
