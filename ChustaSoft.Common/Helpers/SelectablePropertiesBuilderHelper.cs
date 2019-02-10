@@ -77,7 +77,7 @@ namespace ChustaSoft.Common.Helpers
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
-            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(propertyInfo);
+            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(builder, propertyInfo);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace ChustaSoft.Common.Helpers
         {
             var propertyInfo = GetPropertyInfo(navigationPropertyPath);
 
-            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(propertyInfo);
+            return SelectablePropertiesBuilder<TMain, TSub>.InitBuilder(builder, propertyInfo);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace ChustaSoft.Common.Helpers
         /// <returns>The parent SelectablePropertiesBuilder</returns>
         public static SelectablePropertiesBuilder<TMain> BackToParent<TMain, TSub>(this SelectablePropertiesBuilder<TMain, TSub> builder)
         {
-            return builder.GetParentBuilder();
+            return builder.BackToParent();
         }
 
         #endregion

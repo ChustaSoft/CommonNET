@@ -6,13 +6,6 @@ namespace ChustaSoft.Common.Models
     public class SelectablePropertiesContext
     {
 
-        #region Fields
-
-        private static SelectablePropertiesContext _instance;
-
-        #endregion
-
-        
         #region Properties
 
         public List<PropertyInfo> PropertiesSelected { get; private set; }
@@ -24,20 +17,10 @@ namespace ChustaSoft.Common.Models
 
         #region Constructor
 
-        private SelectablePropertiesContext()
+        public SelectablePropertiesContext()
         {
             PropertiesSelected = new List<PropertyInfo>();
         }
-
-        public static SelectablePropertiesContext Instance()
-        {
-            if (_instance == null)
-                _instance = new SelectablePropertiesContext();
-
-            return _instance;
-        }
-
-        public static void ResetContext() => _instance = new SelectablePropertiesContext();
 
         #endregion
 
@@ -47,6 +30,11 @@ namespace ChustaSoft.Common.Models
         public void Add(PropertyInfo propertyInfo)
         {
             PropertiesSelected.Add(propertyInfo);
+        }
+
+        public void AddRange(IList<PropertyInfo> propertyInfoList)
+        {
+            PropertiesSelected.AddRange(propertyInfoList);
         }
 
         #endregion
