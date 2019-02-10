@@ -14,21 +14,24 @@ namespace ChustaSoft.Common.Utilities
 
         private const char SEPARATOR_CHAR = ',';
 
-        protected static SelectablePropertiesContext _context => SelectablePropertiesContext.Instance();
-
         #endregion
 
 
         #region Properties
 
-        public int Count => _context.TotalCount;
+        protected SelectablePropertiesContext Context { get; set; }
+
+        public int Count => Context.TotalCount;
 
         #endregion
 
 
         #region Constructor
 
-        protected SelectablePropertiesBuilder() { }
+        protected SelectablePropertiesBuilder()
+        {
+            Context = new SelectablePropertiesContext();
+        }
 
         public static SelectablePropertiesBuilder<T> InitBuilder() => new SelectablePropertiesBuilder<T>();
 
@@ -36,14 +39,10 @@ namespace ChustaSoft.Common.Utilities
         #endregion
 
 
-        #region Public static methods
+        #region Public methods
 
         public static T GetProperties() => (T)Activator.CreateInstance(typeof(T));
 
-        #endregion
-
-
-        #region Public methods
 
         public string FormatSelection()
         {
@@ -51,14 +50,12 @@ namespace ChustaSoft.Common.Utilities
 
             IteratePropertiesForBuilder(stringBuilder);
 
-            SelectablePropertiesContext.ResetContext();
-
             return stringBuilder.ToString();
         }
 
         public IList<PropertyInfo> GetSelection()
         {
-            return _context.PropertiesSelected;
+            return Context.PropertiesSelected;
         }
 
         #endregion
@@ -68,7 +65,12 @@ namespace ChustaSoft.Common.Utilities
 
         internal void AddSelected(PropertyInfo propertyInfo)
         {
-            _context.Add(propertyInfo);
+            Context.Add(propertyInfo);
+        }
+
+        internal void AddSelected(IList<PropertyInfo> propertyInfoList)
+        {
+            Context.AddRange(propertyInfoList);
         }
 
         #endregion
@@ -78,9 +80,9 @@ namespace ChustaSoft.Common.Utilities
 
         private void IteratePropertiesForBuilder(StringBuilder stringBuilder)
         {
-            int currentIndex = 1, totalCount = _context.PropertiesSelected.Count;
+            int currentIndex = 1, totalCount = Context.PropertiesSelected.Count;
 
-            foreach (var prop in _context.PropertiesSelected)
+            foreach (var prop in Context.PropertiesSelected)
             {
                 stringBuilder.Append(prop.Name);
 
@@ -104,26 +106,40 @@ namespace ChustaSoft.Common.Utilities
 
         private PropertyInfo _parentProperty;
 
-        protected static SelectablePropertiesBuilder<TMain> _parentBuilder = InitBuilder();
+        private SelectablePropertiesBuilder<TMain> _parentContext;
 
         #endregion
 
 
         #region Constructor
 
-        private SelectablePropertiesBuilder(PropertyInfo parentProperty)
+        private SelectablePropertiesBuilder(SelectablePropertiesBuilder<TMain> parentContext, PropertyInfo parentProperty)
         {
+            _parentContext = parentContext;
             _parentProperty = parentProperty;
         }
 
-        public static SelectablePropertiesBuilder<TMain, TSub> InitBuilder(PropertyInfo parentProperty) => new SelectablePropertiesBuilder<TMain, TSub>(parentProperty);
+        public static SelectablePropertiesBuilder<TMain, TSub> InitBuilder(SelectablePropertiesBuilder<TMain> parentContext, PropertyInfo parentProperty) 
+            => new SelectablePropertiesBuilder<TMain, TSub>(parentContext, parentProperty);
 
         #endregion
 
 
         #region Public methods
 
-        public SelectablePropertiesBuilder<TMain> GetParentBuilder() => _parentBuilder;
+        public SelectablePropertiesBuilder<TMain> BackToParent()
+        {
+            UpdateParentContext();
+
+            return _parentContext;
+        }
+
+        public new IList<PropertyInfo> GetSelection()
+        {
+            UpdateParentContext();
+            
+            return _parentContext.GetSelection();
+        }
 
         #endregion
 
@@ -134,7 +150,17 @@ namespace ChustaSoft.Common.Utilities
         {
             propertyInfo.Name = _parentProperty.Name + NESTEDPROPERTY_CHAR + propertyInfo.Name;
 
-            _context.Add(propertyInfo);
+            Context.Add(propertyInfo);
+        }
+
+        #endregion
+
+
+        #region Private methods
+
+        private void UpdateParentContext()
+        {
+            _parentContext.AddSelected(base.GetSelection());
         }
 
         #endregion

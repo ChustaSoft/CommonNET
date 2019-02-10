@@ -30,7 +30,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var testBuilder = testObj.SelectProperty(x => x.Day);
 
             Assert.AreEqual(testBuilder.Count, 1);
-            SelectablePropertiesContext.ResetContext();
+            //SelectablePropertiesContext.ResetContext();
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
                 .ThenSelectProperty(x => x.Month);
 
             Assert.AreEqual(testBuilder.Count, 2);
-            SelectablePropertiesContext.ResetContext();
+            //SelectablePropertiesContext.ResetContext();
         }
 
         [TestMethod]
@@ -74,13 +74,13 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_ExternalType_WhenFormatSelectionInvokedUsingNestedCollection_ThenStringFormattedRetrived2()
         {
-            var propertiesFormatted = SelectablePropertiesBuilder<TestClass>
+            var propertiesFormatted = SelectablePropertiesBuilderHelper.BackToParent(SelectablePropertiesBuilder<TestClass>
                .GetProperties()
                .SelectProperty(x => x.TestPropertyStr)
                .ThenSelectProperty(x => x.TestPropertyInt)
                .ThenSelectFromCollection(x => x.TestCollectionDates)
                     .ThenSelectProperty(x => x.Minute)
-                    .BackToParent()
+)
                .FormatSelection();
 
             Assert.IsFalse(string.IsNullOrEmpty(propertiesFormatted));
@@ -91,13 +91,13 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_ExternalType_WhenFormatSelectionInvokedUsingNestedCollectionAndComingBackToParentBuilder_ThenStringFormattedRetrived()
         {
-            var propertiesFormatted = SelectablePropertiesBuilder<TestClass>
+            var propertiesFormatted = SelectablePropertiesBuilderHelper.BackToParent(SelectablePropertiesBuilder<TestClass>
                .GetProperties()
                .SelectProperty(x => x.TestPropertyStr)
                .ThenSelectProperty(x => x.TestPropertyInt)
                .ThenSelectFromCollection(x => x.TestCollectionDates)
                     .ThenSelectProperty(x => x.Minute)
-                    .BackToParent()
+)
                .ThenSelectProperty(x => x.TestPropertyDouble)
                .FormatSelection();
 
@@ -110,14 +110,14 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_ExternalType_WhenFormatSelectionInvokedUsingMultipleNestedCollectionAndComingBackToParentBuilder_ThenStringFormattedRetrived()
         {
-            var propertiesFormatted = SelectablePropertiesBuilder<TestClass>
+            var propertiesFormatted = SelectablePropertiesBuilderHelper.BackToParent(SelectablePropertiesBuilder<TestClass>
                .GetProperties()
                .SelectProperty(x => x.TestPropertyStr)
                .ThenSelectProperty(x => x.TestPropertyInt)
                .ThenSelectFromCollection(x => x.TestCollectionDates)
                     .ThenSelectProperty(x => x.Minute)
                     .ThenSelectProperty(x => x.Month)
-                    .BackToParent()
+)
                .ThenSelectProperty(x => x.TestPropertyDouble)
                .FormatSelection();
 
