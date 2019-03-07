@@ -1,5 +1,6 @@
 ﻿using ChustaSoft.Common.Enums;
 using ChustaSoft.Common.Exceptions;
+using System;
 using System.Runtime.Serialization;
 
 
@@ -34,7 +35,14 @@ namespace ChustaSoft.Common.Utilities
             Type = errorType;
             Text = errorText;
         }
-        
+
+        public ErrorMessage(Exception exception)
+        {
+            Text = exception.Message;
+            Type = ErrorType.Unknown;
+            Property = string.Empty;
+        }
+
         public ErrorMessage(BusinessException exception)
         {
             Text = exception.Message;

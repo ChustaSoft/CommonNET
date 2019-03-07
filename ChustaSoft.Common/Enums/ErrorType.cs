@@ -13,5 +13,8 @@ namespace ChustaSoft.Common.Enums
 
         [EnumMember]
         Validation,
+
+        [EnumMember]
+        Unknown,
     }
 }
