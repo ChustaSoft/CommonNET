@@ -9,14 +9,6 @@ namespace ChustaSoft.Common.Helpers
     public static class EncryptationHelper
     {
 
-        #region Constants
-
-        private const int DEFAULT_KEY_SIZE = 256;
-        private const int DEFAULT_DERIVATION_ITERATIONS = 1000;
-
-        #endregion
-
-
         #region Public methods
 
         public static string CreateHash(string primaryText, string secondaryText)
