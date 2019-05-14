@@ -52,5 +52,28 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.ThrowsException<ArgumentNullException>(() => EncryptationHelper.CreateHash(null, null));
         }
 
+        [TestMethod]
+        public void Given_TextAndPassphrase_When_EncryptInvoked_Then_EncryptedStringRetrived()
+        {
+            var text = "TestText";
+            var passphrase = "E546C8DF278CD5931069B522E695D4F2";
+
+            var encryptedText = EncryptationHelper.Encrypt(text, passphrase);
+
+            Assert.AreNotEqual(text, encryptedText);
+        }
+
+        [TestMethod]
+        public void Given_PreviouslyEncryptedTextAndPassphrase_When_DecryptInvoked_Then_DecryptedStringRetrived()
+        {
+            var text = "TestText";
+            var passphrase = Guid.NewGuid().ToString().Replace("-", "");
+
+            var encryptedText = EncryptationHelper.Encrypt(text, passphrase);
+            var decryptedText = EncryptationHelper.Decrypt(encryptedText, passphrase);
+
+            Assert.AreEqual(text, decryptedText);
+        }
+
     }
 }
