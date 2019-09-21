@@ -1,4 +1,4 @@
-﻿namespace ChustaSoft.Common.Helpers
+﻿namespace ChustaSoft.Common.Contracts
 {
     public interface IMapper<TSource, TTarget>
     {

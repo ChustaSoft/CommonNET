@@ -3,7 +3,7 @@ using ChustaSoft.Common.Exceptions;
 using ChustaSoft.Common.Utilities;
 
 
-namespace ChustaSoft.Common.Helpers
+namespace ChustaSoft.Common.Builders
 {
     /// <summary>
     /// Builder for ActionResponse Type
