@@ -32,6 +32,9 @@ namespace ChustaSoft.Common.Helpers
             _actionResponse = new ActionResponse<T>(data);
         }
 
+        public static ActionResponseBuilder<T> Create()
+            => new ActionResponseBuilder<T>();
+
         #endregion
 
 

@@ -9,15 +9,14 @@
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <PackageId>ChustaSoft.Common</PackageId>
-    <Version>1.0.22</Version>
-    <AssemblyVersion>1.0.22</AssemblyVersion>
+    <Version>1.0.22.1</Version>
+    <AssemblyVersion>1.0.22.1</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core</PackageTags>
-    <FileVersion>1.0.22</FileVersion>
+    <FileVersion>1.0.22.1</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>

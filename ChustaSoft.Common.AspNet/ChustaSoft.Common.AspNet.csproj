@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+    <PackageId>ChustaSoft.Common.AspNet</PackageId>
+    <RootNamespace>ChustaSoft.Common</RootNamespace>
+    <Description>Common functionalities and utilities for any ASPNETCore MVC project</Description>
+    <Copyright>ChustaSoft</Copyright>
+    <Authors>Xelit3</Authors>
+    <Company>ChustaSoft</Company>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
+    <FileVersion>1.0.1</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />
+  </ItemGroup>
+
+</Project>

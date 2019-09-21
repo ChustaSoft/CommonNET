@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common", "Chusta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.UnitTest", "ChustaSoft.Common.UnitTest\ChustaSoft.Common.UnitTest.csproj", "{E4229203-A93E-4A38-B135-6B6DD89339CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChustaSoft.Common.AspNet", "ChustaSoft.Common.AspNet\ChustaSoft.Common.AspNet.csproj", "{D694EE58-A797-416D-886C-D29CEF590E0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E4229203-A93E-4A38-B135-6B6DD89339CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4229203-A93E-4A38-B135-6B6DD89339CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4229203-A93E-4A38-B135-6B6DD89339CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D694EE58-A797-416D-886C-D29CEF590E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D694EE58-A797-416D-886C-D29CEF590E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D694EE58-A797-416D-886C-D29CEF590E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D694EE58-A797-416D-886C-D29CEF590E0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
