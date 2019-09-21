@@ -9,7 +9,6 @@ namespace ChustaSoft.Common.Helpers
 
         ICollection<ErrorMessage> Errors { get; set; }
 
-
         T Build();
 
     }
