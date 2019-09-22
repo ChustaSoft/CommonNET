@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace ChustaSoft.Common.Utilities
+namespace ChustaSoft.Common.Builders
 {
 
     public class SelectablePropertiesBuilder<T>

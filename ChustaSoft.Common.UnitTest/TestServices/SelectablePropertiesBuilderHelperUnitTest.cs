@@ -1,6 +1,5 @@
-﻿using ChustaSoft.Common.Helpers;
-using ChustaSoft.Common.Models;
-using ChustaSoft.Common.Utilities;
+﻿using ChustaSoft.Common.Builders;
+using ChustaSoft.Common.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -30,7 +29,6 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var testBuilder = testObj.SelectProperty(x => x.Day);
 
             Assert.AreEqual(testBuilder.Count, 1);
-            //SelectablePropertiesContext.ResetContext();
         }
 
         [TestMethod]
@@ -42,7 +40,6 @@ namespace ChustaSoft.Common.UnitTest.TestServices
                 .ThenSelectProperty(x => x.Month);
 
             Assert.AreEqual(testBuilder.Count, 2);
-            //SelectablePropertiesContext.ResetContext();
         }
 
         [TestMethod]

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace ChustaSoft.Common.Helpers
+namespace ChustaSoft.Common.Contracts
 {
     public interface IBuilder<T> where T : class
     {
