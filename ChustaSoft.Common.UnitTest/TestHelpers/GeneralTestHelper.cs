@@ -17,6 +17,8 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
     internal class TestClass
     {
 
+        public int TestInt { get; set; }
+
         [System.ComponentModel.Description("Test description")]
         public string KnownDescription { get; set; }
 
