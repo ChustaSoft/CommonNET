@@ -9,6 +9,13 @@ namespace ChustaSoft.Common.Helpers
     public static class EncryptationHelper
     {
 
+        #region Constants
+
+        private const PaddingMode DEFAULT_PADDING_MODE = PaddingMode.ANSIX923;
+
+        #endregion
+
+
         #region Public methods
 
         public static string CreateHash(string primaryText, string secondaryText)
@@ -31,13 +38,15 @@ namespace ChustaSoft.Common.Helpers
 
             return Convert.ToBase64String(EncryptedBytes);
         }
-
+        
         public static string Encrypt(string plainText, string passPhrase)
         {
             var key = Encoding.UTF8.GetBytes(passPhrase);
 
             using (var aesAlg = Aes.Create())
             {
+                aesAlg.Padding = DEFAULT_PADDING_MODE;
+
                 using (var encryptor = aesAlg.CreateEncryptor(key, aesAlg.IV))
                 {
                     using (var msEncrypt = new MemoryStream())
@@ -64,17 +73,21 @@ namespace ChustaSoft.Common.Helpers
             var fullCipher = Convert.FromBase64String(cipherText);
             var key = Encoding.UTF8.GetBytes(passPhrase);
             var iv = new byte[16];
-            var cipher = new byte[16];
+            var cipher = new byte[fullCipher.Length - iv.Length];
 
             Buffer.BlockCopy(fullCipher, 0, iv, 0, iv.Length);
-            Buffer.BlockCopy(fullCipher, iv.Length, cipher, 0, iv.Length);
+            Buffer.BlockCopy(fullCipher, iv.Length, cipher, 0, fullCipher.Length - iv.Length);
 
             using (var aesAlg = Aes.Create())
+            {
+                aesAlg.Padding = DEFAULT_PADDING_MODE;
+
                 using (var decryptor = aesAlg.CreateDecryptor(key, iv))
                     using (var msDecrypt = new MemoryStream(cipher))
                         using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                             using (var srDecrypt = new StreamReader(csDecrypt))
                                 return srDecrypt.ReadToEnd();
+            }
         }
 
         #endregion

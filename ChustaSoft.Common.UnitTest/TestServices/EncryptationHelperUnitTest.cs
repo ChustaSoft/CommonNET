@@ -1,5 +1,7 @@
 ﻿using ChustaSoft.Common.Helpers;
+using ChustaSoft.Common.UnitTest.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System;
 
 namespace ChustaSoft.Common.UnitTest.TestServices
@@ -73,6 +75,33 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var decryptedText = EncryptationHelper.Decrypt(encryptedText, passphrase);
 
             Assert.AreEqual(text, decryptedText);
+        }
+
+        [TestMethod]
+        public void Given_JsonObjectForSerialize_When_EncryptInvoked_Then_EncryptedStringRetrived()
+        {
+            var testClass = new TestClass { TestInt = 7, KnownDescription = "Desc", UnknownDescription = "Udesc" };
+            var passphrase = Guid.NewGuid().ToString().Replace("-", "");
+            var jsonClass = JsonConvert.SerializeObject(testClass);
+
+            var encryptedText = EncryptationHelper.Encrypt(jsonClass, passphrase);
+
+            Assert.IsFalse(string.IsNullOrEmpty(encryptedText));
+        }
+
+        [TestMethod]
+        public void Given_JsonStringForDeserialize_When_DecryptInvoked_Then_ObjectCouldBeRetrivedAfter()
+        {
+            var testClass = new TestClass { TestInt = 7, KnownDescription = "Desc", UnknownDescription = "Udesc" };
+            var passphrase = Guid.NewGuid().ToString().Replace("-", "");
+            var jsonClass = JsonConvert.SerializeObject(testClass);
+            var encryptedText = EncryptationHelper.Encrypt(jsonClass, passphrase);
+            var decryptedString = EncryptationHelper.Decrypt(encryptedText, passphrase);
+            var decryptedClass = JsonConvert.DeserializeObject<TestClass>(decryptedString);
+
+            Assert.AreEqual(testClass.TestInt, decryptedClass.TestInt);
+            Assert.AreEqual(testClass.KnownDescription, decryptedClass.KnownDescription);
+            Assert.AreEqual(testClass.UnknownDescription, decryptedClass.UnknownDescription);
         }
 
     }
