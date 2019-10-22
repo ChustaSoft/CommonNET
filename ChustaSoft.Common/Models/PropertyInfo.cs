@@ -5,8 +5,8 @@ namespace ChustaSoft.Common.Models
 {
     public class PropertyInfo
     {
-        
-        public Type Type => Value.GetType();
+
+        public Type Type { get; set; }
 
         public string Name { get; set; }
 
