@@ -68,5 +68,19 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.AreEqual(testClass.TestInt, 0);
         }
 
+        [TestMethod]
+        public void Given_ObjectWithIndexer_When_Empty_Then_ObjectPropertiesCleared()
+        {
+            var testDescription = "Test description";
+            var testInt = 7;
+
+            var testClass = new TestClassWithIndexer { TestString = testDescription, TestInt = testInt };
+
+            testClass.Empty();
+
+            Assert.AreEqual(testClass.TestInt, 0);
+            Assert.IsTrue(string.IsNullOrEmpty(testClass.TestString));
+        }
+
     }
 }
