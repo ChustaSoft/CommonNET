@@ -25,4 +25,14 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
         public string UnknownDescription { get; set; }
 
     }
+
+    internal class TestClassWithIndexer
+    {
+        public int TestInt { get; set; }
+
+        public string TestString { get; set; }
+
+        public string this[string key] { get => string.Empty; }
+    }
+
 }
