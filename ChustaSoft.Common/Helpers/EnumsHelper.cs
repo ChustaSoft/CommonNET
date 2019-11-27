@@ -17,6 +17,24 @@ namespace ChustaSoft.Common.Helpers
         #region Extension Methods
 
         /// <summary>
+        /// Method to retrieve any attribute from an specific Enum
+        /// </summary>
+        /// <typeparam name="TAttributes">Attribute type</typeparam>
+        /// <param name="obj">Enum itself</param>
+        /// <returns></returns>
+        public static TAttributes GetAttributes<TAttributes>(this Enum obj)
+            where TAttributes : Attribute
+        {
+            var fieldInfo = obj.GetType().GetField(obj.ToString());
+            var attribArray = fieldInfo.GetCustomAttributes(false);
+
+            if (attribArray.Length > 0)
+                return attribArray.FirstOrDefault(a => a.GetType() == typeof(TAttributes)) as TAttributes;
+            else
+                return null;
+        }
+
+        /// <summary>
         /// Method to retrieve Description based on DescriptionAttribute from an Enum type.
         /// In case of not implementing, enum type itself would be returned as string
         /// </summary>
@@ -24,17 +42,12 @@ namespace ChustaSoft.Common.Helpers
         /// <returns>Description of the Enum in case of success, otherise name itself as ToString </returns>
         public static string GetDescription(this Enum obj)
         {
-            var fieldInfo = obj.GetType().GetField(obj.ToString());
-            var attribArray = fieldInfo.GetCustomAttributes(false);
+            var descriptionAttribute = obj.GetAttributes<DescriptionAttribute>();
 
-            if (attribArray.Length > 0)
-            {
-                var attrib = attribArray.FirstOrDefault(a => a.GetType() == typeof(DescriptionAttribute)) as DescriptionAttribute;
-
-                if (attrib != null)
-                    return attrib.Description;
-            }
-            return obj.ToString();
+            if (descriptionAttribute != null)
+                return descriptionAttribute.Description;
+            else
+                return obj.ToString();
         }
 
         /// <summary>

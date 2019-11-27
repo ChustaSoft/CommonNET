@@ -18,6 +18,12 @@ namespace ChustaSoft.Common.Helpers
 
         #region Public methods
 
+        /// <summary>
+        /// One way encryption for two different strings
+        /// </summary>
+        /// <param name="primaryText">First text to encrypt</param>
+        /// <param name="secondaryText">Second text to encrypt</param>
+        /// <returns>Encryted result of concatenated strings</returns>
         public static string CreateHash(string primaryText, string secondaryText)
         {
             if (primaryText == null || secondaryText == null)
@@ -28,6 +34,11 @@ namespace ChustaSoft.Common.Helpers
             return CreateHash(concatenatedText);
         }
 
+        /// <summary>
+        /// One way encryption for a single string
+        /// </summary>
+        /// <param name="primaryText">Text to encrypt</param>
+        /// <returns>Encryted result for specified string</returns>
         public static string CreateHash(string text)
         {
             var hashTool = new SHA512Managed();
@@ -38,7 +49,13 @@ namespace ChustaSoft.Common.Helpers
 
             return Convert.ToBase64String(EncryptedBytes);
         }
-        
+
+        /// <summary>
+        /// Encryption method with AES algorythm, needs only a text and private key to encrypt
+        /// </summary>
+        /// <param name="plainText">Text to encrypt</param>
+        /// <param name="passPhrase">Private key</param>
+        /// <returns>Encrypted string</returns>
         public static string Encrypt(string plainText, string passPhrase)
         {
             var key = Encoding.UTF8.GetBytes(passPhrase);
@@ -68,6 +85,12 @@ namespace ChustaSoft.Common.Helpers
             }
         }
 
+        /// <summary>
+        /// Decryption method for a specified string
+        /// </summary>
+        /// <param name="cipherText">Encrypted string</param>
+        /// <param name="passPhrase">Private key</param>
+        /// <returns>Decrypted string result</returns>
         public static string Decrypt(string cipherText, string passPhrase)
         {
             var fullCipher = Convert.FromBase64String(cipherText);
