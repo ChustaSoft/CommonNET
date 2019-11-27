@@ -12,7 +12,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
     [TestCategory(nameof(EnumsHelper))]
     public class EnumsHelperUnitTest
     {
-        
+
         #region Test Cases
 
         [TestMethod]
@@ -117,6 +117,25 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         public void Given_WrongEnumType_When_GetEnumDictionaryInvoked_Then_ExceptionThrown()
         {
             Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetEnumDictionary<DateTime>());
+        }
+
+        [TestMethod]
+        public void Given_EnumTypeWithCustomAttribute_When_GetAtributes_Then_CustomAttributeRetrived()
+        {
+            var enumType = TestEnumCustomAttributes.Value1;
+            var enumAttr = enumType.GetAttributes<CustomAttribute>();
+
+            Assert.IsFalse(string.IsNullOrEmpty(enumAttr.TestProperty));
+            Assert.AreEqual(typeof(CustomAttribute), enumAttr.GetType());
+        }
+
+        [TestMethod]
+        public void Given_EnumTypeWithoutCustomAttribute_When_GetAtributes_Then_NullRetrived()
+        {
+            var enumType = TestEnumCustomAttributes.Value2;
+            var enumAttr = enumType.GetAttributes<CustomAttribute>();
+
+            Assert.IsNull(enumAttr);
         }
 
         #endregion

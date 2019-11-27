@@ -1,8 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 
 namespace ChustaSoft.Common.UnitTest.TestHelpers
-{    
+{
     internal enum TestEnum
     {
         WithoutDescription,
@@ -12,6 +13,14 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
 
         [Description("2")]
         WithDescription2
+    }
+
+    internal enum TestEnumCustomAttributes
+    {
+        [Custom("test-1")]
+        Value1,
+
+        Value2,
     }
 
     internal class TestClass
@@ -33,6 +42,18 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
         public string TestString { get; set; }
 
         public string this[string key] { get => string.Empty; }
+    }
+
+    public class CustomAttribute : Attribute
+    {
+
+        public string TestProperty { get; set; }
+
+        public CustomAttribute(string testProperty)
+        {
+            TestProperty = testProperty;
+        }
+
     }
 
 }
