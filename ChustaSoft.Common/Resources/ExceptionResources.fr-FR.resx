@@ -138,4 +138,7 @@
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
     <value>La liste paginée ne permet pas l'ajout d'éléments</value>
   </data>
+  <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
+    <value>Le type d'algorithme {0} n'est pas pris en charge</value>
+  </data>
 </root>

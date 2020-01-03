@@ -122,5 +122,14 @@ namespace ChustaSoft.Common.Resources {
                 return ResourceManager.GetString("InvalidOperationException_PaginatedListAdd", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} algorithm not supported for the requested operation.
+        /// </summary>
+        internal static string UnsupportedAlgorithmException_ErrorMessage {
+            get {
+                return ResourceManager.GetString("UnsupportedAlgorithmException_ErrorMessage", resourceCulture);
+            }
+        }
     }
 }
