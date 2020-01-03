@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ChustaSoft.Common.Exceptions;
+using System;
 using System.IO;
+using System.Security.Authentication;
 using System.Security.Cryptography;
 using System.Text;
-
 
 namespace ChustaSoft.Common.Helpers
 {
@@ -12,6 +13,7 @@ namespace ChustaSoft.Common.Helpers
         #region Constants
 
         private const PaddingMode DEFAULT_PADDING_MODE = PaddingMode.ANSIX923;
+        private const HashAlgorithmType DEFAULT_ALGORITHM_HASH = HashAlgorithmType.Sha512;
 
         #endregion
 
@@ -19,35 +21,42 @@ namespace ChustaSoft.Common.Helpers
         #region Public methods
 
         /// <summary>
-        /// One way encryption for two different strings
+        /// One way hash encryption for two different strings
         /// </summary>
         /// <param name="primaryText">First text to encrypt</param>
         /// <param name="secondaryText">Second text to encrypt</param>
+        /// <param name="hashAlgorithmType">Algorith choosen. Sha512 by default. Supports also MD5</param>
         /// <returns>Encryted result of concatenated strings</returns>
-        public static string CreateHash(string primaryText, string secondaryText)
+        public static string CreateHash(string primaryText, string secondaryText, HashAlgorithmType hashAlgorithmType = DEFAULT_ALGORITHM_HASH)
         {
             if (primaryText == null || secondaryText == null)
                 throw new ArgumentNullException();
 
             var concatenatedText = string.Concat(primaryText, secondaryText);
 
-            return CreateHash(concatenatedText);
+            return CreateHash(concatenatedText, hashAlgorithmType);
         }
 
         /// <summary>
-        /// One way encryption for a single string
+        /// One way hash encryption for a single string
         /// </summary>
         /// <param name="primaryText">Text to encrypt</param>
+        /// <param name="hashAlgorithmType">Algorith choosen. Sha512 by default. Supports also MD5</param>
         /// <returns>Encryted result for specified string</returns>
-        public static string CreateHash(string text)
+        public static string CreateHash(string text, HashAlgorithmType hashAlgorithmType = DEFAULT_ALGORITHM_HASH)
         {
-            var hashTool = new SHA512Managed();
-            var PasswordAsByte = Encoding.UTF8.GetBytes(text);
-            var EncryptedBytes = hashTool.ComputeHash(PasswordAsByte);
+            switch (hashAlgorithmType)
+            {
+                case HashAlgorithmType.Md5:
+                    return CreateMD5Hash(text);
 
-            hashTool.Clear();
+                case HashAlgorithmType.Sha512:
+                    return CreateSha512Hash(text);
 
-            return Convert.ToBase64String(EncryptedBytes);
+                default:
+                    throw new UnsupportedAlgorithmException(hashAlgorithmType);
+            }
+            
         }
 
         /// <summary>
@@ -58,7 +67,7 @@ namespace ChustaSoft.Common.Helpers
         /// <returns>Encrypted string</returns>
         public static string Encrypt(string plainText, string passPhrase)
         {
-            var key = Encoding.UTF8.GetBytes(passPhrase);
+            byte[] key = Get32ByteArrayKey(passPhrase);
 
             using (var aesAlg = Aes.Create())
             {
@@ -69,8 +78,8 @@ namespace ChustaSoft.Common.Helpers
                     using (var msEncrypt = new MemoryStream())
                     {
                         using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                            using (var swEncrypt = new StreamWriter(csEncrypt))
-                                swEncrypt.Write(plainText);
+                        using (var swEncrypt = new StreamWriter(csEncrypt))
+                            swEncrypt.Write(plainText);
 
                         var iv = aesAlg.IV;
                         var decryptedContent = msEncrypt.ToArray();
@@ -94,7 +103,7 @@ namespace ChustaSoft.Common.Helpers
         public static string Decrypt(string cipherText, string passPhrase)
         {
             var fullCipher = Convert.FromBase64String(cipherText);
-            var key = Encoding.UTF8.GetBytes(passPhrase);
+            var key = Get32ByteArrayKey(passPhrase);
             var iv = new byte[16];
             var cipher = new byte[fullCipher.Length - iv.Length];
 
@@ -110,6 +119,38 @@ namespace ChustaSoft.Common.Helpers
                         using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                             using (var srDecrypt = new StreamReader(csDecrypt))
                                 return srDecrypt.ReadToEnd();
+            }
+        }
+
+        #endregion
+
+
+        #region Private methods
+
+        private static byte[] Get32ByteArrayKey(string passPhrase)
+        {
+            return Encoding.UTF8.GetBytes(CreateMD5Hash(passPhrase));
+        }
+
+        private static string CreateSha512Hash(string text)
+        {
+            var hashTool = new SHA512Managed();
+            var passwordAsByte = Encoding.UTF8.GetBytes(text);
+            var encryptedBytes = hashTool.ComputeHash(passwordAsByte);
+
+            hashTool.Clear();
+
+            return Convert.ToBase64String(encryptedBytes);
+        }
+
+        private static string CreateMD5Hash(string text)
+        {
+            using (var md5 = MD5.Create())
+            {
+                byte[] hash = md5.ComputeHash(Encoding.Default.GetBytes(text));
+                var md5GuidHash = new Guid(hash).ToString("N");
+
+                return md5GuidHash;
             }
         }
 

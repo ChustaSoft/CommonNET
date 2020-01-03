@@ -138,4 +138,7 @@
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
     <value>La lista paginada no permite añadir elementos</value>
   </data>
+  <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
+    <value>El tipo de algoritmo {0} no está soportado</value>
+  </data>
 </root>

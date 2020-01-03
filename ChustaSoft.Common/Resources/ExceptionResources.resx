@@ -138,4 +138,7 @@
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
     <value>PaginatedList do not allow to add elements</value>
   </data>
+  <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
+    <value>{0} algorithm not supported for the requested operation</value>
+  </data>
 </root>
