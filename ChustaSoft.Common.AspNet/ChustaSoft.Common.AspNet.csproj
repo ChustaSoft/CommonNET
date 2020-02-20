@@ -9,14 +9,14 @@
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>1.0.1</Version>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <FileVersion>1.1.0</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
-    <FileVersion>1.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
