@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp2.2;netcoreapp3.0</TargetFrameworks>
     <PackageId>ChustaSoft.Common.AspNet</PackageId>
     <RootNamespace>ChustaSoft.Common</RootNamespace>
     <Description>Common functionalities and utilities for any ASPNETCore MVC project</Description>
@@ -9,19 +9,29 @@
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>1.0.2</Version>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <FileVersion>1.1.0</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
-    <FileVersion>1.0.2</FileVersion>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' ">
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.0.3" />
   </ItemGroup>
 
   <ItemGroup>
