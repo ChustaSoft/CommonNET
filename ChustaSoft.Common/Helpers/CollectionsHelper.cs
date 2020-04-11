@@ -1,6 +1,7 @@
 ﻿using ChustaSoft.Common.Resources;
 using ChustaSoft.Common.Utilities;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,6 +31,20 @@ namespace ChustaSoft.Common.Helpers
             var paginatedData = data.Skip(currentPageIndex * pageSize).Take(pageSize);
 
             return new PaginatedList<T>(paginatedData, data.Count(), currentPageIndex++);
+        }
+
+        /// <summary>
+        /// Adds multiple elements to a ConcurrentBag
+        /// </summary>
+        /// <typeparam name="T">Typed objetc</typeparam>
+        /// <param name="this">ConcurrentBag itself</param>
+        /// <param name="items">Items to add into ConcurrentBag</param>
+        public static void AddRange<T>(this ConcurrentBag<T> @this, IEnumerable<T> items)
+        {
+            foreach (var element in items)
+            {
+                @this.Add(element);
+            }
         }
 
         #endregion
