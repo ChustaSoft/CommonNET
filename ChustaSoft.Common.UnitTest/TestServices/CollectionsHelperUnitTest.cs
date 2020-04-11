@@ -1,9 +1,10 @@
 using ChustaSoft.Common.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 
 namespace ChustaSoft.Common.UnitTest.TestServices
 {
@@ -81,7 +82,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPageOverLimitIndex_When_PaginateInvoked_Then_ExceptionThrownS()
+        public void Given_CollectionAndPageSizeAndCurrentPageOverLimitIndex_When_PaginateInvoked_Then_ExceptionThrowns()
         {
             var pageSize = 10;
             var currentPageIndex = 4;
@@ -91,13 +92,51 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPageIndexUnderLimit_When_PaginateInvoked_Then_ExceptionThrownS()
+        public void Given_CollectionAndPageSizeAndCurrentPageIndexUnderLimit_When_PaginateInvoked_Then_ExceptionThrown()
         {
             var pageSize = 10;
             var currentPageIndex = -1;
             var testList = GetTestList(25);
 
             Assert.ThrowsException<InvalidOperationException>(() => testList.Paginate(pageSize, currentPageIndex));
+        }
+
+        [TestMethod]
+        public void Given_CollectionSingleElementAndConcurrentBag_When_AddRange_Then_ElementsAdded()
+        {
+            var concurrentBagExample = new ConcurrentBag<string>();
+            var testList1 = new List<string> { "String1", "String2", "String3", "String4" };
+            
+            concurrentBagExample.AddRange(testList1);
+            concurrentBagExample.Add("TEST");
+
+            Assert.AreEqual(testList1.Count() + 1, concurrentBagExample.Count());
+        }
+
+        [TestMethod]
+        public void Given_TwoCollectionsAndConcurrentBag_When_AddRange_Then_ElementsAdded()
+        {
+            var concurrentBagExample = new ConcurrentBag<string>();
+            var testList1 = new List<string> { "String1", "String2", "String3", "String4" };
+            var testList2 = new List<string> { "String5", "String6", "String7", "String8", "String9", "String0" };
+
+            concurrentBagExample.AddRange(testList1); 
+            concurrentBagExample.AddRange(testList2);
+
+            Assert.AreEqual(testList1.Count() + testList2.Count(), concurrentBagExample.Count());
+        }
+
+        [TestMethod]
+        public void Given_MultipleParallelizedCollectionsAndConcurrentBag_When_AddRange_Then_ElementsAdded()
+        {
+            var concurrentBagExample = new ConcurrentBag<string>();
+
+            Parallel.For(0, 10, i =>
+            {
+                concurrentBagExample.AddRange(new List<string> { "Test1", "Test2" });
+            });
+
+            Assert.AreEqual(10*2, concurrentBagExample.Count());
         }
 
         #endregion
