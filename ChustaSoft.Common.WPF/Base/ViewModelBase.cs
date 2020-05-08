@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ChustaSoft.Common.Wpf.Base
+namespace ChustaSoft.Common.Base
 {
 
     public abstract class ViewModelBase : INotifyPropertyChanged 

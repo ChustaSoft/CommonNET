@@ -1,9 +1,9 @@
-﻿using ChustaSoft.Common.Wpf.Models;
+﻿using ChustaSoft.Common.Models;
 using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ChustaSoft.Common.Wpf.Controls
+namespace ChustaSoft.Common.Controls
 {
     public partial class MultiSelection : UserControl
     {

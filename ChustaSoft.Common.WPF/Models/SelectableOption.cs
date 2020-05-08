@@ -1,6 +1,6 @@
-﻿using ChustaSoft.Common.Wpf.Base;
+﻿using ChustaSoft.Common.Base;
 
-namespace ChustaSoft.Common.Wpf.Models
+namespace ChustaSoft.Common.Models
 {
     public class SelectableOption : ViewModelBase
     {

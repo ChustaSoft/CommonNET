@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <PackageId>ChustaSoft.Common</PackageId>
+    <PackageId>ChustaSoft.Common.Wpf</PackageId>
     <RootNamespace>ChustaSoft.Common</RootNamespace>
     <Description>Common utilities, controls and more for any .NET WPF project</Description>
     <Copyright>ChustaSoft</Copyright>

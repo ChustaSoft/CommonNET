@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ChustaSoft.Common.Wpf.Helpers
+namespace ChustaSoft.Common.Helpers
 {
     public class RelayCommand : ICommand
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace ChustaSoft.Common.Wpf.Helpers
+namespace ChustaSoft.Common.Helpers
 {
     public class DefaultVisibilityConverter : IValueConverter
     {
