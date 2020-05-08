@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common", "ChustaSoft.Common\ChustaSoft.Common.csproj", "{01B32248-4EF1-48D4-99B7-7EBFB2E85BAE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.UnitTest", "ChustaSoft.Common.UnitTest\ChustaSoft.Common.UnitTest.csproj", "{E4229203-A93E-4A38-B135-6B6DD89339CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChustaSoft.Common.AspNet", "ChustaSoft.Common.AspNet\ChustaSoft.Common.AspNet.csproj", "{D694EE58-A797-416D-886C-D29CEF590E0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.AspNet", "ChustaSoft.Common.AspNet\ChustaSoft.Common.AspNet.csproj", "{D694EE58-A797-416D-886C-D29CEF590E0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChustaSoft.Common.WPF", "ChustaSoft.Common.WPF\ChustaSoft.Common.WPF.csproj", "{3160516B-AF16-4B90-A232-4E230EE55AC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D694EE58-A797-416D-886C-D29CEF590E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D694EE58-A797-416D-886C-D29CEF590E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D694EE58-A797-416D-886C-D29CEF590E0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3160516B-AF16-4B90-A232-4E230EE55AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3160516B-AF16-4B90-A232-4E230EE55AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3160516B-AF16-4B90-A232-4E230EE55AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3160516B-AF16-4B90-A232-4E230EE55AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
