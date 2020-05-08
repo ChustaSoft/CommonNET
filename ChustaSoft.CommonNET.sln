@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.UnitTest"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.AspNet", "ChustaSoft.Common.AspNet\ChustaSoft.Common.AspNet.csproj", "{D694EE58-A797-416D-886C-D29CEF590E0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChustaSoft.Common.WPF", "ChustaSoft.Common.WPF\ChustaSoft.Common.WPF.csproj", "{3160516B-AF16-4B90-A232-4E230EE55AC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.WPF", "ChustaSoft.Common.WPF\ChustaSoft.Common.WPF.csproj", "{3160516B-AF16-4B90-A232-4E230EE55AC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C1EE339C-C39B-4A5C-9C72-A1B2DBD2E7B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{C4DDB498-0331-4FC4-8679-9C4D504BBE67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +40,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{01B32248-4EF1-48D4-99B7-7EBFB2E85BAE} = {C1EE339C-C39B-4A5C-9C72-A1B2DBD2E7B0}
+		{E4229203-A93E-4A38-B135-6B6DD89339CC} = {C4DDB498-0331-4FC4-8679-9C4D504BBE67}
+		{D694EE58-A797-416D-886C-D29CEF590E0D} = {C1EE339C-C39B-4A5C-9C72-A1B2DBD2E7B0}
+		{3160516B-AF16-4B90-A232-4E230EE55AC1} = {C1EE339C-C39B-4A5C-9C72-A1B2DBD2E7B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94984630-C46B-42F8-B7E9-9D1AD1A8F57B}
