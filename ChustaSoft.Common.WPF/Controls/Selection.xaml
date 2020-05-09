@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ChustaSoft.Common.Controls.Selection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:helpers="clr-namespace:ChustaSoft.Common.Helpers"
+             x:Name="selection"
+             mc:Ignorable="d" >
+    
+    <UserControl.Resources>
+        <helpers:DefaultVisibilityConverter x:Key="defaultVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <ComboBox x:Name="comboBox" Width="200" ToolTip="Open for selecting multiple elements"
+                  ItemsSource="{Binding ElementName=selection, Path=Items}" 
+                  SelectedItem="{Binding ElementName=selection, Path=ItemSelected}"
+                  >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=Name, Mode=OneWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="0,2,20,2" IsHitTestVisible="False"
+               Content="{Binding ElementName=selection, Path=DefaultText}"
+               Visibility="{Binding ElementName=selection, Path=ItemSelected, Converter={StaticResource defaultVisibilityConverter}}"/>
+    </Grid>
+    
+</UserControl>
