@@ -1,5 +1,5 @@
 ﻿using ChustaSoft.Common.Models;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,10 +12,7 @@ namespace ChustaSoft.Common.Controls
             DependencyProperty.Register(nameof(DefaultText), typeof(string), typeof(MultiSelection));
 
         public static DependencyProperty ItemsSourceProperty =
-            DependencyProperty.Register(nameof(Items), typeof(IEnumerable), typeof(MultiSelection));
-
-        public static DependencyProperty SelectedItemProperty =
-            DependencyProperty.Register(nameof(ItemSelected), typeof(SelectableOption), typeof(MultiSelection));
+            DependencyProperty.Register(nameof(Items), typeof(IEnumerable<SelectableOption>), typeof(MultiSelection));
 
 
         public string DefaultText
@@ -24,16 +21,10 @@ namespace ChustaSoft.Common.Controls
             set { SetValue(DefaultTextProperty, value); }
         }
 
-        public IEnumerable Items
+        public IEnumerable<SelectableOption> Items
         {
-            get { return (IEnumerable)GetValue(ItemsSourceProperty); }
+            get { return (IEnumerable<SelectableOption>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
-        }
-
-        public SelectableOption ItemSelected
-        {
-            get { return (SelectableOption)GetValue(SelectedItemProperty); }
-            set { SetValue(SelectedItemProperty, value); }
         }
 
 
