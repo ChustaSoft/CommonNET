@@ -2,7 +2,8 @@
 
 namespace ChustaSoft.Common.Models
 {
-    public class SelectableOption : ViewModelBase
+
+    public class SelectableOption<T> : ViewModelBase
     {
 
         private bool _Selected;
@@ -16,8 +17,8 @@ namespace ChustaSoft.Common.Models
             }
         }
 
-        private string _name;
-        public string Name
+        private T _name;
+        public T Name
         {
             get { return _name; }
             set
@@ -28,4 +29,8 @@ namespace ChustaSoft.Common.Models
         }
 
     }
+
+
+    public class SelectableOption : SelectableOption<string> { }
+
 }
