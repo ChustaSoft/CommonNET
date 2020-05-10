@@ -3,24 +3,30 @@
 namespace ChustaSoft.Common.Models
 {
 
-    public class SelectableOption<T> : ViewModelBase
+    public class SelectableOption : ViewModelBase
     {
 
-        private bool _Selected;
+        private bool _selected;
         public bool Selected
         {
-            get { return _Selected; }
+            get 
+            { 
+                return _selected; 
+            }
             set
             {
-                _Selected = value;
+                _selected = value;
                 OnPropertyChanged(nameof(Selected));
             }
         }
 
-        private T _name;
-        public T Name
+        private string _name;
+        public string Name
         {
-            get { return _name; }
+            get 
+            { 
+                return _name; 
+            }
             set
             {
                 _name = value;
@@ -31,6 +37,23 @@ namespace ChustaSoft.Common.Models
     }
 
 
-    public class SelectableOption : SelectableOption<string> { }
+    public class SelectableOption<T> : SelectableOption 
+    {
+
+        private T _value;
+        public T Value
+        {
+            get 
+            { 
+                return _value; 
+            }
+            set 
+            { 
+                _value = value;
+                OnPropertyChanged(nameof(Value));
+            }
+        }
+
+    }
 
 }
