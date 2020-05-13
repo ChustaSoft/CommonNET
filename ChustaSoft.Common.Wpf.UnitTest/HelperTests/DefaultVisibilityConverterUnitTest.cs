@@ -1,9 +1,6 @@
 ﻿using ChustaSoft.Common.Helpers;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Windows;
 
 namespace ChustaSoft.Common.Wpf.UnitTest
@@ -13,11 +10,13 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
         private DefaultVisibilityConverter _defaultVisibilityConverter;
 
+
         [OneTimeSetUp]
         public void Setup()
         {
             _defaultVisibilityConverter = new DefaultVisibilityConverter();
         }
+
 
         [Test]
         public void Given_Null_When_Convert_Then_VisibleRetrived()

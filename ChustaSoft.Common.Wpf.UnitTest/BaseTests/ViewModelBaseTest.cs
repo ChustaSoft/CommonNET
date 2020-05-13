@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace ChustaSoft.Common.Wpf.UnitTest.BaseTests
+namespace ChustaSoft.Common.Wpf.UnitTest
 {
     public class ViewModelBaseTest
     {

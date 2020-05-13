@@ -10,11 +10,13 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
         private VisibilityConverter _visibilityConverter;
 
+
         [OneTimeSetUp]
         public void Setup()
         {
             _visibilityConverter = new VisibilityConverter();
         }
+
 
         [Test]
         public void Given_True_When_Convert_Then_VisibleRetrived()
