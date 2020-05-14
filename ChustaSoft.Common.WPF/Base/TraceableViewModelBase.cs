@@ -5,7 +5,7 @@ namespace ChustaSoft.Common.Base
     /// <summary>
     /// ViewModel requiring ILogger implementation injected than can be used in the inherited models
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Generic type for Model object</typeparam>
     public class TraceableViewModelBase<T> : ViewModelBase<T>
         where T : new()
     {
