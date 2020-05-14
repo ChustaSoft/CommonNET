@@ -12,7 +12,7 @@ namespace ChustaSoft.Common.Base
     /// Base Controller for any Api controller
     /// Forces the inherited to have injected a ILogger, defined in the client application
     /// </summary>
-    /// <typeparam name="TController"></typeparam>
+    /// <typeparam name="TController">ControllerType itself, required for ILogger</typeparam>
     public class ApiControllerBase<TController> : ControllerBase
     {
 
