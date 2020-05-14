@@ -3,6 +3,9 @@ using System.Windows.Input;
 
 namespace ChustaSoft.Common.Helpers
 {
+    /// <summary>
+    /// Basic ICommand implementation for Command Binding in MVVM WPF pattern
+    /// </summary>
     public class RelayCommand : ICommand
     {
 
@@ -50,6 +53,9 @@ namespace ChustaSoft.Common.Helpers
 
     }
 
+    /// <summary>
+    /// Basic ICommand implementation for Command Binding in MVVM WPF pattern with generic
+    /// </summary>
     public class RelayCommand<T> : ICommand
     {
 

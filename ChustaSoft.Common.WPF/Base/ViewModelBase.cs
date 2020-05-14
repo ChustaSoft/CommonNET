@@ -2,7 +2,9 @@
 
 namespace ChustaSoft.Common.Base
 {
-
+    /// <summary>
+    /// ViewModelBase, implementing INotifyPropertyChanged interface
+    /// </summary>
     public abstract class ViewModelBase : INotifyPropertyChanged 
     {
 
@@ -16,7 +18,10 @@ namespace ChustaSoft.Common.Base
 
     }
 
-
+    /// <summary>
+    /// ViewModelBase for generic Models. Internally contains a generic Model isolating this from the main ViewModel
+    /// </summary>
+    /// <typeparam name="T">Generic type for Model object</typeparam>
     public abstract class ViewModelBase<T> : ViewModelBase
         where T : new()
     {
