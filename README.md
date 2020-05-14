@@ -9,15 +9,15 @@ The tool is divided in three different NuGet Packages:
 
 - *CommonNET Base library:* Base library, without dependencies, useful for any kind of .NET Project
   - [![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=5&branchName=master)
-  - [![NuGet](https://img.shields.io/nuget/v/nlog.svg)](https://www.nuget.org/packages/ChustaSoft.Common)
+  - [![NuGet](https://img.shields.io/nuget/v/ChustaSoft.Common)](https://www.nuget.org/packages/ChustaSoft.Common)
 
 - *CommonNET AspNet library:* Library with Base and utilities for an AspNetCore project
   - [![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common%20AspNet?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=13&branchName=master)
-  - [![NuGet](https://img.shields.io/nuget/v/nlog.svg)](https://www.nuget.org/packages/ChustaSoft.Common.AspNet)
+  - [![NuGet](https://img.shields.io/nuget/v/ChustaSoft.Common.AspNet)](https://www.nuget.org/packages/ChustaSoft.Common.AspNet)
 
 - *CommonNET WPF library:* Controls, Models and Utitilities for a WPF .NET Core project. It has additionally the functionalities from CommonNET base library
   - [![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common%20WPF?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=20&branchName=master)
-  - [![NuGet](https://img.shields.io/nuget/v/nlog.svg)](https://www.nuget.org/packages/ChustaSoft.Common.Wpf)
+  - [![NuGet](https://img.shields.io/nuget/v/ChustaSoft.Common.Wpf)](https://www.nuget.org/packages/ChustaSoft.Common.Wpf)
 
 
 Getting started
@@ -26,7 +26,7 @@ Getting started
 There are no requirements, library has not any dependencies in order to make architectural implementation as decoupled as possible. Just install in the project to use and it will be ready, depending on your project type
 
 
-*CommonNET*
+CommonNET
 ---
 
 - Targets:
@@ -47,7 +47,7 @@ There are no requirements, library has not any dependencies in order to make arc
     - Utilities: Objects to simplify certain operations.
 
 
-*CommonNET.AspNet* 
+CommonNET.AspNet
 ---
 
 - Targets:
@@ -61,7 +61,7 @@ There are no requirements, library has not any dependencies in order to make arc
     - Base: ApiControllerBase is a rich controller with the main functionalities, and forces the inherited Controllers to inject an ILogger defined in the client project
 
 
-*CommonNET.Wpf* 
+CommonNET.Wpf
 ---
 
 - Targets:
@@ -81,5 +81,6 @@ There are no requirements, library has not any dependencies in order to make arc
 Specific documentation of any class and general methods could be found inside classes and exposed methods
 
 
-Thanks for using and contributing
+*Thanks for using and contributing*
+---
 [![Twitter Follow](https://img.shields.io/twitter/follow/ChustaSoft?label=Follow%20us&style=social)](https://twitter.com/ChustaSoft)
