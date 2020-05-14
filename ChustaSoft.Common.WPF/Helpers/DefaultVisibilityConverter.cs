@@ -5,6 +5,9 @@ using System.Windows.Data;
 
 namespace ChustaSoft.Common.Helpers
 {
+    /// <summary>
+    /// Gives visibility by default when nothing is retrived
+    /// </summary>
     public class DefaultVisibilityConverter : IValueConverter
     {
 
