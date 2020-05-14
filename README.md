@@ -5,8 +5,8 @@ Common utilities and features for any .NET application. This library acts like a
 The tool is divided in three different NuGet Packages:
 
 - *CommonNET Base library:* Base library, without dependencies, useful for any kind of .NET Project
-[![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=5&branchName=master)
-[![NuGet](https://img.shields.io/nuget/v/nlog.svg)](https://www.nuget.org/packages/ChustaSoft.Common)
+  - [![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=5&branchName=master)
+  - [![NuGet](https://img.shields.io/nuget/v/nlog.svg)](https://www.nuget.org/packages/ChustaSoft.Common)
 
 - *CommonNET AspNet library:* Library with Base and utilities for an AspNetCore project
 [![Build Status](https://dev.azure.com/chustasoft/BaseProfiler/_apis/build/status/Release/RELEASE%20-%20NuGet%20-%20ChustaSoft%20Common%20AspNet?branchName=master)](https://dev.azure.com/chustasoft/BaseProfiler/_build/latest?definitionId=13&branchName=master)
