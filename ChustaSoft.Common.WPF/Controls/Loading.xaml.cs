@@ -40,14 +40,14 @@ namespace ChustaSoft.Common.Controls
             DependencyProperty.Register("TextColor", typeof(string), typeof(Loading), new PropertyMetadata(null));
 
 
-        public double PanelOpacity
+        public float PanelOpacity
         {
-            get { return (double)GetValue(PanelOpacityProperty); }
+            get { return (float)GetValue(PanelOpacityProperty); }
             set { SetValue(PanelOpacityProperty, value); }
         }
 
         public static readonly DependencyProperty PanelOpacityProperty =
-            DependencyProperty.Register("PanelOpacity", typeof(double), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register("PanelOpacity", typeof(float), typeof(Loading), new PropertyMetadata(null));
 
 
         public bool TopBarVisible
@@ -67,17 +67,7 @@ namespace ChustaSoft.Common.Controls
         }
 
         public static readonly DependencyProperty BottomBarVisibleProperty =
-            DependencyProperty.Register("BottomBarVisible", typeof(bool), typeof(Loading), new PropertyMetadata(null));
-
-
-        public float PanelWidth
-        {
-            get { return (float)GetValue(PanelWidthProperty); }
-            set { SetValue(PanelWidthProperty, value); }
-        }
-
-        public static readonly DependencyProperty PanelWidthProperty =
-            DependencyProperty.Register("PanelWidth", typeof(float), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register("BottomBarVisible", typeof(bool), typeof(Loading), new PropertyMetadata(null));        
 
 
         public bool Visible
