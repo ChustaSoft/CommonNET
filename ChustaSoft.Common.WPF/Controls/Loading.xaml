@@ -7,7 +7,7 @@
              mc:Ignorable="d">
     <UserControl.Resources>
 
-        <SolidColorBrush x:Key="panelBackground" Opacity="{Binding PanelOpacity, ElementName=self}" Color="{Binding BackgroundColor, ElementName=self}"></SolidColorBrush>
+        <SolidColorBrush x:Key="panelBackground" Opacity="{Binding PanelOpacity, ElementName=loading}" Color="{Binding BackgroundColor, ElementName=loading}"></SolidColorBrush>
 
         <Style x:Key="panelMessageText" TargetType="{x:Type TextBlock}">
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -18,18 +18,18 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="SnapsToDevicePixels" Value="True" />
-            <Setter Property="Foreground" Value="{Binding TextColor, ElementName=self}"/>
+            <Setter Property="Foreground" Value="{Binding TextColor, ElementName=loading}"/>
         </Style>
 
         <BooleanToVisibilityConverter x:Key="Converter" />
 
     </UserControl.Resources>
 
-    <StackPanel Orientation="Vertical" VerticalAlignment="Center"  Background="{StaticResource panelBackground}" Margin="0,0,0,0" Height="90" Visibility="{Binding Path=Visible, Converter={StaticResource Converter}, ElementName=self}">
-        <ProgressBar Minimum="0" Maximum="0" x:Name="dynamicPbStatusTop" IsIndeterminate="True" Margin="0 0 0 0" VerticalAlignment="Bottom" Height="2"  Visibility="{Binding Path=TopBarVisible, Converter={StaticResource Converter}, ElementName=self}"/>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center"  Background="{StaticResource panelBackground}" Margin="0,0,0,0" Height="90" Visibility="{Binding Path=Visible, Converter={StaticResource Converter}, ElementName=loading}">
+        <ProgressBar Minimum="0" Maximum="0" x:Name="dynamicPbStatusTop" IsIndeterminate="True" Margin="0 0 0 0" VerticalAlignment="Bottom" Height="2"  Visibility="{Binding Path=TopBarVisible, Converter={StaticResource Converter}, ElementName=loading}"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-            <TextBlock x:Name="LoadingMessage" Text="{Binding Text, ElementName=self}" Style="{StaticResource panelMessageText}" HorizontalAlignment="Center" Margin="0 32 0 15" />
+            <TextBlock x:Name="LoadingMessage" Text="{Binding Text, ElementName=loading}" Style="{StaticResource panelMessageText}" HorizontalAlignment="Center" Margin="0 32 0 15" />
         </StackPanel>
-        <ProgressBar Minimum="0" Maximum="0" x:Name="dynamicPbStatusBottom" IsIndeterminate="True" Margin="0 0 0 0" VerticalAlignment="Bottom" Height="2"  Visibility="{Binding Path=BottomBarVisible, Converter={StaticResource Converter}, ElementName=self}"/>
+        <ProgressBar Minimum="0" Maximum="0" x:Name="dynamicPbStatusBottom" IsIndeterminate="True" Margin="0 0 0 0" VerticalAlignment="Bottom" Height="2"  Visibility="{Binding Path=BottomBarVisible, Converter={StaticResource Converter}, ElementName=loading}"/>
     </StackPanel>
 </UserControl>
