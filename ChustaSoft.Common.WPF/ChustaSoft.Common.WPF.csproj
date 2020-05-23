@@ -32,6 +32,9 @@
     <Compile Update="Controls\LoadingType.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Controls\LoadingPositionConverter.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
     
   </ItemGroup>
 
