@@ -1,14 +1,18 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+
 
 namespace ChustaSoft.Common.Controls
 {
     public partial class Loading : UserControl
     {
+
         public Loading()
         {
             InitializeComponent();
         }
+
 
         public string Text
         {
@@ -17,17 +21,17 @@ namespace ChustaSoft.Common.Controls
         }
 
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Text), typeof(string), typeof(Loading), new PropertyMetadata(null));
 
 
-        public string BackgroundColor
+        public Brush BackgroundColor
         {
-            get { return (string)GetValue(BackgroundColorProperty); }
+            get { return (Brush)GetValue(BackgroundColorProperty); }
             set { SetValue(BackgroundColorProperty, value); }
         }
 
         public static readonly DependencyProperty BackgroundColorProperty =
-            DependencyProperty.Register("BackgroundColor", typeof(string), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(BackgroundColor), typeof(Brush), typeof(Loading), new PropertyMetadata(null));
 
 
         public string TextColor
@@ -37,7 +41,7 @@ namespace ChustaSoft.Common.Controls
         }
 
         public static readonly DependencyProperty TextColorProperty =
-            DependencyProperty.Register("TextColor", typeof(string), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(TextColor), typeof(string), typeof(Loading), new PropertyMetadata(null));
 
 
         public float PanelOpacity
@@ -47,27 +51,26 @@ namespace ChustaSoft.Common.Controls
         }
 
         public static readonly DependencyProperty PanelOpacityProperty =
-            DependencyProperty.Register("PanelOpacity", typeof(float), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(PanelOpacity), typeof(float), typeof(Loading), new PropertyMetadata(null));
 
 
-        public bool TopBarVisible
+        public LoadingPosition LoadingPosition
         {
-            get { return (bool)GetValue(TopBarVisibleProperty); }
-            set { SetValue(TopBarVisibleProperty, value); }
+            get { return (LoadingPosition)GetValue(LoadingPositionProperty); }
+            set { SetValue(LoadingPositionProperty, value); }
         }
 
-        public static readonly DependencyProperty TopBarVisibleProperty =
-            DependencyProperty.Register("TopBarVisible", typeof(bool), typeof(Loading), new PropertyMetadata(null));
+        public static readonly DependencyProperty LoadingPositionProperty =
+            DependencyProperty.Register(nameof(LoadingPosition), typeof(LoadingPosition), typeof(Loading), new PropertyMetadata(null));
 
-
-        public bool BottomBarVisible
+        public LoadingType LoadingType
         {
-            get { return (bool)GetValue(BottomBarVisibleProperty); }
-            set { SetValue(BottomBarVisibleProperty, value); }
+            get { return (LoadingType)GetValue(LoadingTypeProperty); }
+            set { SetValue(LoadingTypeProperty, value); }
         }
 
-        public static readonly DependencyProperty BottomBarVisibleProperty =
-            DependencyProperty.Register("BottomBarVisible", typeof(bool), typeof(Loading), new PropertyMetadata(null));        
+        public static readonly DependencyProperty LoadingTypeProperty =
+            DependencyProperty.Register(nameof(LoadingType), typeof(LoadingType), typeof(Loading), new PropertyMetadata(null));
 
 
         public bool Visible
@@ -77,6 +80,6 @@ namespace ChustaSoft.Common.Controls
         }
 
         public static readonly DependencyProperty VisibleProperty =
-            DependencyProperty.Register("Visible", typeof(bool), typeof(Loading), new PropertyMetadata(null));
+            DependencyProperty.Register(nameof(Visible), typeof(bool), typeof(Loading), new PropertyMetadata(null));
     }
 }
