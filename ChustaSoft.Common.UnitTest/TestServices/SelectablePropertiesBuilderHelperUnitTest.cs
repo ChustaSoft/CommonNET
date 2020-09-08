@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace ChustaSoft.Common.UnitTest.TestServices
 {
+    [Obsolete("This implementation will be removed in version 2.0")]
     [TestClass]
     public class SelectablePropertiesBuilderHelperUnitTest
     {

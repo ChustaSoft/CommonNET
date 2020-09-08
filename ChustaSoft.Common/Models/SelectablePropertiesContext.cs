@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 
 namespace ChustaSoft.Common.Models
 {
+    [Obsolete("This implementation is no longer maintained and will be removed in version 2.0")]
     public class SelectablePropertiesContext
     {
 

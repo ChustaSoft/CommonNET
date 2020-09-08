@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace ChustaSoft.Common.Utilities
 {
 
-    /// <summary>    /// 
+    /// <summary>/// 
     /// IReadOnlyList list implementation for Paginated collections
     /// Creation could be done by using his constructor or using CollectionsHelper Paginate method
     /// <seealso cref="CollectionsHelper.Paginate"/>

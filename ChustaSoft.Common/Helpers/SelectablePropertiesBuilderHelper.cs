@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 
 namespace ChustaSoft.Common.Helpers
 {
+    [Obsolete("This implementation is no longer maintained and will be removed in version 2.0")]
     public static class SelectablePropertiesBuilderHelper
     {
 

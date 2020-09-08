@@ -7,6 +7,7 @@ using System.Text;
 namespace ChustaSoft.Common.Builders
 {
 
+    [Obsolete("This implementation is no longer maintained and will be removed in version 2.0")]
     public class SelectablePropertiesBuilder<T>
     {
 
@@ -97,6 +98,7 @@ namespace ChustaSoft.Common.Builders
 
     }
 
+    [Obsolete("This implementation will be removed in version 2.0")]
     public class SelectablePropertiesBuilder<TMain, TSub> : SelectablePropertiesBuilder<TMain>
     {
         
