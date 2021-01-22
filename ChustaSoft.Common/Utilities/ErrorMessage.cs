@@ -3,7 +3,6 @@ using ChustaSoft.Common.Exceptions;
 using System;
 using System.Runtime.Serialization;
 
-
 namespace ChustaSoft.Common.Utilities
 {
 

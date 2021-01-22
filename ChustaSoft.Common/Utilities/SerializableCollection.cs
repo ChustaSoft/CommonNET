@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-
 namespace ChustaSoft.Common.Utilities
 {
 

@@ -2,7 +2,6 @@
 using System;
 using System.Reflection;
 
-
 namespace ChustaSoft.Common.Exceptions
 {
 

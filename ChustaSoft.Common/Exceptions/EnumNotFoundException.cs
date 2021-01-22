@@ -1,7 +1,6 @@
 ﻿using ChustaSoft.Common.Resources;
 using System;
 
-
 namespace ChustaSoft.Common.Exceptions
 {
 
