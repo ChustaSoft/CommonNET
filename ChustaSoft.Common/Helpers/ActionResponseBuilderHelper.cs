@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace ChustaSoft.Common.Helpers
 {
     public static class ActionResponseBuilderHelper

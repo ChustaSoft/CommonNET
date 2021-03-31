@@ -3,6 +3,9 @@
 
 namespace ChustaSoft.Common.Models
 {
+    /// <summary>
+    /// Information from a property
+    /// </summary>
     public class PropertyInfo
     {
 

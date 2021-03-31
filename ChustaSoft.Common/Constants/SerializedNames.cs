@@ -1,6 +1,6 @@
 ﻿namespace ChustaSoft.Common.Constants
 {
-    public struct SerializedNames
+    internal struct SerializedNames
     {
 
         public const string SerializableCollection = "SerializableCollection";

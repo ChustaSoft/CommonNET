@@ -1,12 +1,12 @@
 ﻿using ChustaSoft.Common.Utilities;
-using System;
 using System.Collections.Generic;
 
 namespace ChustaSoft.Common.Contracts
 {
-    public interface IBuilder<T> where T : class
+    public interface ITrackableBuilder<T> : IBuilder<T> where T : class
     {
-        T Build();
+
+        ICollection<ErrorMessage> Errors { get; }
 
     }
 }
