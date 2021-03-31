@@ -8,8 +8,5 @@ namespace ChustaSoft.Common.Contracts
     {
         T Build();
 
-        [Obsolete("This implementation will be removed in version 2.0. Use ITrackableBuilder instead for errors tracking")]
-        ICollection<ErrorMessage> Errors { get; set;  }
-
     }
 }
