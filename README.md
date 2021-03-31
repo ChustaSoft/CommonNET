@@ -58,8 +58,9 @@ CommonNET.AspNet
 CommonNET.Wpf
 ---
 
-- Targets:
-  - .Net Core: 3.1
+- Targets (Only Windows):
+  - .NET Core >= 3.1
+  - .NET >= 5.0 
 
 - Installation
   - Install-Package ChustaSoft.Common.Wpf
