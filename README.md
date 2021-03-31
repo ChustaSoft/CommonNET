@@ -24,15 +24,14 @@ CommonNET
 ---
 
 - Targets:
-  - .NET Core: 2.1, 2.2, 3.0, 3.1
-  - .NET Framework 4.7, 4.7.1, 4.7.2
+  - .NET Standard >= 2.1
 
 - Installation
   - Install-Package ChustaSoft.Common
 
 - Use
   - Tool is mainly divided in:
-    - Builders: Builders for different complex object creation such as ActionResponse or SelectableProperties
+    - Builders: Builders for different complex object creation such as ActionResponse
     - Contracts: Generic contracts definition such as IBuilder or IMapper
     - Enums: Needed types for the assembly and for its use
     - Models: Common POCO models
@@ -45,7 +44,8 @@ CommonNET.AspNet
 ---
 
 - Targets:
-  - .NET Core: 2.1, 2.2, 3.0, 3.1
+  - .NET Core >= 3.1
+  - .NET >= 5.0
 
 - Installation
   - Install-Package ChustaSoft.Common.AspNet
