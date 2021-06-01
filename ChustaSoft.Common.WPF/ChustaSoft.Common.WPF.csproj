@@ -16,7 +16,7 @@
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetwpf</PackageReleaseNotes>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core;WPF</PackageTags>
   </PropertyGroup>

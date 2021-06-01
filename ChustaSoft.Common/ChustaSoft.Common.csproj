@@ -14,7 +14,7 @@
     <AssemblyVersion>2.0.2</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnet</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core</PackageTags>

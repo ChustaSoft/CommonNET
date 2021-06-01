@@ -15,7 +15,7 @@
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetaspnet</PackageReleaseNotes>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
   </PropertyGroup>
