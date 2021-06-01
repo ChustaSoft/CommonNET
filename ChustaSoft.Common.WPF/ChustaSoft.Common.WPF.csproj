@@ -10,13 +10,13 @@
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>2.0.1</Version>
-    <FileVersion>2.0.1</FileVersion>
-    <AssemblyVersion>2.0.1</AssemblyVersion>
+    <Version>2.0.2</Version>
+    <FileVersion>2.0.2</FileVersion>
+    <AssemblyVersion>2.0.2</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetwpf</PackageReleaseNotes>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Utilities;Helpers;Common;Core;WPF</PackageTags>
   </PropertyGroup>
