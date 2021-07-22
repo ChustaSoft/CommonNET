@@ -56,7 +56,7 @@ namespace ChustaSoft.Common.Helpers
                 default:
                     throw new UnsupportedAlgorithmException(hashAlgorithmType);
             }
-            
+
         }
 
         /// <summary>
@@ -115,10 +115,10 @@ namespace ChustaSoft.Common.Helpers
                 aesAlg.Padding = DEFAULT_PADDING_MODE;
 
                 using (var decryptor = aesAlg.CreateDecryptor(key, iv))
-                    using (var msDecrypt = new MemoryStream(cipher))
-                        using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-                            using (var srDecrypt = new StreamReader(csDecrypt))
-                                return srDecrypt.ReadToEnd();
+                using (var msDecrypt = new MemoryStream(cipher))
+                using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                using (var srDecrypt = new StreamReader(csDecrypt))
+                    return srDecrypt.ReadToEnd();
             }
         }
 

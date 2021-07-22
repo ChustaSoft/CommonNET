@@ -5,7 +5,7 @@ namespace ChustaSoft.Common.Base
     /// <summary>
     /// ViewModelBase, implementing INotifyPropertyChanged interface
     /// </summary>
-    public abstract class ViewModelBase : INotifyPropertyChanged 
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,10 +29,7 @@ namespace ChustaSoft.Common.Base
         private T _model;
         public T Model
         {
-            get
-            {
-                return _model;
-            }
+            get => _model;
             set
             {
                 _model = value;

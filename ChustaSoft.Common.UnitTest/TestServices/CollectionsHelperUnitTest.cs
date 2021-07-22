@@ -106,11 +106,11 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var concurrentBagExample = new ConcurrentBag<string>();
             var testList1 = new List<string> { "String1", "String2", "String3", "String4" };
-            
+
             concurrentBagExample.AddRange(testList1);
             concurrentBagExample.Add("TEST");
 
-            Assert.AreEqual(testList1.Count() + 1, concurrentBagExample.Count());
+            Assert.AreEqual(testList1.Count + 1, concurrentBagExample.Count);
         }
 
         [TestMethod]
@@ -120,10 +120,10 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var testList1 = new List<string> { "String1", "String2", "String3", "String4" };
             var testList2 = new List<string> { "String5", "String6", "String7", "String8", "String9", "String0" };
 
-            concurrentBagExample.AddRange(testList1); 
+            concurrentBagExample.AddRange(testList1);
             concurrentBagExample.AddRange(testList2);
 
-            Assert.AreEqual(testList1.Count() + testList2.Count(), concurrentBagExample.Count());
+            Assert.AreEqual(testList1.Count + testList2.Count, concurrentBagExample.Count);
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
                 concurrentBagExample.AddRange(new List<string> { "Test1", "Test2" });
             });
 
-            Assert.AreEqual(10*2, concurrentBagExample.Count());
+            Assert.AreEqual(10 * 2, concurrentBagExample.Count);
         }
 
         #endregion

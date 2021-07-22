@@ -41,7 +41,7 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
 
         public string TestString { get; set; }
 
-        public string this[string key] { get => string.Empty; }
+        public string this[string key] => string.Empty;
     }
 
     public class CustomAttribute : Attribute

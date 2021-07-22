@@ -12,8 +12,8 @@ namespace ChustaSoft.Common.Helpers
         /// </summary>
         /// <param name="selectableOptions">IEnumerable list containing options</param>
         /// <returns>Names with Selected as true from the IEnumerable</returns>
-        public static IEnumerable<string> GetSelected(this IEnumerable<SelectableOption> selectableOptions) 
-        { 
+        public static IEnumerable<string> GetSelected(this IEnumerable<SelectableOption> selectableOptions)
+        {
             return selectableOptions.Where(x => x.Selected).Select(x => x.Name);
         }
 

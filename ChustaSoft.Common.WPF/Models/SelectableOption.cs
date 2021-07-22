@@ -9,10 +9,7 @@ namespace ChustaSoft.Common.Models
         private bool _selected;
         public bool Selected
         {
-            get 
-            { 
-                return _selected; 
-            }
+            get => _selected;
             set
             {
                 _selected = value;
@@ -23,10 +20,7 @@ namespace ChustaSoft.Common.Models
         private string _name;
         public string Name
         {
-            get 
-            { 
-                return _name; 
-            }
+            get => _name;
             set
             {
                 _name = value;
@@ -37,18 +31,15 @@ namespace ChustaSoft.Common.Models
     }
 
 
-    public class SelectableOption<T> : SelectableOption 
+    public class SelectableOption<T> : SelectableOption
     {
 
         private T _value;
         public T Value
         {
-            get 
-            { 
-                return _value; 
-            }
-            set 
-            { 
+            get => _value;
+            set
+            {
                 _value = value;
                 OnPropertyChanged(nameof(Value));
             }

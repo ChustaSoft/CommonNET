@@ -9,8 +9,8 @@ namespace ChustaSoft.Common.Helpers
     public class RelayCommand : ICommand
     {
 
-        Action _targetExecuteMethod;
-        Func<bool> _targetCanExecuteMethod;
+        private Action _targetExecuteMethod;
+        private Func<bool> _targetCanExecuteMethod;
 
         public event EventHandler CanExecuteChanged = delegate { };
 
@@ -59,8 +59,8 @@ namespace ChustaSoft.Common.Helpers
     public class RelayCommand<T> : ICommand
     {
 
-        Action<T> _targetExecuteMethod;
-        Func<T, bool> _targetCanExecuteMethod;
+        private Action<T> _targetExecuteMethod;
+        private Func<T, bool> _targetCanExecuteMethod;
 
         public event EventHandler CanExecuteChanged = delegate { };
 

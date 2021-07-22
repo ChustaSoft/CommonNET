@@ -38,10 +38,10 @@ namespace ChustaSoft.Common.AspNet.UnitTest
         }
 
         [Test]
-        public void Given_ActionResponseBuilder_When_Ok_Then_IActionResultRetrived() 
+        public void Given_ActionResponseBuilder_When_Ok_Then_IActionResultRetrived()
         {
             var actionResponseBuilder = _testControllerBase.Expose_GetEmptyResponseBuilder<DateTime?>();
-            var result = (OkObjectResult) _testControllerBase.Expose_Ok(actionResponseBuilder);
+            var result = (OkObjectResult)_testControllerBase.Expose_Ok(actionResponseBuilder);
 
             Assert.AreEqual((int)HttpStatusCode.OK, result.StatusCode);
             Assert.AreEqual(typeof(ActionResponse<DateTime?>), result.Value.GetType());
@@ -67,11 +67,11 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             public TestController(ILogger<TestController> logger) : base(logger) { }
 
 
-            internal ActionResponseBuilder<T> Expose_GetEmptyResponseBuilder<T>() 
+            internal ActionResponseBuilder<T> Expose_GetEmptyResponseBuilder<T>()
                 => GetEmptyResponseBuilder<T>();
-            internal IActionResult Expose_Ok<T>(ActionResponseBuilder<T> actionResponseBuilder) 
+            internal IActionResult Expose_Ok<T>(ActionResponseBuilder<T> actionResponseBuilder)
                 => Ok(actionResponseBuilder);
-            internal IActionResult Expose_Ko<T>(ActionResponseBuilder<T> actionResponseBuilder, Exception exception) 
+            internal IActionResult Expose_Ko<T>(ActionResponseBuilder<T> actionResponseBuilder, Exception exception)
                 => Ko(actionResponseBuilder, exception);
 
         }

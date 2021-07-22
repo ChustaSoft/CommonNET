@@ -28,7 +28,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
 
 
-        private class TestViewModel : ViewModelBase<DateTime> 
+        private class TestViewModel : ViewModelBase<DateTime>
         {
             public TestViewModel() : base() { }
         }

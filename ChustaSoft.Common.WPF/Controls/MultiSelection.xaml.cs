@@ -17,14 +17,14 @@ namespace ChustaSoft.Common.Controls
 
         public string DefaultText
         {
-            get { return (string)GetValue(DefaultTextProperty); }
-            set { SetValue(DefaultTextProperty, value); }
+            get => (string)GetValue(DefaultTextProperty);
+            set => SetValue(DefaultTextProperty, value);
         }
 
         public IEnumerable<SelectableOption> Items
         {
-            get { return (IEnumerable<SelectableOption>)GetValue(ItemsSourceProperty); }
-            set { SetValue(ItemsSourceProperty, value); }
+            get => (IEnumerable<SelectableOption>)GetValue(ItemsSourceProperty);
+            set => SetValue(ItemsSourceProperty, value);
         }
 
 

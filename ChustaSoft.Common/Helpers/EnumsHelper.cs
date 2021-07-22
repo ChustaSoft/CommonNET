@@ -116,7 +116,7 @@ namespace ChustaSoft.Common.Helpers
 
         #endregion
 
-        
+
         #region Private methods
 
         private static void CheckIfIsEnum<T>()
