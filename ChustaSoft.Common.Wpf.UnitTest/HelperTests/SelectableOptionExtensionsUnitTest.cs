@@ -11,7 +11,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
     {
 
         [Test]
-        public void Given_SelectOptionListWithAllSelectedTrue_When_GetSelected_Then_AllRetrived() 
+        public void Given_SelectOptionListWithAllSelectedTrue_When_GetSelected_Then_AllRetrived()
         {
             var options = new List<SelectableOption>
             {
@@ -22,7 +22,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(options.Count(), result.Count());
+            Assert.AreEqual(options.Count, result.Count());
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(options.Count(), result.Count());
+            Assert.AreEqual(options.Count, result.Count());
         }
 
         [Test]

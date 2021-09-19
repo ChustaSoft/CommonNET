@@ -69,7 +69,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var enumType = TestEnum.WithDescription1;
             var enumStr = enumType.ToString();
-            
+
             var enumTypeRetrived = EnumsHelper.GetByString<TestEnum>(enumStr);
 
             Assert.AreEqual(enumType, enumTypeRetrived);
@@ -110,7 +110,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var enumList = EnumsHelper.GetEnumDictionary<TestEnum>();
 
-            Assert.AreEqual(enumList.Count(), 3);
+            Assert.AreEqual(enumList.Count, 3);
         }
 
         [TestMethod]

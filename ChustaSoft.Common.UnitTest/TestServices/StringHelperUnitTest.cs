@@ -17,7 +17,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
 
             Assert.ThrowsException<ArgumentException>(() => text.ToUpperCamelCase());
         }
-        
+
         [TestMethod]
         public void Given_EmptyString_When_ToUpperCamelCaseInvoked_Then_ExceptionThrown()
         {

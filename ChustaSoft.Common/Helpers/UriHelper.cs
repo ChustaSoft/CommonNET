@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Web;
 using System.Collections.Specialized;
+using System.Web;
 
 
 namespace ChustaSoft.Common.Helpers
@@ -49,8 +49,8 @@ namespace ChustaSoft.Common.Helpers
         /// <returns>UriBuilder itself</returns>
         public static UriBuilder AddPathPart(this UriBuilder uriBuilder, string urlPart)
         {
-            var uriPartToAdd = ( urlPart.Contains(SLASH_SYMBOL) || uriBuilder.Path.EndsWith(SLASH_SYMBOL)) ? urlPart : SLASH_SYMBOL + urlPart;
-            
+            var uriPartToAdd = (urlPart.Contains(SLASH_SYMBOL) || uriBuilder.Path.EndsWith(SLASH_SYMBOL)) ? urlPart : SLASH_SYMBOL + urlPart;
+
             uriBuilder.Path += uriPartToAdd;
 
             return uriBuilder;
@@ -61,7 +61,10 @@ namespace ChustaSoft.Common.Helpers
 
         #region Private methods
 
-        private static NameValueCollection GetUriQuery(UriBuilder uriBuilder) => HttpUtility.ParseQueryString(uriBuilder.Query);
+        private static NameValueCollection GetUriQuery(UriBuilder uriBuilder)
+        {
+            return HttpUtility.ParseQueryString(uriBuilder.Query);
+        }
 
         #endregion
 

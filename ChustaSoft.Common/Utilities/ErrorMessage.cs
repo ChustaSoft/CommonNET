@@ -12,7 +12,7 @@ namespace ChustaSoft.Common.Utilities
     [DataContract]
     public class ErrorMessage
     {
-        
+
         #region Properties
 
         [DataMember]

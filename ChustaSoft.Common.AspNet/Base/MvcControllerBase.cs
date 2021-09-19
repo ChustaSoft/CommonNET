@@ -13,13 +13,13 @@ namespace ChustaSoft.Common.Base
     /// Forces the inherited to have injected a ILogger, defined in the client application
     /// </summary>
     /// <typeparam name="TController">ControllerType itself, required for ILogger</typeparam>
-    public class ApiControllerBase<TController> : ControllerBase
+    public class MvcControllerBase<TController> : Controller
     {
 
         protected readonly ILogger<TController> _logger;
 
         
-        public ApiControllerBase(ILogger<TController> logger)
+        public MvcControllerBase(ILogger<TController> logger)
         {
             _logger = logger;
         }
@@ -62,14 +62,14 @@ namespace ChustaSoft.Common.Base
 
     }
 
-    public class ApiControllerBase<TController, TSettings> : ApiControllerBase<TController>
+    public class MvcControllerBase<TController, TSettings> : MvcControllerBase<TController>
         where TSettings : class, new()
     {
 
         protected readonly TSettings _appSettings;
 
-        
-        public ApiControllerBase(ILogger<TController> logger, IOptions<TSettings> appSettings)
+
+        public MvcControllerBase(ILogger<TController> logger, IOptions<TSettings> appSettings)
             : base(logger)
         {
             _appSettings = appSettings.Value;

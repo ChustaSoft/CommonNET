@@ -84,7 +84,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         public void Given_ActionResponseBuilder_When_AddErrorInvokedFromException_Then_ActionResponseBuilderWithDataAndErrorsRetrived()
         {
             var data = DateTime.Now;
-            
+
             var builtActionResponse = new ActionResponseBuilder<DateTime>(data)
                 .AddError(new BusinessException("Test Exception", null))
                 .Build();
@@ -133,7 +133,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
                 .Build();
 
             Assert.AreEqual(data, builtActionResponse.Data);
-            Assert.IsTrue(builtActionResponse.Errors.Count() == 3);
+            Assert.IsTrue(builtActionResponse.Errors.Count == 3);
             Assert.AreEqual(status, builtActionResponse.Flag);
         }
 

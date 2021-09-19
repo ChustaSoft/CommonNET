@@ -16,8 +16,8 @@ namespace ChustaSoft.Common.Controls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty =
@@ -26,8 +26,8 @@ namespace ChustaSoft.Common.Controls
 
         public Brush BackgroundColor
         {
-            get { return (Brush)GetValue(BackgroundColorProperty); }
-            set { SetValue(BackgroundColorProperty, value); }
+            get => (Brush)GetValue(BackgroundColorProperty);
+            set => SetValue(BackgroundColorProperty, value);
         }
 
         public static readonly DependencyProperty BackgroundColorProperty =
@@ -36,8 +36,8 @@ namespace ChustaSoft.Common.Controls
 
         public string TextColor
         {
-            get { return (string)GetValue(TextColorProperty); }
-            set { SetValue(TextColorProperty, value); }
+            get => (string)GetValue(TextColorProperty);
+            set => SetValue(TextColorProperty, value);
         }
 
         public static readonly DependencyProperty TextColorProperty =
@@ -46,8 +46,8 @@ namespace ChustaSoft.Common.Controls
 
         public float PanelOpacity
         {
-            get { return (float)GetValue(PanelOpacityProperty); }
-            set { SetValue(PanelOpacityProperty, value); }
+            get => (float)GetValue(PanelOpacityProperty);
+            set => SetValue(PanelOpacityProperty, value);
         }
 
         public static readonly DependencyProperty PanelOpacityProperty =
@@ -56,8 +56,8 @@ namespace ChustaSoft.Common.Controls
 
         public LoadingPosition LoadingPosition
         {
-            get { return (LoadingPosition)GetValue(LoadingPositionProperty); }
-            set { SetValue(LoadingPositionProperty, value); }
+            get => (LoadingPosition)GetValue(LoadingPositionProperty);
+            set => SetValue(LoadingPositionProperty, value);
         }
 
         public static readonly DependencyProperty LoadingPositionProperty =
@@ -65,8 +65,8 @@ namespace ChustaSoft.Common.Controls
 
         public LoadingType LoadingType
         {
-            get { return (LoadingType)GetValue(LoadingTypeProperty); }
-            set { SetValue(LoadingTypeProperty, value); }
+            get => (LoadingType)GetValue(LoadingTypeProperty);
+            set => SetValue(LoadingTypeProperty, value);
         }
 
         public static readonly DependencyProperty LoadingTypeProperty =
@@ -75,8 +75,8 @@ namespace ChustaSoft.Common.Controls
 
         public bool Visible
         {
-            get { return (bool)GetValue(VisibleProperty); }
-            set { SetValue(VisibleProperty, value); }
+            get => (bool)GetValue(VisibleProperty);
+            set => SetValue(VisibleProperty, value);
         }
 
         public static readonly DependencyProperty VisibleProperty =

@@ -56,7 +56,7 @@ namespace ChustaSoft.Common.Helpers
         {
             foreach (var prop in typeof(T).GetProperties())
             {
-                if(!avoidedProperties?.Contains(prop.Name) ?? true && prop.CanWrite)
+                if (!avoidedProperties?.Contains(prop.Name) ?? true && prop.CanWrite)
                     prop.SetValue(obj, null, null);
             }
         }
