@@ -16,25 +16,15 @@ namespace ChustaSoft.Common.Base
     public class ApiControllerBase<TController> : ControllerBase
     {
 
-        #region Fields
-
         protected readonly ILogger<TController> _logger;
 
-        #endregion
-
-
-        #region Constructor
-
+        
         public ApiControllerBase(ILogger<TController> logger)
         {
             _logger = logger;
         }
 
-        #endregion
-
-
-        #region Protected methods
-
+        
         /// <summary>
         /// Creates a empty instance of ActionResponseBuilder with an OkResponse response
         /// </summary>
@@ -70,30 +60,20 @@ namespace ChustaSoft.Common.Base
             return BadRequest(actionResponseBuilder.Build());
         }
 
-        #endregion
-
     }
 
     public class ApiControllerBase<TController, TSettings> : ApiControllerBase<TController>
         where TSettings : class, new()
     {
 
-        #region Fields
-
         protected readonly TSettings _appSettings;
 
-        #endregion
-
-
-        #region Constructor
-
+        
         public ApiControllerBase(ILogger<TController> logger, IOptions<TSettings> appSettings)
             : base(logger)
         {
             _appSettings = appSettings.Value;
         }
-
-        #endregion
 
     }
 }
