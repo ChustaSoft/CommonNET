@@ -9,9 +9,9 @@
     <Authors>Xelit3</Authors>
     <Company>ChustaSoft</Company>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>2.0.3</Version>
-    <FileVersion>2.0.3</FileVersion>
-    <AssemblyVersion>2.0.3</AssemblyVersion>
+    <Version>2.0.4</Version>
+    <FileVersion>2.0.4</FileVersion>
+    <AssemblyVersion>2.0.4</AssemblyVersion>
     <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
