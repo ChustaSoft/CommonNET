@@ -1,7 +1,7 @@
-﻿using ChustaSoft.Common.Resources;
+﻿using ChustaSoft.Common.Enums;
+using ChustaSoft.Common.Resources;
 using System;
 using System.Linq;
-
 
 namespace ChustaSoft.Common.Helpers
 {
@@ -44,6 +44,31 @@ namespace ChustaSoft.Common.Helpers
             CheckStringData(str);
 
             return char.ToLower(str.First()) + str.Substring(1);
+        }
+
+        /// <summary>
+        /// Converts a string to an existing enum, naming must match.
+        /// Currently is supporting first camel case Enum types, complex UpperCamelCase enum types not supported.
+        /// </summary>
+        /// <typeparam name="TEnum">Enum type to be casted</typeparam>
+        /// <param name="str">string itself from where to receive Enum</param>
+        /// <param name="stringCase">StringCase type, by default Invariant</param>
+        /// <returns>Expected Enum type, or Exception if unsupported</returns>
+        public static TEnum ToEnum<TEnum>(this string str, StringCase stringCase = StringCase.Invariant)
+            where TEnum : struct, IConvertible
+        {
+            switch (stringCase)
+            {
+                case StringCase.Invariant:
+                    return EnumsHelper.GetByString<TEnum>(str);
+
+                case StringCase.Upper:
+                case StringCase.Lower:
+                    return EnumsHelper.GetByString<TEnum>(str.ToUpperCamelCase());
+
+                default:
+                    throw new ArgumentException(ExceptionResources.ArgumentException_UnsupportedEnumCast);
+            }
         }
 
         #endregion

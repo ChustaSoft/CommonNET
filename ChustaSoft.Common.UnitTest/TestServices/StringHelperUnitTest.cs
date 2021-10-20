@@ -1,4 +1,6 @@
-﻿using ChustaSoft.Common.Helpers;
+﻿using ChustaSoft.Common.Enums;
+using ChustaSoft.Common.Helpers;
+using ChustaSoft.Common.UnitTest.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -190,6 +192,41 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.AreEqual(expectedResult, retrivedResult);
         }
 
+        [TestMethod]
+        public void Given_String_When_ToEnumWithDefault_Then_TypeRetrived()
+        {
+            string text = "Type1";
+            
+            var retrivedResult = text.ToEnum<TestCastEnum>();
+
+            Assert.AreEqual(TestCastEnum.Type1, retrivedResult);
+        }
+
+        [TestMethod]
+        public void Given_UpperStringAndStringCaseDefined_When_ToEnumWithDefault_Then_TypeRetrived()
+        {
+            string text = "TYPE1";
+
+            var retrivedResult = text.ToEnum<TestCastEnum>(StringCase.Upper);
+
+            Assert.AreEqual(TestCastEnum.Type1, retrivedResult);
+        }
+
+        [TestMethod]
+        public void Given_LowerStringAndStringCaseDefined_When_ToEnumWithDefault_Then_TypeRetrived()
+        {
+            string text = "type1";
+
+            var retrivedResult = text.ToEnum<TestCastEnum>(StringCase.Lower);
+
+            Assert.AreEqual(TestCastEnum.Type1, retrivedResult);
+        }
+
+        [TestMethod]
+        public void Given_InvalidString_When_ToEnum_Then_ArgumentExceptionThrown()
+        {
+            Assert.ThrowsException<ArgumentException>(() => "typex".ToEnum<TestCastEnum>(StringCase.Lower));
+        }
 
     }
 }

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
-    <value>La propriété data est null, avant d'ajouter des éléments, la méthode SetData doit être appelée</value>
+    <value>La propriété data est null, avant d'ajouter des éléments, la méthode SetData doit être appelée.</value>
   </data>
   <data name="ArgumentException_StringHelper_WrongString" xml:space="preserve">
-    <value>La chaîne ne peut être ni vide ni nulle</value>
+    <value>La chaîne ne peut être ni vide ni nulle.</value>
   </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
     <value>Aucun élément de type {0} ne correspond à la propriété {1}.</value>
@@ -130,15 +130,18 @@
     <value>L'élément de type {0} est introuvable.</value>
   </data>
   <data name="EnumNotFoundException_ErrorMessage" xml:space="preserve">
-    <value>Elément: {0} introuvable dans le type {1}</value>
+    <value>Elément: {0} introuvable dans le type {1}.</value>
   </data>
   <data name="InvalidOperationException_PageIndexError" xml:space="preserve">
-    <value>Index de page hors limites</value>
+    <value>Index de page hors limites.</value>
   </data>
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
-    <value>La liste paginée ne permet pas l'ajout d'éléments</value>
+    <value>La liste paginée ne permet pas l'ajout d'éléments.</value>
   </data>
   <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
-    <value>Le type d'algorithme {0} n'est pas pris en charge</value>
+    <value>Le type d'algorithme {0} n'est pas pris en charge.</value>
+  </data>
+  <data name="ArgumentException_UnsupportedEnumCast" xml:space="preserve">
+    <value>Type d'énumération ou casse de chaîne non pris en charge.</value>
   </data>
 </root>
