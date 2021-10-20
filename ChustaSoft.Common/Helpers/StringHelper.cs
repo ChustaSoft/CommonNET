@@ -1,7 +1,7 @@
-﻿using ChustaSoft.Common.Resources;
+﻿using ChustaSoft.Common.Enums;
+using ChustaSoft.Common.Resources;
 using System;
 using System.Linq;
-
 
 namespace ChustaSoft.Common.Helpers
 {
@@ -44,6 +44,23 @@ namespace ChustaSoft.Common.Helpers
             CheckStringData(str);
 
             return char.ToLower(str.First()) + str.Substring(1);
+        }
+
+        public static TEnum ToEnum<TEnum>(this string str, StringCase stringCase = StringCase.Invariant)
+            where TEnum : struct, IConvertible
+        {
+            switch (stringCase)
+            {
+                case StringCase.Invariant:
+                    return EnumsHelper.GetByString<TEnum>(str);
+
+                case StringCase.Upper:
+                case StringCase.Lower:
+                    return EnumsHelper.GetByString<TEnum>(str.ToUpperCamelCase());
+
+                default:
+                    throw new ArgumentException(ExceptionResources.ArgumentException_UnsupportedEnumCast);
+            }
         }
 
         #endregion

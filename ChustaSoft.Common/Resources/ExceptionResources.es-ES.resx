@@ -118,27 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
-    <value>La propiedad de datos es nula, antes de añadir elementos, el método SetData debe ser llamado</value>
+    <value>La propiedad de datos es nula, antes de añadir elementos, el método SetData debe ser llamado.</value>
   </data>
   <data name="ArgumentException_StringHelper_WrongString" xml:space="preserve">
-    <value>La cadena no puede estar vacía ni ser nula</value>
+    <value>La cadena no puede estar vacía ni ser nula.</value>
   </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
-    <value>No hay elementos para el tipo {0} que coincidan con la propiedad {1}</value>
+    <value>No hay elementos para el tipo {0} que coincidan con la propiedad {1}.</value>
   </data>
   <data name="ElementNotFoundException_Type_ErrorMessage" xml:space="preserve">
-    <value>El elemento del tipo {0} no pudo ser encontrado</value>
+    <value>El elemento del tipo {0} no pudo ser encontrado.</value>
   </data>
   <data name="EnumNotFoundException_ErrorMessage" xml:space="preserve">
-    <value>Elemento: {0} no encontrado en el tipo {1}</value>
+    <value>Elemento: {0} no encontrado en el tipo {1}.</value>
   </data>
   <data name="InvalidOperationException_PageIndexError" xml:space="preserve">
-    <value>Índice de página fuera de rango</value>
+    <value>Índice de página fuera de rango.</value>
   </data>
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
-    <value>La lista paginada no permite añadir elementos</value>
+    <value>La lista paginada no permite añadir elementos.</value>
   </data>
   <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
-    <value>El tipo de algoritmo {0} no está soportado</value>
+    <value>El tipo de algoritmo {0} no está soportado.</value>
+  </data>
+  <data name="ArgumentException_UnsupportedEnumCast" xml:space="preserve">
+    <value>La enumeración, o la cadena no tienen un formato soportado o válido.</value>
   </data>
 </root>

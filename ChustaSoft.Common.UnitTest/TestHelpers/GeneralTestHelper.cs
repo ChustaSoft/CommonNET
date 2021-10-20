@@ -15,6 +15,13 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
         WithDescription2
     }
 
+    internal enum TestCastEnum 
+    { 
+        Type1,
+        Type2,
+        Type3
+    }
+
     internal enum TestEnumCustomAttributes
     {
         [Custom("test-1")]

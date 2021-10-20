@@ -19,7 +19,7 @@ namespace ChustaSoft.Common.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ExceptionResources {
@@ -61,7 +61,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data property is null, for adding elements, SetData method must be called before.
+        ///   Looks up a localized string similar to Data property is null, for adding elements, SetData method must be called before..
         /// </summary>
         internal static string ArgumentException_ActionResponseBuilder_DataNull {
             get {
@@ -70,7 +70,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to String could not be empty or nulll.
+        ///   Looks up a localized string similar to String could not be empty or nulll..
         /// </summary>
         internal static string ArgumentException_StringHelper_WrongString {
             get {
@@ -79,7 +79,16 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Element of type {0} could not be found.
+        ///   Looks up a localized string similar to Unsupported Enum type or string case..
+        /// </summary>
+        internal static string ArgumentException_UnsupportedEnumCast {
+            get {
+                return ResourceManager.GetString("ArgumentException_UnsupportedEnumCast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Element of type {0} could not be found..
         /// </summary>
         internal static string ElementNotFoundException_Type_ErrorMessage {
             get {
@@ -88,7 +97,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are no element of type {0} matching with selected property name {1}.
+        ///   Looks up a localized string similar to There are no element of type {0} matching with selected property name {1}..
         /// </summary>
         internal static string ElementNotFoundException_TypeAndError_ErrorMessage {
             get {
@@ -97,7 +106,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Element: {0} not found in {1} type.
+        ///   Looks up a localized string similar to Element: {0} not found in {1} type..
         /// </summary>
         internal static string EnumNotFoundException_ErrorMessage {
             get {
@@ -106,7 +115,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Page Index out of range.
+        ///   Looks up a localized string similar to Page Index out of range..
         /// </summary>
         internal static string InvalidOperationException_PageIndexError {
             get {
@@ -115,7 +124,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PaginatedList do not allow to add elements.
+        ///   Looks up a localized string similar to PaginatedList do not allow to add elements..
         /// </summary>
         internal static string InvalidOperationException_PaginatedListAdd {
             get {
@@ -124,7 +133,7 @@ namespace ChustaSoft.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} algorithm not supported for the requested operation.
+        ///   Looks up a localized string similar to {0} algorithm not supported for the requested operation..
         /// </summary>
         internal static string UnsupportedAlgorithmException_ErrorMessage {
             get {

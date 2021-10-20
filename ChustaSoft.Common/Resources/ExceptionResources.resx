@@ -118,27 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArgumentException_ActionResponseBuilder_DataNull" xml:space="preserve">
-    <value>Data property is null, for adding elements, SetData method must be called before</value>
+    <value>Data property is null, for adding elements, SetData method must be called before.</value>
   </data>
   <data name="ArgumentException_StringHelper_WrongString" xml:space="preserve">
-    <value>String could not be empty or nulll</value>
+    <value>String could not be empty or nulll.</value>
   </data>
   <data name="ElementNotFoundException_TypeAndError_ErrorMessage" xml:space="preserve">
-    <value>There are no element of type {0} matching with selected property name {1}</value>
+    <value>There are no element of type {0} matching with selected property name {1}.</value>
   </data>
   <data name="ElementNotFoundException_Type_ErrorMessage" xml:space="preserve">
-    <value>Element of type {0} could not be found</value>
+    <value>Element of type {0} could not be found.</value>
   </data>
   <data name="EnumNotFoundException_ErrorMessage" xml:space="preserve">
-    <value>Element: {0} not found in {1} type</value>
+    <value>Element: {0} not found in {1} type.</value>
   </data>
   <data name="InvalidOperationException_PageIndexError" xml:space="preserve">
-    <value>Page Index out of range</value>
+    <value>Page Index out of range.</value>
   </data>
   <data name="InvalidOperationException_PaginatedListAdd" xml:space="preserve">
-    <value>PaginatedList do not allow to add elements</value>
+    <value>PaginatedList do not allow to add elements.</value>
   </data>
   <data name="UnsupportedAlgorithmException_ErrorMessage" xml:space="preserve">
-    <value>{0} algorithm not supported for the requested operation</value>
+    <value>{0} algorithm not supported for the requested operation.</value>
+  </data>
+  <data name="ArgumentException_UnsupportedEnumCast" xml:space="preserve">
+    <value>Unsupported Enum type or string case.</value>
   </data>
 </root>
