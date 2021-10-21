@@ -10,6 +10,12 @@ namespace ChustaSoft.Common.Helpers
         private const int TotalWeekDays = 7;
 
 
+        /// <summary>
+        /// Retrives the first day of the week based on the week of a given date
+        /// </summary>
+        /// <param name="date">Given date to extract the first day of the week</param>
+        /// <param name="weekCalendarType">Calendar type, by default Starting on Monday</param>
+        /// <returns>First day of the week given by the specified date</returns>
         public static DateTime GetFirstWeekDate(this DateTime date, WeekCalendarType weekCalendarType = WeekCalendarType.MondayFirst)
         {
             int dayToSubstract = GetDaysToSubstract(date, weekCalendarType);
@@ -17,6 +23,12 @@ namespace ChustaSoft.Common.Helpers
             return date.AddDays(dayToSubstract);
         }
 
+        /// <summary>
+        /// Retrives the last day of the week based on the week of a given date
+        /// </summary>
+        /// <param name="date">Given date to extract the last day of the week</param>
+        /// <param name="weekCalendarType">Calendar type, by default Starting on Monday</param>
+        /// <returns>Last day of the week given by the specified date</returns>
         public static DateTime GetLastWeekDate(this DateTime date, WeekCalendarType weekCalendarType = WeekCalendarType.MondayFirst)
         {
             int dayToSubstract = GetDaysToAdd(date, weekCalendarType);
