@@ -94,5 +94,72 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.AreEqual(resultDate, expectedDate);
         }
 
+        [TestMethod]
+        public void Given_MondayDateTimeAndMondayStarting_When_GetLastWeekDate_Then_NextSundayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 18);
+            var expectedDate = new DateTime(2021, 10, 24);
+
+            var resultDate = givenDate.GetLastWeekDate();
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
+        [TestMethod]
+        public void Given_SundayDateTimeAndMondayStarting_When_GetLastWeekDate_Then_SameSundayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 24);
+            var expectedDate = new DateTime(2021, 10, 24);
+
+            var resultDate = givenDate.GetLastWeekDate();
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
+        [TestMethod]
+        public void Given_WednesdayDateTimeAndMondayStarting_When_GetLastWeekDate_Then_NextSundayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 20);
+            var expectedDate = new DateTime(2021, 10, 24);
+
+            var resultDate = givenDate.GetLastWeekDate();
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
+
+        [TestMethod]
+        public void Given_MondayDateTimeAndSundayStarting_When_GetLastWeekDate_Then_NextSaturdayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 18);
+            var expectedDate = new DateTime(2021, 10, 23);
+
+            var resultDate = givenDate.GetLastWeekDate(Enums.WeekCalendarType.SundayFirst);
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
+        [TestMethod]
+        public void Given_SundayDateTimeAndSundayStarting_When_GetLastWeekDate_Then_NextSaturdayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 17);
+            var expectedDate = new DateTime(2021, 10, 23);
+
+            var resultDate = givenDate.GetLastWeekDate(Enums.WeekCalendarType.SundayFirst);
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
+        [TestMethod]
+        public void Given_SaturdayDateTimeAndSundayStarting_When_GetLastWeekDate_Then_SameSaturdayRetrived()
+        {
+            var givenDate = new DateTime(2021, 10, 23);
+            var expectedDate = new DateTime(2021, 10, 23);
+
+            var resultDate = givenDate.GetLastWeekDate(Enums.WeekCalendarType.SundayFirst);
+
+            Assert.AreEqual(resultDate, expectedDate);
+        }
+
     }
 }
