@@ -23,13 +23,26 @@ namespace ChustaSoft.Common.Helpers
         /// <param name="pageSize">Configured page size</param>
         /// <param name="currentPageIndex">Page index for the pagination (Zero based)</param>
         /// <returns>PaginatedList for requested data</returns>
-        public static PaginatedList<T> Paginate<T>(this IEnumerable<T> data, int pageSize, int currentPageIndex = 0)
+        public static PaginatedList<T> ToPaginatedList<T>(this IEnumerable<T> data, int pageSize, int currentPageIndex = 0)
         {
             CheckPageIndex(data, pageSize, ref currentPageIndex);
 
             var paginatedData = data.Skip(currentPageIndex * pageSize).Take(pageSize);
 
             return new PaginatedList<T>(paginatedData, data.Count(), currentPageIndex++);
+        }
+
+        /// <summary>
+        /// This method returns an IEnumerable from another one, paginating with the provided page and size
+        /// </summary>
+        /// <typeparam name="T">Collection type</typeparam>
+        /// <param name="data">Collection to paginate</param>
+        /// <param name="pageSize">Configured page size</param>
+        /// <param name="currentPageIndex">Page index for the pagination (Zero based)</param>
+        /// <returns>IEnumerable paginated</returns>
+        public static IEnumerable<T> Paginate<T>(this IEnumerable<T> data, int pageSize, int currentPageIndex = 0) 
+        {
+            return data.Skip(currentPageIndex * pageSize).Take(pageSize);
         }
 
         /// <summary>

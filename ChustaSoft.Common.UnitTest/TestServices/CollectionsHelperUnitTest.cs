@@ -16,25 +16,49 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         #region Test Cases
 
         [TestMethod]
-        public void Given_CollectionAndPageSize_When_PaginateInvoked_Then_PaginationPerformed()
+        public void Given_IEnumerableWith20Elements_When_PaginateWithSize10AndNumber0_Then_PaginatedFirstIEnumerableRetrived()
         {
             var pageSize = 10;
             var testCollection = GetTestList(200);
 
-            var paginatedData = testCollection.Paginate(pageSize);
+            var paginatedEnumerable = testCollection.Paginate(pageSize);
+
+            Assert.IsTrue(paginatedEnumerable.Count() == pageSize);
+            Assert.IsTrue(paginatedEnumerable.Any(x => x.Item1 == 1));
+        }
+
+        [TestMethod]
+        public void Given_IEnumerableWith20Elements_When_PaginateWithSize10AndNumber1_Then_PaginatedSecondIEnumerableRetrived()
+        {
+            int pageSize = 10, pageNumber = 1;
+            var testCollection = GetTestList(200);
+
+            var paginatedEnumerable = testCollection.Paginate(pageSize, pageNumber);
+
+            Assert.IsTrue(paginatedEnumerable.Count() == pageSize);
+            Assert.IsTrue(paginatedEnumerable.Any(x => x.Item1 == 11));
+        }
+
+        [TestMethod]
+        public void Given_CollectionAndPageSize_When_ToPaginatedListInvoked_Then_PaginationPerformed()
+        {
+            var pageSize = 10;
+            var testCollection = GetTestList(200);
+
+            var paginatedData = testCollection.ToPaginatedList(pageSize);
 
             Assert.IsTrue(paginatedData.Count == pageSize);
             Assert.IsTrue(paginatedData.TotalCount == testCollection.Count);
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndPageIndex_When_PaginateInvoked_Then_PaginationPerformed()
+        public void Given_CollectionAndPageSizeAndPageIndex_When_ToPaginatedListInvoked_Then_PaginationPerformed()
         {
             var pageSize = 10;
             var currentPageIndex = 1;
             var testList = GetTestList(200);
 
-            var paginatedData = testList.Paginate(pageSize, currentPageIndex);
+            var paginatedData = testList.ToPaginatedList(pageSize, currentPageIndex);
 
             Assert.IsTrue(paginatedData.Count == pageSize);
             Assert.IsTrue(!paginatedData.Any(x => x.Item1 == 1));
@@ -43,62 +67,62 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSize_When_PaginateInvoked_Then_SamePaginatedCollectionRetrived()
+        public void Given_CollectionAndPageSize_When_ToPaginatedListInvoked_Then_SamePaginatedCollectionRetrived()
         {
             var pageSize = 10;
             var testList = GetTestList(5);
 
-            var paginatedData = testList.Paginate(pageSize);
+            var paginatedData = testList.ToPaginatedList(pageSize);
 
             Assert.IsTrue(paginatedData.Count == testList.Count);
             Assert.IsTrue(paginatedData.TotalCount == testList.Count);
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPage_When_PaginateInvoked_Then_SameCollectionPaginatedRetrived()
+        public void Given_CollectionAndPageSizeAndCurrentPage_When_ToPaginatedListInvoked_Then_SameCollectionPaginatedRetrived()
         {
             var pageSize = 10;
             var currentPageIndex = 1;
             var testList = GetTestList(5);
 
-            var paginatedData = testList.Paginate(pageSize, currentPageIndex);
+            var paginatedData = testList.ToPaginatedList(pageSize, currentPageIndex);
 
             Assert.IsTrue(paginatedData.Count == testList.Count);
             Assert.IsTrue(paginatedData.TotalCount == testList.Count);
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPageOnEnd_When_PaginateInvoked_Then_CollectionReminderPaginatedRetrived()
+        public void Given_CollectionAndPageSizeAndCurrentPageOnEnd_When_ToPaginatedListInvoked_Then_CollectionReminderPaginatedRetrived()
         {
             var totalSize = 15;
             var pageSize = 10;
             var currentPageIndex = 1;
             var testList = GetTestList(totalSize);
 
-            var paginatedData = testList.Paginate(pageSize, currentPageIndex);
+            var paginatedData = testList.ToPaginatedList(pageSize, currentPageIndex);
 
             Assert.IsTrue(paginatedData.Count == totalSize % pageSize);
             Assert.IsTrue(paginatedData.TotalCount == testList.Count);
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPageOverLimitIndex_When_PaginateInvoked_Then_ExceptionThrowns()
+        public void Given_CollectionAndPageSizeAndCurrentPageOverLimitIndex_When_ToPaginatedListInvoked_Then_ExceptionThrowns()
         {
             var pageSize = 10;
             var currentPageIndex = 4;
             var testList = GetTestList(25);
 
-            Assert.ThrowsException<InvalidOperationException>(() => testList.Paginate(pageSize, currentPageIndex));
+            Assert.ThrowsException<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
         }
 
         [TestMethod]
-        public void Given_CollectionAndPageSizeAndCurrentPageIndexUnderLimit_When_PaginateInvoked_Then_ExceptionThrown()
+        public void Given_CollectionAndPageSizeAndCurrentPageIndexUnderLimit_When_ToPaginatedListInvoked_Then_ExceptionThrown()
         {
             var pageSize = 10;
             var currentPageIndex = -1;
             var testList = GetTestList(25);
 
-            Assert.ThrowsException<InvalidOperationException>(() => testList.Paginate(pageSize, currentPageIndex));
+            Assert.ThrowsException<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
         }
 
         [TestMethod]
