@@ -1,54 +1,56 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0-windows</TargetFrameworks>
-    <UseWPF>true</UseWPF>
-    <PackageId>ChustaSoft.Common.Wpf</PackageId>
-    <RootNamespace>ChustaSoft.Common</RootNamespace>
-    <Description>Common utilities, controls and more for any .NET WPF project</Description>
-    <Copyright>ChustaSoft</Copyright>
-    <Authors>Xelit3</Authors>
-    <Company>ChustaSoft</Company>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>2.1.0</Version>
-    <FileVersion>2.1.0</FileVersion>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetwpf</PackageReleaseNotes>
-    <RepositoryType>GIT</RepositoryType>
-    <PackageTags>Utilities;Helpers;Common;Core;WPF</PackageTags>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
+		<UseWPF>true</UseWPF>
+		<PackageId>ChustaSoft.Common.Wpf</PackageId>
+		<RootNamespace>ChustaSoft.Common</RootNamespace>
+		<Description>Common utilities, controls and more for any .NET WPF project</Description>
+		<Copyright>ChustaSoft</Copyright>
+		<Authors>Xelit3</Authors>
+		<Company>ChustaSoft</Company>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Version>2.2.0</Version>
+		<FileVersion>2.2.0</FileVersion>
+		<AssemblyVersion>2.2.0</AssemblyVersion>
+		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
+		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
+		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetwpf</PackageReleaseNotes>
+		<RepositoryType>GIT</RepositoryType>
+		<PackageTags>Utilities;Helpers;Common;Core;WPF</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    
-    <Folder Include="Models\" />
-    <Folder Include="Base\" />
-    
-    <Compile Update="Controls\LoadingPosition.cs">
-      <DependentUpon>Loading.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\LoadingType.cs">
-      <DependentUpon>Loading.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Controls\LoadingPositionConverter.cs">
-      <DependentUpon>Loading.xaml</DependentUpon>
-    </Compile>
-    
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Models\" />
+		<Folder Include="Base\" />
+
+		<Compile Update="Controls\LoadingPosition.cs">
+			<DependentUpon>Loading.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Controls\LoadingType.cs">
+			<DependentUpon>Loading.xaml</DependentUpon>
+		</Compile>
+		<Compile Update="Controls\LoadingPositionConverter.cs">
+			<DependentUpon>Loading.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.15" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.15" />
+	</ItemGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0-windows' ">
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0-windows' ">
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0-windows' ">
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />
+	</ItemGroup>
 
 </Project>
