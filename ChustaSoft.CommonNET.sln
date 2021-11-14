@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30002.166
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common", "ChustaSoft.Common\ChustaSoft.Common.csproj", "{01B32248-4EF1-48D4-99B7-7EBFB2E85BAE}"
 EndProject
@@ -17,7 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{C4DD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.Wpf.UnitTest", "ChustaSoft.Common.Wpf.UnitTest\ChustaSoft.Common.Wpf.UnitTest.csproj", "{2F60BF25-145B-49D9-BED3-1F353868185C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChustaSoft.Common.AspNet.UnitTest", "ChustaSoft.Common.AspNet.UnitTest\ChustaSoft.Common.AspNet.UnitTest.csproj", "{A15612C2-85EA-47EE-AEC5-B7E2A0000BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChustaSoft.Common.AspNet.UnitTest", "ChustaSoft.Common.AspNet.UnitTest\ChustaSoft.Common.AspNet.UnitTest.csproj", "{A15612C2-85EA-47EE-AEC5-B7E2A0000BC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B4747AC-353D-4F89-BA08-35D3CB57EAB9}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

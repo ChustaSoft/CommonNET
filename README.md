@@ -25,6 +25,9 @@ CommonNET
 
 - Targets:
   - .NET Standard >= 2.1
+  - .NET Core >= 3.1
+  - .NET Framework >= 4.7.1
+  - .NET >= 5.0
 
 - Installation
   - Install-Package ChustaSoft.Common
@@ -44,7 +47,7 @@ CommonNET.AspNet
 ---
 
 - Targets:
-  - .NET Core >= 3.1
+  - .NET Core >= 2.1
   - .NET >= 5.0
 
 - Installation
