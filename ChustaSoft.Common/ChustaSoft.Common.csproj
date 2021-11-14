@@ -1,57 +1,61 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netcoreapp2.1;netcoreapp3.1;net471;net5.0</TargetFrameworks>
-    <PackageId>ChustaSoft.Common</PackageId>
-    <RootNamespace>ChustaSoft.Common</RootNamespace>
-    <Description>Common functionalities and utilities for any .NET project</Description>
-    <Copyright>ChustaSoft</Copyright>
-    <Authors>Xelit3</Authors>
-    <Company>ChustaSoft</Company>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <Version>2.1.0</Version>
-    <FileVersion>2.1.0</FileVersion>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
-    <PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnet</PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType>
-    <PackageTags>Utilities;Helpers;Common;Core</PackageTags>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <Compile Update="Resources\ExceptionResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ExceptionResources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Update="Resources\ExceptionResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\ExceptionResources.es-ES.resx">
-      <DependentUpon>ExceptionResources.resx</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\ExceptionResources.fr-FR.resx">
-      <DependentUpon>ExceptionResources.resx</DependentUpon>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1;netcoreapp2.1;netcoreapp3.1;net471;net48;net5.0;net6.0</TargetFrameworks>
+		<PackageId>ChustaSoft.Common</PackageId>
+		<RootNamespace>ChustaSoft.Common</RootNamespace>
+		<Description>Common functionalities and utilities for any .NET project</Description>
+		<Copyright>ChustaSoft</Copyright>
+		<Authors>Xelit3</Authors>
+		<Company>ChustaSoft</Company>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<Version>2.2.0</Version>
+		<FileVersion>2.2.0</FileVersion>
+		<AssemblyVersion>2.2.0</AssemblyVersion>
+		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnet</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
+		<RepositoryType>GIT</RepositoryType>
+		<PackageTags>Utilities;Helpers;Common;Core</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
-    <Reference Include="System.Web" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Resources\ExceptionResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ExceptionResources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Resources\ExceptionResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\ExceptionResources.es-ES.resx">
+			<DependentUpon>ExceptionResources.resx</DependentUpon>
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\ExceptionResources.fr-FR.resx">
+			<DependentUpon>ExceptionResources.resx</DependentUpon>
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net471' ">
-    <Reference Include="System.Web" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
+		<Reference Include="System.Web" />
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-    <Reference Include="System.Web" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net471' ">
+		<Reference Include="System.Web" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<Reference Include="System.Web" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+		<Reference Include="System.Web" />
+	</ItemGroup>
 
 </Project>
