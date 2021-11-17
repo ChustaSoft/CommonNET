@@ -10,15 +10,9 @@ namespace ChustaSoft.Common.Helpers
     public static class EncryptationHelper
     {
 
-        #region Constants
-
         private const PaddingMode DEFAULT_PADDING_MODE = PaddingMode.ANSIX923;
         private const HashAlgorithmType DEFAULT_ALGORITHM_HASH = HashAlgorithmType.Sha512;
 
-        #endregion
-
-
-        #region Public methods
 
         /// <summary>
         /// One way hash encryption for two different strings
@@ -122,10 +116,6 @@ namespace ChustaSoft.Common.Helpers
             }
         }
 
-        #endregion
-
-
-        #region Private methods
 
         private static byte[] Get32ByteArrayKey(string passPhrase)
         {
@@ -134,7 +124,7 @@ namespace ChustaSoft.Common.Helpers
 
         private static string CreateSha512Hash(string text)
         {
-            var hashTool = new SHA512Managed();
+            var hashTool = SHA512.Create();
             var passwordAsByte = Encoding.UTF8.GetBytes(text);
             var encryptedBytes = hashTool.ComputeHash(passwordAsByte);
 
@@ -153,8 +143,6 @@ namespace ChustaSoft.Common.Helpers
                 return md5GuidHash;
             }
         }
-
-        #endregion
 
     }
 }
