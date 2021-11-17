@@ -14,14 +14,43 @@ namespace ChustaSoft.Common.Utilities
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [DataContract(Name = SerializedNames.ActionResponse)]
-    public class ActionResponse<T>
+    public class ActionResponse<T> : ActionResponse
     {
-
-        #region Properties
 
         [DataMember]
         public T Data { get; set; }
 
+
+        public ActionResponse() 
+            : base()
+        { }
+
+        public ActionResponse(T data) 
+            : base(ActionResponseType.Success)
+        {
+            Data = data;
+        }
+
+        public ActionResponse(T data, IList<ErrorMessage> errors)
+            : base(ActionResponseType.Warning)
+        {
+            Data = data;
+            Errors = errors;
+        }
+
+    }
+
+
+
+    /// <summary>
+    /// Object for unifying Typed response from a backend, independently of the architecture type
+    /// Valid for WCF, API and more 
+    /// Creation could be done by his constructors or by using ActionResponseBuilder
+    /// <seealso cref="ActionResponseBuilder"/>
+    /// </summary>
+    public class ActionResponse
+    {
+        
         [DataMember]
         public ActionResponseType Flag { get; set; }
 
@@ -42,35 +71,20 @@ namespace ChustaSoft.Common.Utilities
         }
         private IList<ErrorMessage> _errors;
 
-        #endregion
 
+        public ActionResponse() { }
 
-        #region Constructors
+        public ActionResponse(IList<ErrorMessage> errors) 
+            : this(ActionResponseType.Error)
+        {
+            Errors = errors;
+        }        
 
-        private ActionResponse(ActionResponseType actionResponseType)
+        protected ActionResponse(ActionResponseType actionResponseType)
         {
             Flag = actionResponseType;
         }
 
-        public ActionResponse() { }
-
-        public ActionResponse(T data) : this(ActionResponseType.Success)
-        {
-            Data = data;
-        }
-
-        public ActionResponse(IList<ErrorMessage> errors) : this(ActionResponseType.Error)
-        {
-            Errors = errors;
-        }
-
-        public ActionResponse(T data, IList<ErrorMessage> errors) : this(ActionResponseType.Warning)
-        {
-            Data = data;
-            Errors = errors;
-        }
-
-        #endregion
-
     }
+
 }
