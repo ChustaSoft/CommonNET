@@ -1,5 +1,6 @@
 ﻿using ChustaSoft.Common.Validators;
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ChustaSoft.Common.AspNet.UnitTest
@@ -8,68 +9,58 @@ namespace ChustaSoft.Common.AspNet.UnitTest
     {
 
         [Test]
-        public void Given_PropertiesRelatedInitialInformed_When_IsValidBypass_Then_NullRetrieved()
+        public void Given_PropertiesRelatedInitialInformed_When_IsValidBypass_Then_TrueRetrieved()
         {
-            var classObj = new TestClass { TestString = "Test value" };
-            var validator = new RequiredOneOrAnotherAttributeTestObj(nameof(TestClass.TestInt));
+            var classObj = new TestClass { TestString = "Test value" };            
             var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestString) };
+            var validationResults = new List<ValidationResult>();
 
-            var result = validator._IsValid(classObj, validationContext);
+            var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.IsNull(result);
+            Assert.True(result);
         }
 
         [Test]
-        public void Given_PropertiesRelatedOtherInformed_When_IsValidBypass_Then_NullRetrieved()
+        public void Given_PropertiesRelatedOtherInformed_When_IsValidBypass_Then_TrueRetrieved()
         {
             var classObj = new TestClass { TestInt = 5 };
-            var validator = new RequiredOneOrAnotherAttributeTestObj(nameof(TestClass.TestString));
-            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestInt) };
+            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestString) };
+            var validationResults = new List<ValidationResult>();
 
-            var result = validator._IsValid(classObj, validationContext);
+            var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.IsNull(result);
+            Assert.True(result);
         }
 
         [Test]
-        public void Given_PropertiesRelatedNoneInformed_When_IsValidBypass_Then_ErrorMessageRetrieved()
+        public void Given_PropertiesRelatedNoneInformed_When_IsValidBypass_Then_FalseRetrieved()
         {
             var classObj = new TestClass { };
-            var validator = new RequiredOneOrAnotherAttributeTestObj(nameof(TestClass.TestString));
-            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestInt) };
+            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestString) };
+            var validationResults = new List<ValidationResult>();
 
-            var result = validator._IsValid(classObj, validationContext);
+            var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.IsNotNull(result.ErrorMessage);
+            Assert.False(result);
         }
 
 
         [Test]
-        public void Given_PropertiesRelatedBothInformed_When_IsValidBypass_Then_NullRetrieved()
+        public void Given_PropertiesRelatedBothInformed_When_IsValidBypass_Then_TrueRetrieved()
         {
             var classObj = new TestClass { TestString = "Test", TestInt = 5 };
-            var validator = new RequiredOneOrAnotherAttributeTestObj(nameof(TestClass.TestString));
-            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestInt) };
+            var validationContext = new ValidationContext(classObj) { MemberName = nameof(TestClass.TestString) };
+            var validationResults = new List<ValidationResult>();
 
-            var result = validator._IsValid(classObj, validationContext);
+            var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.IsNull(result);
+            Assert.True(result);
         }
 
-
-
-        private class RequiredOneOrAnotherAttributeTestObj : RequiredOneOrAnotherAttribute
-        {
-            public RequiredOneOrAnotherAttributeTestObj(string otherProperty) 
-                : base(otherProperty)
-            { }
-
-            internal ValidationResult _IsValid(object value, ValidationContext validationContext)
-                => base.IsValid(value, validationContext);
-        }
 
         private class TestClass
         {
+            [RequiredOneOrAnother("TestInt")]
             public string TestString { get; set; }
             public int TestInt { get; set; }
         }

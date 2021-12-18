@@ -18,15 +18,17 @@ namespace ChustaSoft.Common.Validators
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var property1Value = value.GetPropertyValue(validationContext.MemberName);
-            var property2Value = value.GetPropertyValue(_otherProperty);
+            if (value == null) 
+            { 
+                var otherPropertyValue = validationContext.ObjectInstance.GetPropertyValue(_otherProperty);
 
-            if (!IsPropertyTypeValid(property1Value) && !IsPropertyTypeValid(property2Value))
-            {
-                var property1Description = validationContext.ObjectType.GetDescription(validationContext.MemberName);
-                var property2Description = validationContext.ObjectType.GetDescription(_otherProperty);
+                if (!IsPropertyTypeValid(otherPropertyValue))
+                {
+                    var targetPropertyDescription = validationContext.ObjectType.GetDescription(validationContext.MemberName);
+                    var otherDescription = validationContext.ObjectType.GetDescription(_otherProperty);
 
-                return new ValidationResult($"Field {property1Description} or {property2Description} are mandatory");
+                    return new ValidationResult($"Field {targetPropertyDescription} or {otherDescription} are mandatory");
+                }
             }
 
             return null;
