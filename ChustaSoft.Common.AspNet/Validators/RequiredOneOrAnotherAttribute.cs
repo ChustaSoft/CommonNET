@@ -18,7 +18,7 @@ namespace ChustaSoft.Common.Validators
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (value == null) 
+            if (!IsPropertyTypeValid(value)) 
             { 
                 var otherPropertyValue = validationContext.ObjectInstance.GetPropertyValue(_otherProperty);
 
