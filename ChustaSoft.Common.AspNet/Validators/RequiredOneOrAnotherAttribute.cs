@@ -18,11 +18,11 @@ namespace ChustaSoft.Common.Validators
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (!IsPropertyTypeValid(value)) 
+            if (!IsPropertyValueValid(value)) 
             { 
                 var otherPropertyValue = validationContext.ObjectInstance.GetPropertyValue(_otherProperty);
 
-                if (!IsPropertyTypeValid(otherPropertyValue))
+                if (!IsPropertyValueValid(otherPropertyValue))
                 {
                     var targetPropertyDescription = validationContext.ObjectType.GetDescription(validationContext.MemberName);
                     var otherDescription = validationContext.ObjectType.GetDescription(_otherProperty);
@@ -41,19 +41,18 @@ namespace ChustaSoft.Common.Validators
                 context.Attributes.Add(validationKey, $"Property required");
         }
 
-        private bool IsPropertyTypeValid(object property) 
+        private bool IsPropertyValueValid(object property) 
         {
             if (property == null)
                 return false;
 
-            switch (property.GetType().Name)
+            switch (property.GetType().Name.ToLower())
             {
-                case "Int32":
-                    return !((int)property == 0);
+                case "string":                
+                    return !string.IsNullOrWhiteSpace(property as string);
 
-                case "string":
                 default:
-                    return !string.IsNullOrEmpty(property as string);
+                    return IsPropertyValueValid(property.ToString());
             }
         }
 
