@@ -35,7 +35,7 @@ namespace ChustaSoft.Common.UnitTest.TestHelpers
 
         public int TestInt { get; set; }
 
-        [System.ComponentModel.Description("Test description")]
+        [Description("Test description")]
         public string KnownDescription { get; set; }
 
         public string UnknownDescription { get; set; }

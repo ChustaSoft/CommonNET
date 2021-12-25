@@ -82,5 +82,36 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             Assert.IsTrue(string.IsNullOrEmpty(testClass.TestString));
         }
 
+        [TestMethod]
+        public void Given_ObjectWithStringPropertyFilled_When_GetPropertyValue_Then_PropertyRetrived() 
+        {
+            const string expectedResult = "Test";
+            var classObj = new TestClass { KnownDescription = expectedResult };
+
+            var result = classObj.GetPropertyValue(nameof(TestClass.KnownDescription));
+
+            Assert.AreEqual(expectedResult, result.ToString());
+        }
+
+        [TestMethod]
+        public void Given_ObjectWithIntPropertyFilled_When_GetPropertyValue_Then_PropertyRetrived()
+        {
+            const int expectedResult = 7;
+            var classObj = new TestClass { TestInt = expectedResult};
+
+            var result = classObj.GetPropertyValue(nameof(TestClass.TestInt));
+
+            Assert.AreEqual(expectedResult, (int)result);
+        }
+
+        [TestMethod]
+        public void Given_ObjectWithStringPropertyNull_When_GetPropertyValue_Then_NullRetrived()
+        {
+            var classObj = new TestClass {  };
+
+            var result = classObj.GetPropertyValue(nameof(TestClass.KnownDescription));
+
+            Assert.IsNull(result);
+        }
     }
 }

@@ -28,6 +28,20 @@ namespace ChustaSoft.Common.Helpers
         }
 
         /// <summary>
+        /// Try to retrieve the value of a property inside an object by reflection
+        /// </summary>
+        /// <param name="obj">Object containing the property to retrieve</param>
+        /// <param name="propertyName">Name of the property to be retrieved</param>
+        /// <returns>Property value retrived</returns>
+        public static object GetPropertyValue(this object obj, string propertyName)
+        {
+            var property = obj.GetType().GetProperty(propertyName);
+            var value = property.GetValue(obj, null);
+
+            return value;
+        }
+
+        /// <summary>
         /// Get properties list from an specified objetc
         /// </summary>
         /// <typeparam name="T">Generic Object type</typeparam>
