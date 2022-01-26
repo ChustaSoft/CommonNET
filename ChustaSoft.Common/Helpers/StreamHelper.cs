@@ -1,11 +1,24 @@
 ﻿using System.Collections;
 using System.IO;
 using System.IO.Compression;
+using System.Text;
 
 namespace ChustaSoft.Common.Helpers
 {
     public static class StreamHelper
     {
+
+        /// <summary>
+        /// Determines if two array of bytes are equals or not, using System StructuralComparisons
+        /// <seealso cref="StructuralComparisons.StructuralEqualityComparer"/>
+        /// </summary>
+        /// <param name="bytes1">One of the array of bytes to compare</param>
+        /// <param name="bytes2">The other array of bytes to compare</param>
+        /// <returns>True if are equals, false otherwise</returns>
+        public static bool AreEquals(byte[] bytes1, byte[] bytes2)
+        {
+            return StructuralComparisons.StructuralEqualityComparer.Equals(bytes1, bytes2);
+        }
 
         /// <summary>
         /// Compress an array of bytes
@@ -51,15 +64,27 @@ namespace ChustaSoft.Common.Helpers
         }
 
         /// <summary>
-        /// Determines if two array of bytes are equals or not, using System StructuralComparisons
-        /// <seealso cref="StructuralComparisons.StructuralEqualityComparer"/>
+        /// Convert a string in a compressed array of bytes
         /// </summary>
-        /// <param name="bytes1">One of the array of bytes to compare</param>
-        /// <param name="bytes2">The other array of bytes to compare</param>
-        /// <returns>True if are equals, false otherwise</returns>
-        public static bool AreEquals(byte[] bytes1, byte[] bytes2) 
+        /// <param name="text">Text to convert</param>
+        /// <returns>Array of bytes converted</returns>
+        public static byte[] ToCompressedArray(this string text)
         {
-            return StructuralComparisons.StructuralEqualityComparer.Equals(bytes1, bytes2);
+            var compressedStream = Encoding.UTF8.GetBytes(text);
+
+            return compressedStream.Compress();
+        }
+
+        /// <summary>
+        /// Recover a previously compressed string as an array of bytes
+        /// </summary>
+        /// <param name="bytes">Compressed string into array of bytes</param>
+        /// <returns>String recovered</returns>
+        public static string ToDecompressedString(this byte[] bytes) 
+        {
+            var decompressedString = bytes.Decompress();
+
+            return Encoding.UTF8.GetString(decompressedString);
         }
 
     }
