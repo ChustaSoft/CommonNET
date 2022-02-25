@@ -58,7 +58,7 @@ namespace ChustaSoft.Common.Helpers
                     Type = prop.PropertyType
                 };
             }
-        }
+        }        
 
         /// <summary>
         /// Remove every data from an object using reflection
