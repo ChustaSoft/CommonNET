@@ -87,5 +87,32 @@ namespace ChustaSoft.Common.Helpers
             return Encoding.UTF8.GetString(decompressedString);
         }
 
+        /// <summary>
+        /// Extension method to retrieve a file embedded from an assembly
+        /// </summary>
+        /// <param name="assembly">The assembly from we want to extract a resource as stream</param>
+        /// <param name="fileName">The filename incuding extension to retrieve</param>
+        /// <param name="folderName">The folderName, by default it will look in a Resources folder</param>
+        /// <returns></returns>
+        public static Stream GetEmbeddedResource(this System.Reflection.Assembly assembly, string fileName, string folderName = "Resources")
+        {
+            var resourceStream = assembly.GetManifestResourceStream($"{assembly.GetName().Name}.{folderName}.{fileName}");
+
+            return resourceStream;
+        }
+
+        /// <summary>
+        /// Converts an stream to plain text string
+        /// </summary>
+        /// <param name="stream">Stream to be translated</param>
+        /// <returns>Text</returns>
+        public static string AsString(this Stream stream) 
+        {
+            var reader = new StreamReader(stream);
+            var streamText = reader.ReadToEnd();
+
+            return streamText;
+        }
+
     }
 }

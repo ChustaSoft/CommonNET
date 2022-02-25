@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 
 namespace ChustaSoft.Common.Helpers
@@ -58,7 +59,7 @@ namespace ChustaSoft.Common.Helpers
                     Type = prop.PropertyType
                 };
             }
-        }
+        }        
 
         /// <summary>
         /// Remove every data from an object using reflection

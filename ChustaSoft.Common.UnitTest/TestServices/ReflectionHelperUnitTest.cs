@@ -2,7 +2,9 @@
 using ChustaSoft.Common.UnitTest.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace ChustaSoft.Common.UnitTest.TestServices
 {
@@ -113,5 +115,17 @@ namespace ChustaSoft.Common.UnitTest.TestServices
 
             Assert.IsNull(result);
         }
+
+
+        [TestMethod]
+        public void Given_NameFile_When_GetEmbeddedResource_Then_StreamRetrived()
+        {
+            var result = Assembly.GetExecutingAssembly().GetEmbeddedResource("test-json-file.json");
+            var restulString = result.AsString();
+
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(restulString);
+        }
+
     }
 }
