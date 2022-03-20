@@ -144,4 +144,7 @@
   <data name="ArgumentException_UnsupportedEnumCast" xml:space="preserve">
     <value>Type d'énumération ou casse de chaîne non pris en charge.</value>
   </data>
+  <data name="ModelMappingException_ErrorMessage" xml:space="preserve">
+    <value>Le modèle de type {0} ne peut pas être mappé au modèle de type {1}</value>
+  </data>
 </root>

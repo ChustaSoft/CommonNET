@@ -19,7 +19,7 @@ namespace ChustaSoft.Common.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ExceptionResources {
@@ -129,6 +129,15 @@ namespace ChustaSoft.Common.Resources {
         internal static string InvalidOperationException_PaginatedListAdd {
             get {
                 return ResourceManager.GetString("InvalidOperationException_PaginatedListAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model of type {0} cannot be mapped to model of type {1}.
+        /// </summary>
+        internal static string ModelMappingException_ErrorMessage {
+            get {
+                return ResourceManager.GetString("ModelMappingException_ErrorMessage", resourceCulture);
             }
         }
         
