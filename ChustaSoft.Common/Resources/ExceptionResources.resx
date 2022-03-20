@@ -144,4 +144,7 @@
   <data name="ArgumentException_UnsupportedEnumCast" xml:space="preserve">
     <value>Unsupported Enum type or string case.</value>
   </data>
+  <data name="ModelMappingException_ErrorMessage" xml:space="preserve">
+    <value>Model of type {0} cannot be mapped to model of type {1}</value>
+  </data>
 </root>
