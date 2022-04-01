@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace ChustaSoft.Common.Base
 {
@@ -15,6 +17,7 @@ namespace ChustaSoft.Common.Base
     /// <typeparam name="TController">ControllerType itself, required for ILogger</typeparam>
     public class ApiControllerBase<TController> : ControllerBase
     {
+        private const string ACCESS_TOKEN_HEADER = "Authorization";
 
         protected readonly ILogger<TController> _logger;
 
@@ -58,6 +61,20 @@ namespace ChustaSoft.Common.Base
             actionResponseBuilder.AddError(new ErrorMessage(ErrorType.Invalid, exception.Message));
 
             return BadRequest(actionResponseBuilder.Build());
+        }
+
+        protected string GetRequestUserId(string userIdClaim)
+        {
+            var accessToken = Request.Headers[ACCESS_TOKEN_HEADER].FirstOrDefault()?.Split(" ")[1];
+            var jwt = new JwtSecurityTokenHandler().ReadToken(accessToken) as JwtSecurityToken;
+            var userId = jwt.Claims.FirstOrDefault(x => x.Type.Equals(userIdClaim, StringComparison.OrdinalIgnoreCase))?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new InvalidOperationException("User id cannot be null");
+            }
+
+            return userId;
         }
 
     }
