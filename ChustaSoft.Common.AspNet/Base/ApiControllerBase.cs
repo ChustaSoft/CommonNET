@@ -63,6 +63,11 @@ namespace ChustaSoft.Common.Base
             return BadRequest(actionResponseBuilder.Build());
         }
 
+        /// <summary>
+        /// Gets the user id from the autorization token header
+        /// </summary>
+        /// <param name="userIdClaim">Claim where the userd id is located</param>
+        /// <returns>User id found in the access token authorization header</returns>
         protected string GetRequestUserId(string userIdClaim)
         {
             var accessToken = Request.Headers[ACCESS_TOKEN_HEADER].FirstOrDefault()?.Split(" ")[1];
