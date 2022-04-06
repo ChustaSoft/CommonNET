@@ -1,5 +1,6 @@
 ﻿using ChustaSoft.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -10,11 +11,13 @@ namespace ChustaSoft.Common.Middlewares
     {
 
         private readonly RequestDelegate _next;
+        private readonly ILogger<ErrorHandlerMiddleware> _logger;
 
 
-        public ErrorHandlerMiddleware(RequestDelegate next)
+        public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
 
@@ -39,11 +42,13 @@ namespace ChustaSoft.Common.Middlewares
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 result = ex.Message;
+                _logger.LogTrace($"[BusinessException]: {ex.Message}");
             }
             else
             {
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 result = context.TraceIdentifier;
+                _logger.LogError($"[{ex.GetType().Name}]-[{context.TraceIdentifier}]: {ex.Message}");
             }
 
             return context.Response.WriteAsync(result);

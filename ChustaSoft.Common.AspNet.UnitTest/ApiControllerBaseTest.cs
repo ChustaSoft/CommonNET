@@ -63,7 +63,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             });
 
             //Act
-            var userId = testController.Expose_GetRequestUserId("oid");
+            var userId = testController.GetRequestUserId();
 
             //Assert
             Assert.AreEqual(userId, expectedUserId);
@@ -74,6 +74,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
         {
             //Arrange
             const string expectedErrorMessage = "User id cannot be null";
+
             var httpContext = CreateHttpContextWithAuthrizationHeader();
             var testController = CreateTestController(new ControllerContext()
             {
@@ -81,11 +82,28 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             });
 
             //Act
-            TestDelegate act = () => testController.Expose_GetRequestUserId("NonExistingClaim");
+            TestDelegate act = () => testController.GetRequestUserId("NonExistingClaim");
 
             //Assert
             var exception = Assert.Throws<InvalidOperationException>(act);
             Assert.AreEqual(exception.Message, expectedErrorMessage);
+        }
+
+        [Test]
+        public void Given_TokenWithEmail_When_GetRequestUserEmail_Then_UserEmailRetrived()
+        {
+            //Arrange
+            var httpContext = CreateHttpContextWithAuthrizationHeader();
+            var testController = CreateTestController(new ControllerContext()
+            {
+                HttpContext = httpContext,
+            });
+
+            //Act
+            var userEmail = testController.GetRequestUserEmail();
+
+            //Assert
+            Assert.IsFalse(string.IsNullOrWhiteSpace(userEmail));
         }
 
         private TestController CreateTestController(ControllerContext controllerContext = null)
@@ -116,8 +134,6 @@ namespace ChustaSoft.Common.AspNet.UnitTest
                 => Ok(actionResponseBuilder);
             internal IActionResult Expose_Ko<T>(ActionResponseBuilder<T> actionResponseBuilder, Exception exception)
                 => Ko(actionResponseBuilder, exception);
-            internal string Expose_GetRequestUserId(string userIdClaim)
-                => GetRequestUserId(userIdClaim);
 
         }
 
