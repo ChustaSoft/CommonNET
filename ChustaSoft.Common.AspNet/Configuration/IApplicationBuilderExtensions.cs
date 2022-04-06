@@ -11,5 +11,10 @@ namespace ChustaSoft.Common.Configuration
             applicationBuilder.UseMiddleware<HttpContextLoggingMiddleware>();
         }
 
+        public static void UseErrorHandlingMiddleware(this IApplicationBuilder applicationBuilder)
+        {
+            applicationBuilder.UseMiddleware<ErrorHandlerMiddleware>();
+        }
+
     }
 }

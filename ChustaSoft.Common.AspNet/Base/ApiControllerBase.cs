@@ -15,7 +15,7 @@ namespace ChustaSoft.Common.Base
     /// <typeparam name="TController">ControllerType itself, required for ILogger</typeparam>
     public class ApiControllerBase<TController> : ControllerBase
     {
-
+        
         protected readonly ILogger<TController> _logger;
 
         
