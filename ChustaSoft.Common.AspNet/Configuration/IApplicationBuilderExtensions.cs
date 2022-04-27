@@ -13,7 +13,13 @@ namespace ChustaSoft.Common.Configuration
 
         public static void UseErrorHandlingMiddleware(this IApplicationBuilder applicationBuilder)
         {
-            applicationBuilder.UseMiddleware<ErrorHandlerMiddleware>();
+            applicationBuilder.UseErrorHandlingMiddleware<DefaultErrorHandlerMiddleware>();
+        }
+
+        public static void UseErrorHandlingMiddleware<THandler>(this IApplicationBuilder applicationBuilder)
+            where THandler : ErrorHandlerMiddlewareBase
+        {
+            applicationBuilder.UseMiddleware<THandler>();
         }
 
     }

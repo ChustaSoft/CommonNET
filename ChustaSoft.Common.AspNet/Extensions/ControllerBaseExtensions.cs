@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Microsoft.AspNetCore.Mvc
 {
@@ -19,7 +21,7 @@ namespace Microsoft.AspNetCore.Mvc
         /// <returns>User id found in the access token authorization header</returns>
         public static string GetRequestUserId(this ControllerBase controllerBase, string userIdClaim = OID_CLAIM)
         {
-            var jwt = GetTokenFromAuthHeader(controllerBase);
+            var jwt = controllerBase.GetTokenFromAuthHeader();
             var userId = jwt.Claims.FirstOrDefault(x => x.Type.Equals(userIdClaim, StringComparison.OrdinalIgnoreCase))?.Value;
 
             if (string.IsNullOrEmpty(userId))
@@ -37,18 +39,27 @@ namespace Microsoft.AspNetCore.Mvc
         /// <returns>Email string if found, empty otherwise</returns>
         public static string GetRequestUserEmail(this ControllerBase controllerBase)
         {
-            var jwt = GetTokenFromAuthHeader(controllerBase);
+            var claims = controllerBase.GetClaims();
 
-            return jwt.Claims
-               .Any(c => c.Type == "upn")
-               ? jwt.Claims.FirstOrDefault(c => c.Type == "upn").Value
-               : jwt.Claims.FirstOrDefault(c => c.Type == "sub")?.Value
-               ?? 
-               string.Empty;
+            return
+                claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value ??
+                claims.FirstOrDefault(c => c.Type == "upn")?.Value ??
+                claims.FirstOrDefault(c => c.Type == "sub")?.Value ??
+                throw new InvalidOperationException("User email not found");
         }
 
 
-        private static JwtSecurityToken GetTokenFromAuthHeader(ControllerBase controllerBase)
+        private static IEnumerable<Claim> GetClaims(this ControllerBase controllerBase)
+        {
+            var identityClaims = (controllerBase.HttpContext.User?.Identity as ClaimsIdentity)?.Claims;
+
+            if(identityClaims != null && identityClaims.Any())
+                return identityClaims;
+            else
+                return controllerBase.GetTokenFromAuthHeader().Claims;
+        }
+
+        private static JwtSecurityToken GetTokenFromAuthHeader(this ControllerBase controllerBase)
         {
             var accessToken = controllerBase.Request.Headers[ACCESS_TOKEN_HEADER].FirstOrDefault()?.Split(" ")[1];
             var jwt = new JwtSecurityTokenHandler().ReadToken(accessToken) as JwtSecurityToken;

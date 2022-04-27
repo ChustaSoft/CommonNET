@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace ChustaSoft.Common.Middlewares
 {
-    public class ErrorHandlerMiddleware
+
+    /// <summary>
+    /// Abstract definition for a centralized error handling middleware
+    /// </summary>
+    public abstract class ErrorHandlerMiddlewareBase
     {
 
-        private readonly RequestDelegate _next;
-        private readonly ILogger<ErrorHandlerMiddleware> _logger;
+        protected readonly RequestDelegate _next;
+        protected readonly ILogger<ErrorHandlerMiddlewareBase> _logger;
 
 
-        public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
+        public ErrorHandlerMiddlewareBase(RequestDelegate next, ILogger<ErrorHandlerMiddlewareBase> logger)
         {
             _next = next;
             _logger = logger;
@@ -34,7 +38,27 @@ namespace ChustaSoft.Common.Middlewares
         }
 
 
-        private Task HandleExceptionAsync(HttpContext context, Exception ex)
+        protected abstract Task HandleExceptionAsync(HttpContext context, Exception ex);
+
+    }
+
+
+
+    #region Default implementation
+
+    /// <summary>
+    /// Default implementationfor a centralized error handling middleware
+    /// This one only manages general exceptions and custom Business exceptions
+    /// </summary>
+    public class DefaultErrorHandlerMiddleware : ErrorHandlerMiddlewareBase
+    {
+
+        public DefaultErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddlewareBase> logger)
+            : base(next, logger)
+        { }
+
+
+        protected override Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
             var result = string.Empty;
 
@@ -53,6 +77,8 @@ namespace ChustaSoft.Common.Middlewares
 
             return context.Response.WriteAsync(result);
         }
-
     }
+
+    #endregion
+
 }

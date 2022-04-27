@@ -60,7 +60,18 @@ namespace ChustaSoft.Common.Base
             return BadRequest(actionResponseBuilder.Build());
         }
 
+        /// <summary>
+        /// <see cref="ControllerBaseExtensions.GetRequestUserId(ControllerBase, string)"/>
+        /// </summary>
+        protected string GetRequestUserId() => this.GetRequestUserId();
+
+        /// <summary>
+        /// <see cref="ControllerBaseExtensions.GetRequestUserEmail(ControllerBase)(ControllerBase, string)"/>
+        /// </summary>
+        protected string GetRequestUserEmail() => this.GetRequestUserEmail();
     }
+
+
 
     public class MvcControllerBase<TController, TSettings> : MvcControllerBase<TController>
         where TSettings : class, new()
