@@ -4,18 +4,18 @@
 		<TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
 		<PackageId>ChustaSoft.Common.AspNet</PackageId>
 		<RootNamespace>ChustaSoft.Common</RootNamespace>
-		<Description>Common functionalities and utilities for any ASPNETCore MVC project</Description>
+		<Description>Common functionalities and utilities for any AspNetCore MVC project</Description>
 		<Copyright>ChustaSoft</Copyright>
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.5.0</Version>
-		<FileVersion>2.5.0</FileVersion>
-		<AssemblyVersion>2.5.0</AssemblyVersion>
+		<Version>2.6.0-alpha.1</Version>
+		<FileVersion>2.6.0</FileVersion>
+		<AssemblyVersion>2.6.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
-		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
-		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/wiki/Release-notes#commonnetaspnet</PackageReleaseNotes>
+		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/blob/main/ChustaSoft.Common.AspNet/changelog.md</PackageReleaseNotes>
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
 	</PropertyGroup>
