@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 
-namespace ChustaSoft.Common
+namespace Microsoft.AspNetCore.Mvc
 {
     public static class ControllerBaseExtensions
     {
