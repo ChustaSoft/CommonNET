@@ -71,6 +71,8 @@ namespace ChustaSoft.Common.Base
         protected string GetRequestUserEmail() => this.GetRequestUserEmail();
     }
 
+
+
     public class MvcControllerBase<TController, TSettings> : MvcControllerBase<TController>
         where TSettings : class, new()
     {
