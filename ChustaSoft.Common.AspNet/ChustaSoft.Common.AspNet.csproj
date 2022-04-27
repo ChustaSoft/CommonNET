@@ -9,7 +9,7 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.6.0-alpha.1</Version>
+		<Version>2.6.0</Version>
 		<FileVersion>2.6.0</FileVersion>
 		<AssemblyVersion>2.6.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
