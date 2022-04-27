@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.7.0] - 2022-04-27
+### Added
+- Added more cases for in ControllerBase extension method GetRequestUserEmail
+- Allowed to write custom exception handling for ErrorHandling Middleware
+- Added bypass methods for GetRequestUserId and GetRequestUserEmail in ApiControllerBase and MvcControllerBase, avoiding usage of 'this'
+
 ## [2.6.0] - 2022-04-27
 ### Changed
 - Changed namespace for ControllerBase Extension methods, now custom namespace can be avoided
