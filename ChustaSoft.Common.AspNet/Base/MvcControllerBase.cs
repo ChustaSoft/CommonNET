@@ -63,12 +63,12 @@ namespace ChustaSoft.Common.Base
         /// <summary>
         /// <see cref="ControllerBaseExtensions.GetRequestUserId(ControllerBase, string)"/>
         /// </summary>
-        protected string GetRequestUserId() => this.GetRequestUserId();
+        protected string RequestUserId => this.GetRequestUserId();
 
         /// <summary>
         /// <see cref="ControllerBaseExtensions.GetRequestUserEmail(ControllerBase)(ControllerBase, string)"/>
         /// </summary>
-        protected string GetRequestUserEmail() => this.GetRequestUserEmail();
+        protected string RequestUserEmail => this.GetRequestUserEmail();
     }
 
 
