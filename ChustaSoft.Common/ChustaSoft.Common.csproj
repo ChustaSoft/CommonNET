@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net471;net48;net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net47;net471;net48;net6.0;net7.0</TargetFrameworks>
 		<PackageId>ChustaSoft.Common</PackageId>
 		<RootNamespace>ChustaSoft.Common</RootNamespace>
 		<Description>Common functionalities and utilities for any .NET project</Description>
@@ -9,9 +9,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.7.1</Version>
-		<FileVersion>2.7.1</FileVersion>
-		<AssemblyVersion>2.7.1</AssemblyVersion>
+		<Version>2.8.0</Version>
+		<FileVersion>2.8.0</FileVersion>
+		<AssemblyVersion>2.8.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/blob/main/ChustaSoft.Common/changelog.md</PackageReleaseNotes>
@@ -19,6 +19,7 @@
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Utilities;Helpers;Common;Core</PackageTags>
 	</PropertyGroup>
+
 
 	<ItemGroup>
 		<Compile Update="Resources\ExceptionResources.Designer.cs">
@@ -42,19 +43,8 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net47' ">
-		<Reference Include="System.Web" />
-	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net471' ">
-		<Reference Include="System.Web" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
-		<Reference Include="System.Web" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
+	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
 		<Reference Include="System.Web" />
 	</ItemGroup>
 
