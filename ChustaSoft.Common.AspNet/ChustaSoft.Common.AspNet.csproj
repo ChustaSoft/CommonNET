@@ -9,9 +9,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.7.1</Version>
-		<FileVersion>2.7.1</FileVersion>
-		<AssemblyVersion>2.7.1</AssemblyVersion>
+		<Version>2.8.0</Version>
+		<FileVersion>2.8.0</FileVersion>
+		<AssemblyVersion>2.8.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
@@ -19,6 +19,7 @@
 		<RepositoryType>GIT</RepositoryType>
 		<PackageTags>Utilities;Helpers;Common;Core;ASP;ASPNET;ASPNETCORE;ASPMVC</PackageTags>
 	</PropertyGroup>
+
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
@@ -30,7 +31,7 @@
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-		
+
 		<ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />
 
 		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" />

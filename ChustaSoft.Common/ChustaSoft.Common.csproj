@@ -9,9 +9,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.7.1</Version>
-		<FileVersion>2.7.1</FileVersion>
-		<AssemblyVersion>2.7.1</AssemblyVersion>
+		<Version>2.8.0</Version>
+		<FileVersion>2.8.0</FileVersion>
+		<AssemblyVersion>2.8.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<PackageReleaseNotes>https://github.com/ChustaSoft/CommonNET/blob/main/ChustaSoft.Common/changelog.md</PackageReleaseNotes>
@@ -42,6 +42,7 @@
 			<LastGenOutput>ExceptionResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 	</ItemGroup>
+
 
 	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
 		<Reference Include="System.Web" />
