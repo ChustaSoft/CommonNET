@@ -23,11 +23,9 @@ There are no requirements, library has not any dependencies in order to make arc
 CommonNET
 ---
 
-- Targets:
-  - .NET Standard >= 2.1
-  - .NET Core >= 3.1
-  - .NET Framework >= 4.7.1
-  - .NET >= 5.0
+- Targets:  
+  - .NET Framework >= 4.7
+  - .NET >= 6.0
 
 - Installation
   - Install-Package ChustaSoft.Common
@@ -47,8 +45,7 @@ CommonNET.AspNet
 ---
 
 - Targets:
-  - .NET Core >= 2.1
-  - .NET >= 5.0
+  - .NET >= 6.0
 
 - Installation
   - Install-Package ChustaSoft.Common.AspNet
@@ -62,8 +59,7 @@ CommonNET.Wpf
 ---
 
 - Targets (Only Windows):
-  - .NET Core >= 3.1
-  - .NET >= 5.0 
+  - .NET >= 6.0 
 
 - Installation
   - Install-Package ChustaSoft.Common.Wpf
