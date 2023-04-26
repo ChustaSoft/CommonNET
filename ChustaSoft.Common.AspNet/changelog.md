@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.9.0] - 2023-04-26
+### Added
+- Restricted the UserID retrieval masking the logic only for oid and nameid
+
 ## [2.8.0] - 2022-12-20
 ### Added
 - Support for .NET 7.0
