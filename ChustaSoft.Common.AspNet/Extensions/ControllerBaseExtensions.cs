@@ -10,8 +10,7 @@ namespace Microsoft.AspNetCore.Mvc
     {
 
         private const string ACCESS_TOKEN_HEADER = "Authorization";
-        private const string OID_CLAIM = "oid";
-
+        
 
         /// <summary>
         /// Gets the user id from the autorization token header
@@ -19,17 +18,14 @@ namespace Microsoft.AspNetCore.Mvc
         /// <param name="controllerBase">Controller from wich get the information</param>
         /// <param name="userIdClaim">Claim where the userd id is located</param>
         /// <returns>User id found in the access token authorization header</returns>
-        public static string GetRequestUserId(this ControllerBase controllerBase, string userIdClaim = OID_CLAIM)
+        public static string GetRequestUserId(this ControllerBase controllerBase)
         {
             var jwt = controllerBase.GetTokenFromAuthHeader();
-            var userId = jwt.Claims.FirstOrDefault(x => x.Type.Equals(userIdClaim, StringComparison.OrdinalIgnoreCase))?.Value;
-
-            if (string.IsNullOrEmpty(userId))
-            {
+            
+            return
+                jwt.Claims.FirstOrDefault(c => c.Type.Equals("oid", StringComparison.OrdinalIgnoreCase))?.Value ??
+                jwt.Claims.FirstOrDefault(c => c.Type.Equals("nameid", StringComparison.OrdinalIgnoreCase))?.Value ??
                 throw new InvalidOperationException("User id cannot be null");
-            }
-
-            return userId;
         }
 
         /// <summary>
@@ -59,7 +55,7 @@ namespace Microsoft.AspNetCore.Mvc
                 return controllerBase.GetTokenFromAuthHeader().Claims;
         }
 
-        private static JwtSecurityToken GetTokenFromAuthHeader(this ControllerBase controllerBase)
+        public static JwtSecurityToken GetTokenFromAuthHeader(this ControllerBase controllerBase)
         {
             var accessToken = controllerBase.Request.Headers[ACCESS_TOKEN_HEADER].FirstOrDefault()?.Split(" ")[1];
             var jwt = new JwtSecurityTokenHandler().ReadToken(accessToken) as JwtSecurityToken;
