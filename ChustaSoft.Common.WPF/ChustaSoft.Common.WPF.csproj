@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows;net7.0-windows</TargetFrameworks>
+		<TargetFrameworks>net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
 		<UseWPF>true</UseWPF>
 		<PackageId>ChustaSoft.Common.Wpf</PackageId>
 		<RootNamespace>ChustaSoft.Common</RootNamespace>
@@ -10,9 +10,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.6.0</Version>
-		<FileVersion>2.6.0</FileVersion>
-		<AssemblyVersion>2.6.0</AssemblyVersion>
+		<Version>2.7.0</Version>
+		<FileVersion>2.7.0</FileVersion>
+		<AssemblyVersion>2.7.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
@@ -22,9 +22,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Models\" />
-		<Folder Include="Base\" />
-
 		<Compile Update="Controls\LoadingPosition.cs">
 			<DependentUpon>Loading.xaml</DependentUpon>
 		</Compile>
@@ -38,12 +35,17 @@
 
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0-windows' ">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.*" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0-windows' ">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.*" />
 	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0-windows' ">
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.*" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />

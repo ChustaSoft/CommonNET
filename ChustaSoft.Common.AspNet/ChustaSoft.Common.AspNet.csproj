@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<PackageId>ChustaSoft.Common.AspNet</PackageId>
 		<RootNamespace>ChustaSoft.Common</RootNamespace>
 		<Description>Common functionalities and utilities for any AspNetCore MVC project</Description>
@@ -9,9 +9,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.9.0</Version>
-		<FileVersion>2.9.0</FileVersion>
-		<AssemblyVersion>2.9.0</AssemblyVersion>
+		<Version>2.10.0</Version>
+		<FileVersion>2.10.0</FileVersion>
+		<AssemblyVersion>2.10.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
@@ -22,11 +22,15 @@
 
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.*" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.*" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.*" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -34,9 +38,8 @@
 
 		<ProjectReference Include="..\ChustaSoft.Common\ChustaSoft.Common.csproj" />
 
-		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.1" />
-
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
+		<PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="2.2.*" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
 	</ItemGroup>
 
 </Project>
