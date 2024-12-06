@@ -22,7 +22,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(options.Count, result.Count());
+            Assert.That(result.Count(), Is.EqualTo(options.Count));
         }
 
         [Test]
@@ -39,10 +39,10 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(3, result.Count());
-            Assert.IsTrue(result.Contains("Test1"));
-            Assert.IsTrue(result.Contains("Test2"));
-            Assert.IsTrue(result.Contains("Test3"));
+            Assert.That(result.Count(), Is.EqualTo(3));
+            Assert.That(result.Contains("Test1"), Is.True);
+            Assert.That(result.Contains("Test2"), Is.True);
+            Assert.That(result.Contains("Test3"), Is.True);
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.IsFalse(result.Any());
+            Assert.That(result.Any(), Is.False);
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(options.Count, result.Count());
+            Assert.That(result.Count(), Is.EqualTo(options.Count));
         }
 
         [Test]
@@ -93,10 +93,10 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.AreEqual(3, result.Count());
-            Assert.IsTrue(result.Contains(dateTime1));
-            Assert.IsTrue(result.Contains(dateTime2));
-            Assert.IsTrue(result.Contains(dateTime3));
+            Assert.That(result.Count(), Is.EqualTo(3));
+            Assert.That(result.Contains(dateTime1), Is.True);
+            Assert.That(result.Contains(dateTime2), Is.True);
+            Assert.That(result.Contains(dateTime3), Is.True);
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
 
             var result = options.GetSelected();
 
-            Assert.IsFalse(result.Any());
+            Assert.That(result.Any(), Is.False);
         }
 
     }

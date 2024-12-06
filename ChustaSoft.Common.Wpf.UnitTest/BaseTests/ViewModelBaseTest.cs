@@ -22,8 +22,8 @@ namespace ChustaSoft.Common.Wpf.UnitTest
             };
 
             modelBase.Model = DateTime.Now;
-            Assert.IsTrue(receivedEvents.Any());
-            Assert.IsTrue(receivedEvents.Contains(nameof(TestViewModel.Model)));
+            Assert.That(receivedEvents.Count != 0, Is.True);
+            Assert.That(receivedEvents.Any(x => x == nameof(TestViewModel.Model)), Is.True);
         }
 
 
