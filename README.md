@@ -58,7 +58,7 @@ CommonNET.AspNet
 CommonNET.Wpf
 ---
 
-- Targets (Only Windows):
+- Targets (Windows only):
   - .NET >= 6.0 
 
 - Installation

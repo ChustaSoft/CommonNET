@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
 		<PackageId>ChustaSoft.Common.AspNet</PackageId>
 		<RootNamespace>ChustaSoft.Common</RootNamespace>
 		<Description>Common functionalities and utilities for any AspNetCore MVC project</Description>
@@ -9,9 +9,9 @@
 		<Authors>Xelit3</Authors>
 		<Company>ChustaSoft</Company>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-		<Version>2.10.0</Version>
-		<FileVersion>2.10.0</FileVersion>
-		<AssemblyVersion>2.10.0</AssemblyVersion>
+		<Version>2.11.0</Version>
+		<FileVersion>2.11.0</FileVersion>
+		<AssemblyVersion>2.11.0</AssemblyVersion>
 		<PackageProjectUrl>https://github.com/ChustaSoft/CommonNET</PackageProjectUrl>
 		<PackageLicenseUrl>https://github.com/ChustaSoft/CommonNET/blob/main/LICENSE</PackageLicenseUrl>
 		<RepositoryUrl>https://github.com/ChustaSoft/CommonNET.git</RepositoryUrl>
@@ -31,6 +31,10 @@
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.*" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net9.0' ">
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.*" />
 	</ItemGroup>
 
 	<ItemGroup>

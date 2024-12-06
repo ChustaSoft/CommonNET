@@ -18,7 +18,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.True(result);
+            Assert.That(result, Is.True);
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.True(result);
+            Assert.That(result, Is.True);
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.False(result);
+            Assert.That(result, Is.False);
         }
 
 
@@ -55,7 +55,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.True(result);
+            Assert.That(result, Is.True);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.True(result);
+            Assert.That(result, Is.True);
         }
 
         [Test]
@@ -79,7 +79,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.False(result);
+            Assert.That(result, Is.False);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.True(result);
+            Assert.That(result, Is.True);
         }
 
 
@@ -104,7 +104,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
 
             var result = Validator.TryValidateObject(classObj, validationContext, validationResults, true);
 
-            Assert.False(result);
+            Assert.That(result, Is.False);
         }
 
         private class TestClassA

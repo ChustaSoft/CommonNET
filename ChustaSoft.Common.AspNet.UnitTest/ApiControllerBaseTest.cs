@@ -21,10 +21,10 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var actionResponseBuilder = testController.Expose_GetEmptyResponseBuilder<DateTime?>();
             var actionResponse = actionResponseBuilder.Build();
 
-            Assert.AreEqual(typeof(ActionResponseBuilder<DateTime?>), actionResponseBuilder.GetType());
-            Assert.AreEqual(typeof(ActionResponse<DateTime?>), actionResponse.GetType());
-            Assert.IsNull(actionResponse.Data);
-            Assert.IsEmpty(actionResponse.Errors);
+            Assert.That(actionResponseBuilder.GetType(), Is.EqualTo(typeof(ActionResponseBuilder<DateTime?>)));
+            Assert.That(actionResponse.GetType(), Is.EqualTo(typeof(ActionResponse<DateTime?>)));
+            Assert.That(actionResponse.Data, Is.Null);
+            Assert.That(actionResponse.Errors, Is.Empty);
         }
 
         [Test]
@@ -34,10 +34,10 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var actionResponseBuilder = testController.Expose_GetEmptyResponseBuilder<DateTime?>();
             var result = (OkObjectResult)testController.Expose_Ok(actionResponseBuilder);
 
-            Assert.AreEqual((int)HttpStatusCode.OK, result.StatusCode);
-            Assert.AreEqual(typeof(ActionResponse<DateTime?>), result.Value.GetType());
-            Assert.IsNull(((ActionResponse<DateTime?>)result.Value).Data);
-            Assert.IsEmpty(((ActionResponse<DateTime?>)result.Value).Errors);
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result.Value.GetType(), Is.EqualTo(typeof(ActionResponse<DateTime?>)));
+            Assert.That(((ActionResponse<DateTime?>)result.Value).Data, Is.Null);
+            Assert.That(((ActionResponse<DateTime?>)result.Value).Errors, Is.Empty);
         }
 
         [Test]
@@ -47,10 +47,10 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var actionResponseBuilder = testController.Expose_GetEmptyResponseBuilder<DateTime?>();
             var result = (BadRequestObjectResult)testController.Expose_Ko(actionResponseBuilder, new Exception("Test Exception thrown"));
 
-            Assert.AreEqual((int)HttpStatusCode.BadRequest, result.StatusCode);
-            Assert.AreEqual(typeof(ActionResponse<DateTime?>), result.Value.GetType());
-            Assert.IsNull(((ActionResponse<DateTime?>)result.Value).Data);
-            Assert.IsNotEmpty(((ActionResponse<DateTime?>)result.Value).Errors);
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result.Value.GetType(), Is.EqualTo(typeof(ActionResponse<DateTime?>)));
+            Assert.That(((ActionResponse<DateTime?>)result.Value).Data, Is.Null);
+            Assert.That(((ActionResponse<DateTime?>)result.Value).Errors, Is.Not.Empty);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var userId = testController.GetRequestUserId();
 
             //Assert
-            Assert.AreEqual(userId, expectedUserId);
+            Assert.That(userId, Is.EqualTo(expectedUserId));
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var userId = testController.GetRequestUserId();
 
             //Assert
-            Assert.AreEqual(userId, expectedUserId);
+            Assert.That(userId, Is.EqualTo(expectedUserId));
         }
 
         [Test]
@@ -101,7 +101,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var userEmail = testController.GetRequestUserEmail();
 
             //Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(userEmail));
+            Assert.That(string.IsNullOrWhiteSpace(userEmail), Is.False);
         }
 
         [Test]
@@ -117,7 +117,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var userEmail = testController.GetRequestUserEmail();
 
             //Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(userEmail));
+            Assert.That(string.IsNullOrWhiteSpace(userEmail), Is.False);
         }
 
         [Test]
@@ -133,7 +133,7 @@ namespace ChustaSoft.Common.AspNet.UnitTest
             var userEmail = testController.GetRequestUserEmail();
 
             //Assert
-            Assert.IsFalse(string.IsNullOrWhiteSpace(userEmail));
+            Assert.That(string.IsNullOrWhiteSpace(userEmail), Is.False);
         }
 
         [Test]

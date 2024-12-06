@@ -23,7 +23,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
         {
             var result = _defaultVisibilityConverter.Convert(null, typeof(Visibility), null, CultureInfo.InvariantCulture);
 
-            Assert.AreEqual(Visibility.Visible, result);
+            Assert.That(result, Is.EqualTo(Visibility.Visible));
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace ChustaSoft.Common.Wpf.UnitTest
         {
             var result = _defaultVisibilityConverter.Convert(new object(), typeof(Visibility), null, CultureInfo.InvariantCulture);
 
-            Assert.AreEqual(Visibility.Hidden, result);
+            Assert.That(result, Is.EqualTo(Visibility.Hidden));
         }
 
     }
