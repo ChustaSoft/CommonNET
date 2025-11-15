@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/NuGet/">
+    <Project Path="ChustaSoft.Common.AspNet/ChustaSoft.Common.AspNet.csproj" />
+    <Project Path="ChustaSoft.Common.WPF/ChustaSoft.Common.WPF.csproj" />
+    <Project Path="ChustaSoft.Common/ChustaSoft.Common.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Testing/">
+    <Project Path="ChustaSoft.Common.AspNet.UnitTest/ChustaSoft.Common.AspNet.UnitTest.csproj" />
+    <Project Path="ChustaSoft.Common.UnitTest/ChustaSoft.Common.UnitTest.csproj" />
+    <Project Path="ChustaSoft.Common.Wpf.UnitTest/ChustaSoft.Common.Wpf.UnitTest.csproj" />
+  </Folder>
+</Solution>
