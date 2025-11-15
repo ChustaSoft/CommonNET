@@ -29,13 +29,13 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_TypeAndNull_When_GetDescriptionInvoked_Then_ExceptionThrown()
         {
-            Assert.ThrowsException<NullReferenceException>(() => typeof(TestClass).GetDescription(null));
+            Assert.Throws<NullReferenceException>(() => typeof(TestClass).GetDescription(null));
         }
 
         [TestMethod]
         public void Given_TypeAndWrongString_When_GetDescriptionInvoked_Then_ExceptionThrown()
         {
-            Assert.ThrowsException<InvalidOperationException>(() => typeof(TestClass).GetDescription(string.Empty));
+            Assert.Throws<InvalidOperationException>(() => typeof(TestClass).GetDescription(string.Empty));
         }
 
     }

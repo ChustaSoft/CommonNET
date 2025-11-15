@@ -25,7 +25,7 @@ CommonNET
 
 - Targets:  
   - .NET Framework >= 4.7
-  - .NET >= 6.0
+  - .NET >= 8.0
 
 - Installation
   - Install-Package ChustaSoft.Common

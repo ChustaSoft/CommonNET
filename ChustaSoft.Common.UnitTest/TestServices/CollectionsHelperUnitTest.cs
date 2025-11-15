@@ -112,7 +112,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var currentPageIndex = 4;
             var testList = GetTestList(25);
 
-            Assert.ThrowsException<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
+            Assert.Throws<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
         }
 
         [TestMethod]
@@ -122,7 +122,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
             var currentPageIndex = -1;
             var testList = GetTestList(25);
 
-            Assert.ThrowsException<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
+            Assert.Throws<InvalidOperationException>(() => testList.ToPaginatedList(pageSize, currentPageIndex));
         }
 
         [TestMethod]
