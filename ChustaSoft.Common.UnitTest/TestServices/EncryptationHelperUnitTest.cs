@@ -36,31 +36,31 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_SingleStringAndNoneAlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.None));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.None));
         }
 
         [TestMethod]
         public void Given_SingleStringAndSha1AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha1));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha1));
         }
 
         [TestMethod]
         public void Given_SingleStringAndSha256AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha256));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha256));
         }
 
         [TestMethod]
         public void Given_SingleStringAndSha384AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha384));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", HashAlgorithmType.Sha384));
         }
 
         [TestMethod]
         public void Given_Null_When_CreateHashInvoked_Then_ArgumentNullExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => EncryptationHelper.CreateHash(null));
+            Assert.Throws<ArgumentNullException>(() => EncryptationHelper.CreateHash(null));
         }
 
         [TestMethod]
@@ -87,43 +87,43 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_FirstStringNull_When_CreateHashInvoked_Then_ArgumentNullExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => EncryptationHelper.CreateHash(null, string.Empty));
+            Assert.Throws<ArgumentNullException>(() => EncryptationHelper.CreateHash(null, string.Empty));
         }
 
         [TestMethod]
         public void Given_SecondStringNull_When_CreateHashInvoked_Then_ArgumentNullExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => EncryptationHelper.CreateHash(string.Empty, null));
+            Assert.Throws<ArgumentNullException>(() => EncryptationHelper.CreateHash(string.Empty, null));
         }
 
         [TestMethod]
         public void Given_NullBoth_When_CreateHashInvoked_Then_ArgumentNullExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => EncryptationHelper.CreateHash(null, null));
+            Assert.Throws<ArgumentNullException>(() => EncryptationHelper.CreateHash(null, null));
         }
 
         [TestMethod]
         public void Given_TwoStringAndNoneAlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.None));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.None));
         }
 
         [TestMethod]
         public void Given_TwoStringAndSha1AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha1));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha1));
         }
 
         [TestMethod]
         public void Given_TwoStringAndSha256AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha256));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha256));
         }
 
         [TestMethod]
         public void Given_TwoStringAndSha384AlgorithType_When_CreateHashInvoked_Then_UnsupportedAlgorithmExceptionThrown()
         {
-            Assert.ThrowsException<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha384));
+            Assert.Throws<UnsupportedAlgorithmException>(() => EncryptationHelper.CreateHash("Test", "Test2", HashAlgorithmType.Sha384));
         }
 
         [TestMethod]

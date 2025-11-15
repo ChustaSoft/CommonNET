@@ -17,7 +17,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = null;
 
-            Assert.ThrowsException<ArgumentException>(() => text.ToUpperCamelCase());
+            Assert.Throws<ArgumentException>(() => text.ToUpperCamelCase());
         }
 
         [TestMethod]
@@ -25,7 +25,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = string.Empty;
 
-            Assert.ThrowsException<ArgumentException>(() => text.ToUpperCamelCase());
+            Assert.Throws<ArgumentException>(() => text.ToUpperCamelCase());
         }
 
         [TestMethod]
@@ -77,7 +77,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = null;
 
-            Assert.ThrowsException<ArgumentException>(() => text.FirstToUpper());
+            Assert.Throws<ArgumentException>(() => text.FirstToUpper());
         }
 
         [TestMethod]
@@ -85,7 +85,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = string.Empty;
 
-            Assert.ThrowsException<ArgumentException>(() => text.FirstToUpper());
+            Assert.Throws<ArgumentException>(() => text.FirstToUpper());
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = null;
 
-            Assert.ThrowsException<ArgumentException>(() => text.FirstToLower());
+            Assert.Throws<ArgumentException>(() => text.FirstToLower());
         }
 
         [TestMethod]
@@ -145,7 +145,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             string text = string.Empty;
 
-            Assert.ThrowsException<ArgumentException>(() => text.FirstToLower());
+            Assert.Throws<ArgumentException>(() => text.FirstToLower());
         }
 
         [TestMethod]
@@ -225,7 +225,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_InvalidString_When_ToEnum_Then_ArgumentExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentException>(() => "typex".ToEnum<TestCastEnum>(StringCase.Lower));
+            Assert.Throws<ArgumentException>(() => "typex".ToEnum<TestCastEnum>(StringCase.Lower));
         }
 
     }

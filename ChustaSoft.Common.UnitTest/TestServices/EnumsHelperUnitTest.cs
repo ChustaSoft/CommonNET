@@ -53,7 +53,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var description = "XXX";
 
-            Assert.ThrowsException<EnumNotFoundException>(() => EnumsHelper.GetByDescription<TestEnum>(description));
+            Assert.Throws<EnumNotFoundException>(() => EnumsHelper.GetByDescription<TestEnum>(description));
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var description = "XXX";
 
-            Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetByDescription<DateTime>(description));
+            Assert.Throws<ArgumentException>(() => EnumsHelper.GetByDescription<DateTime>(description));
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var description = "XXX";
 
-            Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetByString<TestEnum>(description));
+            Assert.Throws<ArgumentException>(() => EnumsHelper.GetByString<TestEnum>(description));
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var description = "XXX";
 
-            Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetByString<DateTime>(description));
+            Assert.Throws<ArgumentException>(() => EnumsHelper.GetByString<DateTime>(description));
         }
 
         [TestMethod]
@@ -102,7 +102,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_WrongEnumType_When_GetEnumListInvoked_Then_ExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetEnumList<DateTime>());
+            Assert.Throws<ArgumentException>(() => EnumsHelper.GetEnumList<DateTime>());
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_WrongEnumType_When_GetEnumDictionaryInvoked_Then_ExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentException>(() => EnumsHelper.GetEnumDictionary<DateTime>());
+            Assert.Throws<ArgumentException>(() => EnumsHelper.GetEnumDictionary<DateTime>());
         }
 
         [TestMethod]

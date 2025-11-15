@@ -45,7 +45,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         [TestMethod]
         public void Given_ActionResponseBuilderAndData_When_AddRangeInvokedFirst_Then_ExceptionThrown()
         {
-            Assert.ThrowsException<ArgumentException>(() => new ActionResponseBuilder<List<DateTime>>().AddElement(DateTime.Now));
+            Assert.Throws<ArgumentException>(() => new ActionResponseBuilder<List<DateTime>>().AddElement(DateTime.Now));
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace ChustaSoft.Common.UnitTest.TestServices
         {
             var data = new List<DateTime> { DateTime.Now, DateTime.Now };
 
-            Assert.ThrowsException<ArgumentException>(() => new ActionResponseBuilder<List<DateTime>>().AddRange(data));
+            Assert.Throws<ArgumentException>(() => new ActionResponseBuilder<List<DateTime>>().AddRange(data));
         }
 
         #endregion
